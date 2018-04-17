@@ -1,0 +1,331 @@
+# Copyright (C) 2017 Christian Wach
+# This file is distributed under the same license as the CommentPress SOF Germany package.
+msgid ""
+msgstr ""
+"Project-Id-Version: CommentPress SOF Germany 1.3.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/commentpress-sof-de\n"
+"POT-Creation-Date: 2017-11-30 01:09:41+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: archive-event.php:46 archive-event.php:49 archive-event.php:52
+msgid "Events: "
+msgstr ""
+
+#: archive-event.php:55
+msgid "Upcoming Events"
+msgstr ""
+
+#: archive-event.php:57
+msgid "Events"
+msgstr ""
+
+#: archive-event.php:68 archive.php:66 category.php:58 index.php:49
+#: taxonomy-event-category.php:61 taxonomy-event-tag.php:61
+#: taxonomy-event-venue.php:62
+msgid "Permanent Link to"
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 full-width.php:237
+#: index.php:71 taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "Tags: "
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 full-width.php:237
+#: index.php:71 taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "Posted in"
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "Edit"
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "No Comments &#187;"
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "1 Comment &#187;"
+msgstr ""
+
+#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
+#: taxonomy-event-venue.php:101
+msgid "% Comments &#187;"
+msgstr ""
+
+#: archive-event.php:119 archive.php:98 category.php:90
+msgid "Not Found"
+msgstr ""
+
+#: archive-event.php:121
+msgid "Apologies, but no results were found for the requested archive."
+msgstr ""
+
+#: archive.php:46 category.php:46
+msgid "Posts Tagged &#8216;%s&#8217;"
+msgstr ""
+
+#: archive.php:48 archive.php:50 archive.php:52
+msgid "Archive for"
+msgstr ""
+
+#: archive.php:48
+msgid "F jS, Y"
+msgstr ""
+
+#: archive.php:50
+msgid "F, Y"
+msgstr ""
+
+#: archive.php:52
+msgid "Y"
+msgstr ""
+
+#: archive.php:54
+msgid "Author Archive"
+msgstr ""
+
+#: archive.php:56 category.php:48
+msgid "Archives"
+msgstr ""
+
+#: archive.php:100 category.php:92 front-page.php:83 full-width.php:389
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr ""
+
+#: assets/templates/activity_sidebar.php:33
+msgid "Recent Comments on this %s"
+msgstr ""
+
+#: assets/templates/activity_sidebar.php:51
+msgid "Recent Comments in this Document"
+msgstr ""
+
+#: assets/templates/activity_sidebar.php:72
+msgid "Activity"
+msgstr ""
+
+#: front-page.php:81 full-width.php:387
+msgid "Page Not Found"
+msgstr ""
+
+#: full-width.php:105 single-event.php:99
+msgid "Content"
+msgstr ""
+
+#: full-width.php:112 single-event.php:106
+msgid "Literal"
+msgstr ""
+
+#: full-width.php:120 single-event.php:114
+msgid "Original"
+msgstr ""
+
+#: full-width.php:267
+msgid "Page %s"
+msgstr ""
+
+#: full-width.php:316 single-event.php:416
+msgid "Literal Translation"
+msgstr ""
+
+#: full-width.php:343 single-event.php:443
+msgid "Original Text"
+msgstr ""
+
+#: functions.php:175
+msgid "Something"
+msgstr ""
+
+#: functions.php:211
+msgid "Homepage Left"
+msgstr ""
+
+#: functions.php:213
+msgid "An optional widget area on the left of the Homepage"
+msgstr ""
+
+#: functions.php:222
+msgid "Homepage Right"
+msgstr ""
+
+#: functions.php:224
+msgid "An optional widget area on the right of the Homepage"
+msgstr ""
+
+#: functions.php:233
+msgid "Homepage Lower"
+msgstr ""
+
+#: functions.php:235
+msgid "An optional widget area below the left and right widgets on the Homepage"
+msgstr ""
+
+#: functions.php:244
+msgid "Member Homepage Left"
+msgstr ""
+
+#: functions.php:246
+msgid "Add widgets to the Member Homepage left column here."
+msgstr ""
+
+#: functions.php:255
+msgid "Member Homepage Right"
+msgstr ""
+
+#: functions.php:257
+msgid "Add widgets to the Member Homepage right column here."
+msgstr ""
+
+#: functions.php:458
+msgid "Latest Comments"
+msgstr ""
+
+#: index.php:79
+msgid "No blog posts found"
+msgstr ""
+
+#: index.php:81
+msgid "There are no blog posts yet."
+msgstr ""
+
+#: index.php:87
+msgid "Go to your dashboard to add one."
+msgstr ""
+
+#: index.php:93
+msgid "If you were looking for something that hasn't been found, try using the search form below."
+msgstr ""
+
+#: single-event.php:215
+msgid "Event Details"
+msgstr ""
+
+#: single-event.php:224
+msgid "This event is running from %1$s until %2$s. It is next occurring on %3$s"
+msgstr ""
+
+#: single-event.php:228
+msgid "This event finished on %s"
+msgstr ""
+
+#: single-event.php:236
+msgid "Date"
+msgstr ""
+
+#: single-event.php:245
+msgid "Categories"
+msgstr ""
+
+#: single-event.php:249
+msgid "Tags"
+msgstr ""
+
+#: single-event.php:264
+msgid "Upcoming Dates"
+msgstr ""
+
+#: single-event.php:312
+msgid "RSS 2.0"
+msgstr ""
+
+#: single-event.php:319
+msgid "You can follow any comments on this entry through the %s feed."
+msgstr ""
+
+#: single-event.php:331 single-event.php:350
+msgid "trackback"
+msgstr ""
+
+#: single-event.php:338
+msgid "You can leave a comment, or %s from your own site."
+msgstr ""
+
+#: single-event.php:357
+msgid "Comments are currently closed, but you can %s from your own site."
+msgstr ""
+
+#: single-event.php:367
+msgid "You can leave a comment. Pinging is currently not allowed."
+msgstr ""
+
+#: single-event.php:375
+msgid "Both comments and pings are currently closed."
+msgstr ""
+
+#: single-event.php:383
+msgid "Edit this entry"
+msgstr ""
+
+#: single-event.php:504
+msgid "Post Not Found"
+msgstr ""
+
+#: single-event.php:506
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: taxonomy-event-category.php:43
+msgid "Event Category: %s"
+msgstr ""
+
+#: taxonomy-event-category.php:110 taxonomy-event-tag.php:113
+#: taxonomy-event-venue.php:114
+msgid "Nothing Found"
+msgstr ""
+
+#: taxonomy-event-category.php:112
+msgid "Apologies, but no results were found for the requested category. "
+msgstr ""
+
+#: taxonomy-event-tag.php:43
+msgid "Terminschlagwort: %s"
+msgstr ""
+
+#: taxonomy-event-tag.php:117
+msgid "Apologies, but no events were found for the requested tag. "
+msgstr ""
+
+#: taxonomy-event-venue.php:43
+msgid "Events at: %s"
+msgstr ""
+
+#: taxonomy-event-venue.php:117
+msgid "Apologies, but no events were found for the requested venue. "
+msgstr ""
+#. Theme Name of the plugin/theme
+msgid "CommentPress SOF Germany"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.futureofthebook.org/commentpress/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A child of the CommentPress Flat Theme for <em>CommentPress Core</em>."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Christian Wach"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.haystack.co.uk"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""

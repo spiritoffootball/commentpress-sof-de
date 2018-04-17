@@ -1,0 +1,464 @@
+/*
+================================================================================
+CommentPress Spirit of Football Germany Colours Stylesheet
+================================================================================
+AUTHOR: Christian Wach <needle@haystack.co.uk>
+--------------------------------------------------------------------------------
+NOTES
+
+--------------------------------------------------------------------------------
+*/
+
+
+
+/*
+--------------------------------------------------------------------------------
+Google Webfont: using "Lato" enqueued in functions.php
+--------------------------------------------------------------------------------
+*/
+
+/* Content is serif by default, so change */
+.post,
+.comment-content,
+
+/* Titles and headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#title h1,
+#title h1 a,
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6,
+
+/* Signup, Activate and Register pages */
+body.create-blog #content #setupform label,
+#register-page #signup_form h2,
+#content #activateform label
+#content .mu_register h2,
+#content .mu_register label,
+#content #signup-content h2,
+#content #activateform label,
+
+/* CommentPress Core form inserts */
+body.create-blog #cp-multisite-options h4,
+#content .mu_register #cp-multisite-options h3,
+
+/* Comment form */
+div#respond h4#respond_title,
+
+/* CommentPress JSTOR plugin support */
+.commentpress_jstor .comment-title a,
+
+/* Sidebar Widgets */
+.sidebar_container .widget
+{
+	font-family: Lato, 'Trebuchet MS', Helvetica, Arial, sans-serif;
+}
+
+/* Headings on page/posts */
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6
+{
+	/* don't force uppercase */
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+CommentPress IFBook Colour Scheme
+--------------------------------------------------------------------------------
+*/
+
+/* The all-important highlight state */
+.selected_para
+{
+	color: #ca0000;
+}
+
+/* paragraph markers */
+#content .post span.para_marker a,
+.content .post span.para_marker a,
+.post span.commenticonbox
+{
+	color: #ccc;
+}
+
+
+/* Structural Items */
+html,
+body,
+body#main_blog,
+#container
+{
+	background: #e8f8fc;
+	background-color: #e8f8fc;
+}
+
+
+
+/* Page background patterns and colours */
+html, body,
+body#main_blog,
+body.blogtype-0, body.blogtype-1, body.blogtype-2,
+body #container,
+#toc_sidebar .sidebar_minimiser,
+ul#toc_list,
+.sidebar_contents_wrapper
+{
+	/* background: #2a2a2a url(../images/textures/escheresque_ste.png) repeat fixed top left; */
+}
+
+#sidebar .sidebar_container .widget,
+#sidebar .sidebar_container .paragraph_wrapper
+{
+	background: #e8f8fc;
+	background-color: #e8f8fc;
+}
+
+#footer,
+#footer_inner p a,
+#footer_inner p a:active,
+#footer div.commentpress-footer-nav-menu ul.menu a,
+#footer div.commentpress-footer-nav-menu ul.menu a:active,
+#footer .widget_nav_menu ul.menu a,
+#footer .widget_nav_menu ul.menu a:active
+{
+	/* color: #fff; */
+}
+
+
+
+/* Structural Items */
+#wrapper
+{
+	background-color: transparent;
+}
+
+#main_wrapper
+{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#comments_sidebar,
+#activity_sidebar
+{
+	background-color: #e8f8fc;
+}
+
+
+
+#container #header
+{
+	background: #ceeff8;
+	background-color: #ceeff8;
+}
+
+/* Site Tagline */
+#header #tagline
+{
+	color: #999;
+}
+
+
+
+/* 404 page title must have no background */
+body.error404 .post h2.post_title
+{
+	color: #333;
+	background: transparent;
+}
+
+
+
+/* Links in page/post content */
+.post a,
+
+/* Stray BuddyPress */
+body.create-blog #content a,
+
+/* Links in comment identifiers */
+.comment-content a,
+div#respond .subscribe_reloaded_insert a
+.comment-meta a,
+.acomment-meta a,
+.meta a,
+
+/* Links in comments */
+.comment-identifier .comment-edit a:hover,
+.comment-identifier .comment-assign:hover,
+.comment-identifier cite a:hover,
+.reply a:hover,
+.comment_permalink:hover,
+.comment_activity_link:hover,
+.author_is_logged_in a:hover,
+#cancel-comment-reply-link:hover,
+
+/* Signup, Activate and Register page links */
+#content .mu_register h2 a,
+#content #signup-content a,
+#content #activateform label,
+#content #signup-welcome span.h3,
+
+/* Signup Form Styles */
+body.commentpress_page #cp-multisite-options h3,
+
+/* Post version info */
+#content div.version_info a,
+.content div.version_info a,
+
+/* Footnotes */
+#content sup a.footnote-link,
+.content sup a.footnote-link,
+#content a.simple-footnote,
+.content a.simple-footnote,
+#content sup.footnote,
+.content sup.footnote,
+
+/* Feature Comments compat */
+.feature-bury-comments a.feature-comments:hover,
+.feature-burry-comments a.feature-comments:hover,
+
+/* Comment Tagger compat */
+.comment_tagger_tag_link,
+.comment_tagger_tag_link:active,
+
+/* BP Group Sites */
+.bpgsites_group_linkages_pending_heading,
+
+/* JSTOR plugin compat */
+.commentpress_jstor .comment-title a,
+
+/* CommentPress Text Highlighter */
+.comment-backlink
+{
+	color: #1e8fae;
+}
+
+
+
+/* Switcher buttons */
+#switcher ul li a
+{
+	background: #87d7ed;
+	background-color: #87d7ed;
+}
+
+#switcher ul li a:focus,
+#switcher ul li a:hover,
+#switcher ul li a:active
+{
+	color: #fff;
+	background-color: #1e8fae;
+}
+
+
+
+/* Sidebar Section headings */
+.comments_container > h3,
+.comments_container > h3 > span,
+.comments_container > h3 a,
+.comments_container > h3 a:active
+{
+	background-color: transparent;
+}
+
+h3.activity_heading:hover,
+.comments_container > h3:hover
+{
+	background-color: #1e8fae;
+}
+
+
+
+/* Navigation menu items */
+#toc_sidebar .sidebar_minimiser ul li a
+{
+	background: #ceeff8;
+	background-color: #ceeff8;
+}
+
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current_page_ancestor > a,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current-menu-ancestor > a,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current_page_item > a,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current-menu-item > a,
+#toc_sidebar .sidebar_minimiser ul#nav li.active_page > a
+{
+	background-color: #fff;
+}
+
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current_page_ancestor > .post-identifier,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current-menu-ancestor > .post-identifier,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current_page_item > .post-identifier,
+#toc_sidebar .sidebar_minimiser ul#toc_list li.current-menu-item > .post-identifier,
+#toc_sidebar .sidebar_minimiser ul#nav li.active_page > .post-identifier
+{
+	background-color: #fff;
+}
+
+#toc_sidebar .post-identifier,
+#toc_sidebar .sidebar_minimiser ul li a.post_activity_link
+{
+	background: transparent;
+	border-bottom: none;
+}
+
+#toc_sidebar .post-identifier
+{
+	padding-top: 8px;
+}
+
+#toc_sidebar .sidebar_minimiser ul li a.post_activity_link
+{
+	padding-top: 5px;
+	padding-bottom: 8px;
+}
+
+
+
+/* Translation tabs */
+ul#content-tabs li h2 a
+{
+	border-bottom: 1px solid #aaa;
+}
+
+ul#content-tabs li h2 a:hover
+{
+	background-color: #eee;
+}
+
+ul#content-tabs li.default-content-tab h2 a
+{
+	border: 1px solid #aaa;
+	border-bottom: none;
+}
+
+ul#content-tabs li.default-content-tab h2 a:hover
+{
+	background-color: #fff;
+}
+
+
+
+/* Content */
+.cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+{
+	padding: 0;
+}
+
+body.blog .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.blog .search_result h3,
+body.archive .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.archive .search_result h3,
+body.post-type-archive-event .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.post-type-archive-event .search_result h3,
+body.tax-event-category .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.tax-event-category .search_result h3,
+body.tax-event-tag .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.tax-event-tag .search_result h3,
+body.tax-event-venue .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title,
+body.tax-event-venue .search_result h3
+{
+	font-size: 130%;
+}
+
+h2.post_title,
+.search_result h3
+{
+	text-transform: none;
+}
+
+
+
+/* Comments Sidebar */
+@media all and (max-width: 1400px) {
+	.comment-content
+	{
+		font-size: 90%;
+	}
+}
+
+/* Section headings */
+.comments_container > h3 a,
+.comments_container > h3.nocomments a
+{
+	color: #fff;
+	background-color: #21b2db;
+}
+
+.comments_container > h3 a:hover,
+.comments_container > h3 a:active,
+.comments_container > h3 a:focus,
+.comments_container > h3.nocomments a:hover,
+.comments_container > h3.nocomments a:active,
+.comments_container > h3.nocomments a:hover span
+{
+	color: #fff;
+	background-color: #1e8fae;
+}
+
+/* Comment reply cancel link */
+#cancel-comment-reply-link
+{
+	color: #000;
+}
+
+
+
+/* Activity Sidebar */
+h3.activity_heading
+{
+	color: #fff;
+	background-color: #21b2db;
+}
+
+h3.activity_heading:hover
+{
+	background-color: #1e8fae;
+}
+
+
+
+/* WP Footnotes adds an inline colour *sigh* */
+ol.footnotes.selected_para
+{
+	color: #ca0000;
+}
+
+
+
+/* BuddyPress */
+body.activity h2.post_title, body.groups h2.post_title, body.blogs h2.post_title, body.members h2.post_title, body.bp-user h2.post_title, body.registration #content h2.post_title, body.activation #content h2.post_title, body.bp-docs h2.post_title, body#main_blog.create-blog.buddypress_page #content .padder h3, body#main_blog form.dir-form, body.buddypress form.dir-form, body#main_blog div.item-list-tabs, body.buddypress div.item-list-tabs, body#main_blog form#whats-new-form, body#main_blog .home-page form#whats-new-form, body.buddypress form#whats-new-form, body.home-page form#whats-new-form, body.directory #content h3, body.group-create #content form.standard-form > h3, body.activation.activate #content h2, body.activation.activate #content h3, div#item-header, #content div.item-list-tabs#object-nav, body #buddypress div.item-list-tabs
+{
+	background: #22b3db;
+}
+
+.standard-form label, .standard-form span.label, .activity-header a, .activity-header a.activity-time-since, #buddypress .acomment-options a, #buddypress .activity-list li.load-more a, #buddypress .activity-list li.load-more a:active, #buddypress .activity-list li.load-newest a #buddypress .activity-list li.load-newest a:active, body.create-blog #content #setupform label, body.create-blog #content #cp-multisite-options .cp-workflow-type label, body.create-blog #cp-multisite-options h4, #buddypress table#message-threads tr td.thread-from a, #buddypress table#message-threads tr td.thread-info p a, #message-recipients span.highlight a, div#message-thread strong a, body.settings #content h3, body.settings.my-account #content h3, body.settings.general #content h3, body.create-blog #content h3, body.registration #content h2, body.directory.logged-in #content h3, h3#message-subject, body.registration #content h4, body.group-create #group-create-body h2, body.group-create #group-create-body h3, body.directory.logged-in #content h4, body.group-create #content h4, body.group-admin #content #group-settings-form h2, body.group-admin #group-create-body h2, body.group-admin #group-create-body h3, body.group-admin #content #item-body h4, body.group-admin #content #item-body h3, body.group-admin.group-blog #group-settings-form h2, #register-page #cp-multisite-options h4, div.profile h4, div#item-header h2 a, .item-title a, ul#member-list h5, ul#admins-list h5, ul#mods-list h5, ul#members-list h5, ul#member-list h5 a, ul#admins-list h5 a, ul#mods-list h5 a, ul#members-list h5 a, #activity_sidebar ul.item-list.cp-online-members li a, #activity_sidebar ul.item-list.cp-recently-active li a, #ass-email-subscriptions-options-page h3, body.groups.announcements #item-body h3, #activity_sidebar .workshop_comments_output .comment-identifier p a, #activity_sidebar .groupsites_comments_output .comment-identifier p a, table.doctable tr td a, body.groups.invite-anyone #invite-anyone-invite-list h4 a, #invite-anyone-by-email h4, body.sent-invites h4, body.my-account #bbpress-forums h2.entry-title, #item-body a, .standard-form label, .standard-form span.label, form#settings-form table.notification-settings th.title, table.notifications th, #buddypress .activity-header a, #groups-list .group-subscription-div a, body.create-blog #content a, ul.item-list li div.item-desc, .widget.buddypress .bp-login-widget-user-links > div.bp-login-widget-user-link a
+{
+	color: #0e4858;
+	text-transform: none;
+}
+
+#buddypress #header-cover-image
+{
+	background-color: #1c90b0;
+}
+
+#buddypress div#item-header div#item-meta,
+body.single-item.groups #item-header span.highlight,
+body.single-item.groups #item-header span.activity
+{
+	color: #fff;
+}

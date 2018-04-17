@@ -1,0 +1,1685 @@
+/*
+================================================================================
+CommentPress Spirit of Football Germany Styles
+================================================================================
+AUTHOR: Christian Wach <needle@haystack.co.uk>
+--------------------------------------------------------------------------------
+NOTES
+
+All styles that are 100% specific to the Spirit of Football Germany site live here.
+
+For retina image backgrounds, point to the @2x image with this media query:
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx)
+{
+}
+
+--------------------------------------------------------------------------------
+*/
+
+
+
+/*
+--------------------------------------------------------------------------------
+Header
+--------------------------------------------------------------------------------
+*/
+
+@media (max-width: 600px) {
+	#header
+	{
+		font-size: 100%;
+	}
+}
+
+/* Spirit of Football Germany logo */
+#header img.cp_logo_image
+{
+	width: 50px;
+	height: 50px;
+}
+
+#title h1
+{
+	float: left;
+	width: 175px;
+}
+
+#title h1 a
+{
+	display: block;
+	margin: 0;
+	text-transform: none;
+	font-size: 80%;
+	line-height: 2.9;
+	font-weight: bold;
+	letter-spacing: 0.2px;
+}
+
+#header #tagline
+{
+	color: #111;
+	padding: 2.8em 0 0 0.4em;
+	float: left;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 70%;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+}
+
+@media (max-width: 640px) {
+	#title h1
+	{
+		float: none;
+		width: auto;
+	}
+
+	#title h1 a
+	{
+		line-height: 1.8;
+	}
+
+	#header #tagline
+	{
+		float: none;
+		padding: 0 0 0.5em 0;
+	}
+}
+
+@media (max-width: 450px) {
+	#title h1 a
+	{
+		font-size: 60%;
+		line-height: 2.5;
+	}
+
+	#header #tagline
+	{
+		font-size: 60%;
+	}
+}
+
+@media (max-width: 400px) {
+	#title h1 a
+	{
+		font-size: 50%;
+		line-height: 2.9;
+	}
+
+	#header #tagline
+	{
+		font-size: 50%;
+	}
+}
+
+@media (max-width: 360px) {
+	#title h1 a
+	{
+		visibility: hidden;
+		height: 12px;
+	}
+
+	#header #tagline
+	{
+		font-size: 70%;
+	}
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Content
+--------------------------------------------------------------------------------
+*/
+
+@media (max-width: 420px) {
+	.post h2.post_title,
+	.search_result h3
+	{
+		margin-top: 2em;
+	}
+}
+
+body.bp-user:not(.activity-permalink) #content h2.post_title,
+body.single-item.groups #content h2.post_title
+{
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+	top: 150px;
+	left: 188px;
+	background: transparent;
+	text-shadow: 0 0 9px #666;
+}
+
+body.single-item.groups #content h2.post_title
+{
+	top: 180px;
+}
+
+@media screen and (max-width: 782px) {
+	body.bp-user:not(.activity-permalink) #content h2.post_title,
+	body.single-item.groups #content h2.post_title
+	{
+		top: 90px;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+body.buddypress #content #buddypress div#item-header h2.user-nicename
+{
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	margin-top: 0.3em;
+	line-height: 1.6;
+	text-transform: none;
+	text-shadow: 0 0 9px #666;
+}
+
+@media screen and (max-width: 1400px) {
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin-bottom: 0.7em;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin-bottom: 0.2em;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin: 0;
+		line-height: 1;
+	}
+}
+
+/* Support SOF Utilities Mirror */
+.sof_mirror
+{
+	margin: 1em auto;
+}
+
+.sof_mirror a,
+.sof_mirror a:link,
+.sof_mirror a:hover,
+.sof_mirror a:visited
+{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Archives
+--------------------------------------------------------------------------------
+*/
+
+body.blog #content,
+body.archive #content
+{
+	margin: 0 10%;
+}
+
+body.blog .search_result,
+body.archive .search_result
+{
+	border-bottom: none;
+	margin: 4em 0;
+}
+
+body.blog .post .search_result:first-child,
+body.archive .post .search_result:first-child
+{
+	/* margin-top: 2em; */
+}
+
+body.blog .search_result div.search_meta,
+body.archive .search_result div.search_meta
+{
+	margin-top: -0.7em;
+	margin-bottom: 0.8em;
+	padding: 12px 12px 0;
+	margin-bottom: 0;
+}
+
+body.blog .search_excerpt,
+body.archive .search_excerpt
+{
+	padding: 1px 12px;
+}
+
+body.blog .search_result div.search_meta,
+body.blog .search_excerpt,
+body.archive .search_result div.search_meta,
+body.archive .search_excerpt
+{
+	background: #eaf9fd;
+}
+
+body.blog .post p.search_meta,
+body.archive .post p.search_meta
+{
+	margin-top: 0;
+	padding-top: 0.4em;
+	padding-left: 0.4em;
+}
+
+.category-description
+{
+	font-size: 90%;
+	font-style: italic;
+	margin-top: -1em;
+}
+
+.category-description p
+{
+	margin: 0;
+}
+
+
+
+.cp_feature_image .cp_featured_title
+{
+	background: transparent;
+}
+
+.cp_feature_image .cp_featured_title .cp_featured_title_inner
+{
+	padding: 2% 6%;
+}
+
+body.single .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+{
+	font-size: 140%;
+}
+
+.cp_featured_title .post_title a
+{
+	background: white;
+	background: rgba( 255, 255, 255, 0.85 );
+	line-height: 1.7;
+	box-shadow: -8px 0 0 rgba( 255, 255, 255, 0.85 ), 8px 0 0 rgba( 255, 255, 255, 0.85 );
+	padding: 3px 0;
+}
+
+.cp_featured_title div.search_meta cite a,
+.cp_featured_title div.search_meta cite a:active,
+.cp_featured_title div.search_meta p a,
+.cp_featured_title div.search_meta p a:active
+{
+	color: #fff;
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.85);
+	box-shadow: -2px 0 0 rgba(0, 0, 0, 0.85), 2px 0 0 rgba(0, 0, 0, 0.85);
+	display: inline;
+}
+
+.cp_feature_image .cp_featured_title .cp_featured_title_inner div.search_meta
+{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	background: transparent;
+	padding: 0;
+}
+
+
+
+
+.home-page #page_wrapper
+{
+	min-height: 0;
+	background: #dbf3fa;
+	background: #fff;
+}
+
+.home-page #content
+{
+	padding: 0 0 0.5% 0;
+	margin: 0 4%;
+}
+
+.home-page .cp_featured_title
+{
+	visibility: hidden;
+}
+
+.home-page #content .post
+{
+	/* font-family: monospace; */
+	/* text-transform: uppercase; */
+	/* font-size: 110%; */
+}
+
+@media (max-width: 420px) {
+	.home-page #content .post
+	{
+		font-size: 100%;
+	}
+}
+
+.home-page #content .post a:hover,
+.home-page #content .post a:focus,
+.home-page #content .post a:active
+{
+	color: #000;
+	/* text-decoration: underline; */
+}
+
+.home-page #content .post a
+{
+	color: #000;
+	/* text-decoration: none; */
+}
+
+.home-page #content .post p
+{
+	margin: 1em 0;
+}
+
+.home-page.logged-in #content .post .fp-hide-from-logged-in
+{
+	display: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Contact Us
+--------------------------------------------------------------------------------
+*/
+
+.page-id-40 #post-40.post address
+{
+	padding: 6em 4em 2em;
+	border: 1px solid #ddd;
+	position: relative;
+	font-size: 90%;
+}
+
+.page-id-40 #post-40.post address span
+{
+	display: block;
+	width: 2.5em;
+	height: 3em;
+	position: absolute;
+	top: 2em;
+	right: 2em;
+	background: #ddd;
+}
+
+@media print {
+	.page-id-40 #post-40.post address
+	{
+		padding: 12% 12% 8%;
+	}
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Widgets & Widget Areas
+--------------------------------------------------------------------------------
+*/
+
+#document_search
+{
+	background-color: #e8f8fc;
+}
+
+.sidebar_container .widget_text .widget_wrapper
+{
+	margin: 10px 10px 0 10px;
+}
+
+.cp-homepage-widgets
+{
+	background: #fff;
+}
+
+/* common styles */
+.cp-homepage-left,
+.cp-homepage-right,
+.cp-homepage-below
+{
+}
+
+.cp-homepage-left .widget,
+.cp-homepage-right .widget,
+.cp-homepage-below .widget
+{
+	clear: left;
+}
+
+.cp-homepage-widgets .cp-homepage-left .widget,
+.cp-homepage-widgets .cp-homepage-right .widget
+{
+	background-color: #e9f8fc;
+	border-bottom: 1px solid #e9f8fc;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin-bottom: 20px;
+}
+
+.cp-homepage-widgets .cp-homepage-below .widget
+{
+	margin-bottom: 20px;
+}
+
+.cp-homepage-widgets .cp-homepage-left .widget h3,
+.cp-homepage-widgets .cp-homepage-right .widget h3
+{
+	background: #21b2db;
+	color: #fff;
+	font-size: 110%;
+	font-weight: 700;
+	border-radius: 5px 5px 0 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 9px 15px 10px;
+	line-height: 1;
+}
+
+/* Homepage Left widget area */
+.cp-homepage-left
+{
+	float: left;
+	width: 50%;
+	padding-top: 2%;
+}
+
+.cp-homepage-left .widget
+{
+	margin: 0 3% 0 6%;
+	width: 91%;
+	margin-bottom: 20px;
+}
+
+/* Homepage Right widget area */
+.cp-homepage-right
+{
+	float: left;
+	width: 50%;
+	padding-top: 2%;
+}
+
+.cp-homepage-right .widget
+{
+	margin: 0 6% 0 3%;
+	width: 91%;
+}
+
+/* Homepage Below widget area */
+.cp-homepage-below
+{
+	clear: left;
+	padding: 1px 0;
+	padding-bottom: 20px;
+}
+
+.cp-homepage-below .widget
+{
+	margin: 0 auto;
+	width: 80%;
+}
+
+@media all and (max-width: 600px) {
+
+	.cp-homepage-left,
+	.cp-homepage-right,
+	.cp-homepage-below
+	{
+		width: auto;
+		float: none;
+		clear: both;
+	}
+
+	.cp-homepage-left .widget,
+	.cp-homepage-right .widget
+	{
+		margin: 0 4%;
+	}
+
+	.cp-homepage-below .widget
+	{
+		width: 92%;
+	}
+
+}
+
+
+
+/* About widget - uncomment to show on load */
+#sidebar #text-6 .paragraph_wrapper
+{
+	/* display: block; */
+}
+
+#sidebar #text-6 .textwidget
+{
+	line-height: 1.5;
+}
+
+
+
+
+/* Latest Posts open by default */
+#sidebar .widget_bp_blogs_widget .paragraph_wrapper
+{
+	/* display: block; */
+}
+
+
+
+/* Custom widgets for Spirit of Football Germany site */
+.cp-homepage-widgets .widget
+{
+	font-family: Lato, 'Trebuchet MS', Helvetica, Arial, sans-serif;
+}
+
+
+
+/* Sign up link widget */
+#text-4
+{
+	margin-bottom: 3em;
+}
+
+#text-4 h3
+{
+	display: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Recent Entries Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget.widget_recent_entries ul
+{
+	margin: 15px;
+	padding: 0;
+	list-style-position: outside;
+	list-style: none;
+	list-style-image: none;
+	border-top: 1px solid #ddd;
+}
+
+#sidebar .widget.widget_recent_entries ul
+{
+	margin: 15px 0;
+}
+
+.widget.widget_recent_entries ul li
+{
+	margin: 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.widget.widget_recent_entries ul li a
+{
+	font-weight: bold;
+	display: block;
+	padding: 0.5em;
+	color: #0e4858;
+	text-decoration: none;
+}
+
+.widget.widget_recent_entries ul li a:hover
+{
+	color: #b31f24;
+	text-decoration: none;
+	background-color: #eee;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Event Organiser Upcoming Events Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget.EO_Event_List_Widget h4
+{
+	margin-bottom: 0;
+}
+
+.widget.EO_Event_List_Widget ul.eo-events.eo-events-widget
+{
+	list-style: none;
+	list-style-image: none;
+	padding: 0;
+	margin: 15px;
+	border-top: 1px solid #ddd;
+}
+
+.widget.EO_Event_List_Widget ul.eo-events.eo-events-widget li
+{
+	margin: 0;
+	padding: 0.6em 0;
+	border-bottom: 1px solid #ddd;
+	text-indent: -29px;
+	padding-left: 30px;
+}
+
+.widget.EO_Event_List_Widget ul.eo-events.eo-events-widget li a
+{
+	color: #0e4858;
+	font-weight: bold;
+	text-decoration: none;
+	text-indent: -10px;
+}
+
+.widget.EO_Event_List_Widget ul.eo-events.eo-events-widget li a:hover
+{
+	color: #b31f24;
+	text-decoration: none;
+}
+
+.widget.EO_Event_List_Widget ul.eo-events.eo-events-widget li a:before
+{
+	font-weight: normal;
+	font-family: "dashicons";
+	color: #b31f24;
+	font-size: 130%;
+	position: relative;
+	top: 3px;
+	text-transform: none;
+	line-height: 0;
+	padding-right: 5px;
+	content: "\f508";
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Event Organiser Calendar mods
+--------------------------------------------------------------------------------
+*/
+
+.page-id-968 #content
+{
+	margin: 0 6%;
+	padding: 1% 0;
+}
+
+.eo-fullcalendar-reset div {
+	font-size: 95%;
+	word-break: break-all;
+}
+
+.qtip.qtip-eo
+{
+	font-size: 0.8em;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+BuddyPress customisations
+--------------------------------------------------------------------------------
+*/
+
+#buddypress div#item-header-cover-image h2 a,
+#buddypress div#item-header-cover-image h2
+{
+	color: #fff;
+}
+
+/* Hide headings on public profile */
+.profile.public div.profile h4
+{
+	display: none;
+}
+
+/* Ditch table border */
+.profile.public #buddypress table.profile-fields,
+.profile.public #buddypress table.profile-fields tr td,
+.profile.public #buddypress table.profile-fields tr td.label
+{
+	border: none;
+	vertical-align: top;
+}
+
+/* Lost Password link in BP Login Widget */
+.widget.buddypress #bp-login-widget-form .bp-login-widget-password-link
+{
+	margin-left: 10px;
+}
+
+.widget.buddypress #bp-login-widget-form .bp-login-widget-password-link a:hover,
+.widget.buddypress #bp-login-widget-form .bp-login-widget-password-link a:focus,
+.widget.buddypress #bp-login-widget-form .bp-login-widget-password-link a:active
+{
+	text-decoration: underline;
+}
+
+.widget.buddypress #bp-login-widget-form .bp-login-widget-password-link a
+{
+	color: #333;
+	text-decoration: none;
+}
+
+#buddypress ul.item-list.activity-list li.load-more,
+#buddypress ul.item-list.activity-list li.load-newest,
+#buddypress div.pagination
+{
+	/* background-color: #f8f7f2; */
+}
+
+#buddypress ul.item-list.activity-list li.load-more a,
+#buddypress ul.item-list.activity-list li.load-newest a
+{
+	color: #666;
+}
+
+#buddypress ul.item-list > li
+{
+	border-left: none;
+}
+
+.bp-user #buddypress div#message,
+.single-item.groups #buddypress div#message
+{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.item-list h5
+{
+	line-height: 1;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+JetPack Contact Form
+--------------------------------------------------------------------------------
+*/
+
+form.contact-form
+{
+	padding: 1em;
+	border: 1px solid #eee;
+	background-color: #f7f7ef;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Event Organiser compatibility
+--------------------------------------------------------------------------------
+*/
+
+.post-type-archive-event .search_result h3,
+.tax-event-category .search_result h3,
+.tax-event-tag .search_result h3,
+.tax-event-venue .search_result h3
+{
+	margin-bottom: 0;
+}
+
+.post .eo-event-meta
+{
+	clear: left;
+	list-style: none;
+	margin: 0.3em 0 0.6em 0;
+	padding: 0;
+}
+
+body.single-event #content .eo-event-meta
+{
+	float: none;
+	width: auto;
+}
+
+body.single-event .post > time
+{
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 2.4;
+}
+
+body.single-event .cp_feature_image .cp_featured_title .cp_featured_title_inner div.search_meta
+{
+	display: none;
+}
+
+ul.eo-upcoming-dates
+{
+	margin: 0 0 0 2em;
+}
+
+.eventorganiser-event-meta
+{
+	background: #f1fbfd;
+	padding: 12px;
+}
+
+.eventorganiser-event-meta hr
+{
+	display: none;
+}
+
+.category-archive-meta
+{
+	margin-top: -1em;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Sidebar
+--------------------------------------------------------------------------------
+*/
+
+.comments_container img
+{
+	max-width: 100%;
+	height: auto;
+}
+
+h3.no_comments,
+div.paragraph_wrapper.no_comments
+{
+	display: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Member Homepage styles
+--------------------------------------------------------------------------------
+*/
+
+.sof-member-front
+{
+	padding: 0 20px 20px 20px;
+}
+
+.sof-member-front-left
+{
+	float: left;
+	width: 48%;
+	padding-right: 4%;
+}
+
+.sof-member-front-right
+{
+	float: left;
+	width: 48%;
+}
+
+@media all and (max-width: 640px) {
+
+	/* BuddyPress Member Homepage widget columns */
+	.sof-member-front-left,
+	.sof-member-front-right
+	{
+		float: none;
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+
+}
+
+.sof-member-widgets
+{
+	padding-top: 25px;
+}
+
+.sof-member-widgets .widget
+{
+	background-color: #e9f8fc;
+	border-bottom: 1px solid #e9f8fc;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0 0 20px;
+}
+
+.sof-member-widgets .widget h2
+{
+	background: #21b2db;
+	color: #fff;
+	font-size: 110%;
+	font-weight: 700;
+	border-radius: 5px 5px 0 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 9px 15px 10px;
+	line-height: 1;
+}
+
+.sof-member-widgets .widget .textwidget
+{
+	padding: 0 15px 1px 15px;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Jetpack Milestone Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget.milestone-widget
+{
+	background: none;
+	border-bottom: none;
+	margin: 0 0 20px;
+}
+
+.widget .milestone-header
+{
+	padding: 0.6em 0.8em;
+	background-color: #265079;
+}
+
+.widget .milestone-content
+{
+	margin-top: 0;
+}
+
+.widget .milestone-countdown
+{
+	padding-top: 1em;
+	color: #265079;
+	background-color: #e9f8fc;
+	font-weight: bold;
+}
+
+.widget .milestone-countdown .difference
+{
+	font-family: serif;
+	line-height: 0.6;
+	padding-top: 0.1em;
+}
+
+.widget .milestone-content span.label
+{
+	display: inline;
+	font-size: 100%;
+	font-weight: bold;
+	text-transform: none;
+	color: #265079;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Jetpack Social Media Widget
+--------------------------------------------------------------------------------
+*/
+
+.sidebar_container .jetpack_widget_social_icons .widget_wrapper
+{
+	padding: 10px;
+}
+
+.sidebar_container .jetpack_widget_social_icons ul
+{
+	margin: 0;
+}
+
+.sidebar_container .jetpack_widget_social_icons ul a
+{
+	color: #22b3db;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Event Organiser Agenda Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget .eo-agenda-widget
+{
+	padding: 5px 15px 5px;
+	position: relative;
+}
+
+.widget .eo-agenda-widget .eo-agenda-widget-nav
+{
+	overflow: hidden;
+	text-align: right;
+	position: absolute;
+	right: 6px;
+	top: -33px;
+}
+
+.widget .eo-agenda-widget .eo-agenda-widget-nav-next,
+.widget .eo-agenda-widget .eo-agenda-widget-nav-prev
+{
+	background: #fff;
+	line-height: 2;
+}
+
+.widget .eo-agenda-widget ul.dates,
+.widget .eo-agenda-widget ul.a-date
+{
+	padding: 0;
+}
+
+.widget .eo-agenda-widget li.date
+{
+	border-top: none;
+}
+
+.widget .eo-agenda-widget ul.a-date
+{
+	border-bottom: none;
+	opacity: 0.8;
+}
+
+.widget .eo-agenda-widget li.event
+{
+	background: #fff;
+	line-height: 2;
+	opacity: 0.85;
+}
+
+
+
+
+/*
+--------------------------------------------------------------------------------
+Event Organiser Calendar Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget.eo_widget_calendar .eo-widget-cal-wrap
+{
+	background: transparent;
+}
+
+.widget.eo_widget_calendar table#wp-calendar
+{
+	background: transparent;
+	margin-bottom: 0;
+	width: 99.4%;
+	margin: 0px auto;
+}
+
+.widget.eo_widget_calendar table#wp-calendar td
+{
+	font-weight: normal;
+	color: #999;
+}
+
+.widget.eo_widget_calendar table#wp-calendar td.today
+{
+	background: white;
+}
+
+.widget.eo_widget_calendar table#wp-calendar td a
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.widget.eo_widget_calendar table#wp-calendar thead th
+{
+	text-align: center;
+}
+
+.widget.eo_widget_calendar table#wp-calendar thead tr,
+.widget.eo_widget_calendar table#wp-calendar tfoot tr
+{
+	background: transparent;
+}
+
+.widget.eo_widget_calendar table#wp-calendar tfoot tr
+{
+	border-bottom: none;
+}
+
+.widget.eo_widget_calendar table#wp-calendar tfoot tr td
+{
+	background: transparent;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Sidebar Calendar
+--------------------------------------------------------------------------------
+*/
+
+table#wp-calendar
+{
+	color: #333;
+	background-color: #fff;
+}
+
+table#wp-calendar > caption
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #213397;
+	background-color: #eee;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #fff;
+}
+
+table#wp-calendar td
+{
+	background: #fff;
+	background: -moz-linear-gradient(top, #f8f8f8 0%, #e4e4e4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#e4e4e4));
+	background: -webkit-linear-gradient(top, #f8f8f8 0%,#e4e4e4 100%);
+	background: -o-linear-gradient(top, #f8f8f8 0%,#e4e4e4 100%);
+	background: -ms-linear-gradient(top, #f8f8f8 0%,#e4e4e4 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e4e4e4',GradientType=0 );
+	background: linear-gradient(top, #f8f8f8 0%,#e4e4e4 100%);
+	padding: 6px 4px;
+	border: 1px solid #d0d0d0;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+}
+
+table#wp-calendar thead tr,
+table#wp-calendar tfoot tr
+{
+	background: #fff;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+table#wp-calendar thead tr td,
+table#wp-calendar tfoot tr td
+{
+	background: #fff;
+	border: none;
+}
+
+table#wp-calendar thead td,
+table#wp-calendar tfoot td
+{
+	background-color: #fff;
+	padding: 6px 4px;
+	border: none;
+}
+
+table#wp-calendar tr.days-names td
+{
+	background: #e8e8e8;
+	padding: 6px 4px;
+	border: none;
+	font-weight: normal;
+}
+
+table#wp-calendar td a,
+table#wp-calendar td a:hover
+{
+	color: #213397;
+	text-shadow: 0 1px 0 #fff;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+CiviCRM Event Organiser Attendance widget
+--------------------------------------------------------------------------------
+*/
+
+.widget ul.civicrm-eo-cde-widget,
+.widget ul.civicrm-eo-cdp-widget
+{
+	margin: 15px;
+	padding: 0;
+	list-style-position: outside;
+	border-top: 1px solid #ddd;
+}
+
+.widget li.civicrm-eo-cde-widget,
+.widget li.civicrm-eo-cdp-widget
+{
+	list-style: none;
+	list-style-image: none;
+	border-bottom: 1px solid #ddd;
+	font-weight: bold;
+}
+
+.widget li.civicrm-eo-cde-widget.cde-up-to-date,
+.widget li.civicrm-eo-cdp-widget.cdp-up-to-date
+{
+	padding: 0.5em;
+}
+
+.widget li.civicrm-eo-cde-widget a,
+.widget li.civicrm-eo-cdp-widget a
+{
+	display: block;
+	padding: 0.5em;
+}
+
+.widget li.civicrm-eo-cde-widget a:hover,
+.widget li.civicrm-eo-cdp-widget a:hover
+{
+	color: #213397;
+	background-color: #eee;
+	text-decoration: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.widget li.civicrm-eo-cde-widget span.civicrm-eo-feedback,
+.widget li.civicrm-eo-cdp-widget span.civicrm-eo-feedback
+{
+	padding: 0 0.5em 0.5em 0.5em;
+	cursor: pointer;
+	display: block;
+	text-decoration: underline;
+}
+
+.widget form.civicrm_eo_cde,
+.widget form.civicrm_eo_cdp
+{
+	display: block;
+	margin: 0;
+}
+
+.js .widget form.civicrm_eo_cde,
+.js .widget form.civicrm_eo_cdp
+{
+	display: none;
+}
+
+.civicrm_eo_cde p.description,
+.civicrm_eo_cdp p.description,
+#item-body .civicrm_eo_cde p.description,
+#item-body .civicrm_eo_cdp p.description
+{
+	margin: 0;
+	padding: 0 0 0.5em 0;
+}
+
+.civicrm_eo_cde p.submit,
+.civicrm_eo_cdp p.submit
+{
+	margin: 0;
+	margin-top: 0.75em;
+}
+
+.civicrm_eo_cde .civicrm-eo-form-text
+{
+	width: 30%;
+}
+
+.civicrm_eo_cdp .civicrm-eo-form-text
+{
+	width: 90%;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Rendez-vous overrides
+--------------------------------------------------------------------------------
+*/
+
+body.rendez-vous #item-body h1
+{
+	padding-left: 19px;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs td,
+body.rendez-vous #rendez-vous-attendees-prefs td.inactive
+{
+	border-top: 1px solid #999;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.7);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.7);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-right: 1px solid #999;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs td.active
+{
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.7);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.7);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-right: 1px solid #999;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child,
+body.rendez-vous #rendez-vous-attendees-prefs tr td:first-child
+{
+	min-width: 16em;
+	line-height: 1.6;
+	background: #f6fcfe;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child
+{
+	background: transparent;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child a,
+body.rendez-vous #rendez-vous-attendees-prefs tr td:first-child a
+{
+	text-decoration: none;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child a img,
+body.rendez-vous #rendez-vous-attendees-prefs tr td:first-child a img
+{
+	vertical-align: sub;
+}
+
+body.rendez-vous #rendez-vous-view-btn.right,
+body.rendez-vous #rendez-vous-edit-btn.right
+{
+	position: absolute;
+	right: 30px;
+}
+
+body.rendez-vous table#rendez-vous-attendees-prefs tr td.rendez-vous-date-blank:first-child
+{
+	border-right: none;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr.edited td:first-child, body.rendez-vous #rendez-vous-single-date
+{
+	border-left: none;
+	box-shadow: inset 4px 0 0 #298cba;
+}
+
+body.rendez-vous .item-list .rendez-vous-avatar.icon-publish:before
+{
+	content: "\f145";
+	position: absolute;
+	top: 0.65em;
+	font-size: 500%;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+BuddyPress Docs
+--------------------------------------------------------------------------------
+*/
+
+body.bp-docs h2.post_title,
+body.groups h2.post_title
+{
+	padding: 0.5em;
+}
+
+.doctable .doc-excerpt
+{
+	display: none;
+}
+
+.doctable .tags-cell
+{
+	display: none;
+}
+
+.bp-docs h2.doc-title
+{
+	text-transform: none;
+}
+
+
+
+
+/*
+--------------------------------------------------------------------------------
+Fonts
+--------------------------------------------------------------------------------
+*/
+
+#search-which,
+.search_result p.search_meta a
+{
+	font-family: Lato, 'Trebuchet MS', Helvetica, Arial, sans-serif;
+}
+
+#search-which
+{
+	font-size: 90%;
+}
+
+
+
+
+/*
+--------------------------------------------------------------------------------
+Facebook Widget
+--------------------------------------------------------------------------------
+*/
+
+.cp-homepage-widgets .widget.widget_facebook_likebox,
+.widget.widget_facebook_likebox
+{
+	padding: 0 0 1px 0;
+	border-bottom: none;
+	line-height: 0;
+}
+
+.widget.widget_facebook_likebox .fb_iframe_widget,
+.widget.widget_facebook_likebox .fb_iframe_widget > span
+{
+	width: 100% !important;
+	background: transparent !important;
+}
+
+.widget.widget_facebook_likebox .fb_iframe_widget
+{
+	margin-bottom: 0;
+}
+
+.widget.widget_facebook_likebox iframe
+{
+	width: 100% !important;
+	background: transparent !important;
+}
+
+#footer .widget_facebook_likebox > h4 a,
+.widget_facebook_likebox > h4 a
+{
+	text-decoration: none;
+}
+
+.widget.widget_facebook_likebox .widget-title a
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+
+
+/* TEMPORARY GALLERY */
+.widget.widget-gallery .tiled-gallery .gallery-row
+{
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Twitter Widget
+--------------------------------------------------------------------------------
+*/
+
+.cp-homepage-widgets .widget.widget_twitter_timeline,
+.widget.widget_twitter_timeline
+{
+	padding: 0 0 1px 0;
+	border-bottom: none;
+	line-height: 0;
+}
+
+/* ad-blockers need this to be styled */
+.cp-homepage-widgets .widget.widget_twitter_timeline a.twitter-timeline,
+.widget.widget_twitter_timeline a.twitter-timeline
+{
+	line-height: 1;
+	margin: 0.5em 1em;
+	display: block;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Full Width Template
+--------------------------------------------------------------------------------
+*/
+
+body.page-template-full-width #header,
+body.page-template-full-width #switcher,
+body.page-template-full-width #wrapper
+{
+	width: 84%;
+}
+
+body.page-template-full-width #footer
+{
+	width: 84%;
+}
+
+@media (max-width: 1400px) {
+
+	body.page-template-full-width #header,
+	body.page-template-full-width #switcher,
+	body.page-template-full-width #wrapper
+	{
+		width: 100%;
+	}
+
+	body.page-template-full-width #footer
+	{
+		width: 100%;
+	}
+
+}
+
+body.page-template-full-width #switcher ul li.activity-item
+{
+	display: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Responsive Tweaks
+--------------------------------------------------------------------------------
+*/
+
+@media all and (max-width: 650px) {
+
+	.cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+	{
+		font-size: 140%;
+	}
+
+}
+
+@media all and (max-width: 450px) {
+
+	.home-page #content .post,
+	.cp-homepage-below
+	{
+		font-size: 90%;
+	}
+
+	a.feature-image-switcher.button
+	{
+		font-size: 80%;
+		padding: 6px 6px 4px;
+	}
+
+	.cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+	{
+		font-size: 120%;
+	}
+
+	.cp_feature_image img.wp-post-image
+	{
+		width: 160%;
+	}
+
+}
+
+@media only screen and (max-width: 320px) {
+
+	#page_title
+	{
+		margin-right: 100px;
+	}
+
+	body.single .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+	{
+		font-size: 110%;
+	}
+
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Print Tweaks
+--------------------------------------------------------------------------------
+*/
+
+@media print {
+
+	div.fb_reset
+	{
+		display: none;
+	}
+
+}
+
+
+
