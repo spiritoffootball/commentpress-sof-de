@@ -630,7 +630,21 @@ Latest "Ballblog" Widget
     line-height: 1.5;
 }
 
-.widget.widget_latest_ball_post .latest_ball_post > .search_meta
+.widget.widget_latest_ball_post .latest_ball_post > h3
+{
+    background: none;
+    text-transform: none;
+}
+
+.widget.widget_latest_ball_post .latest_ball_post > div.search_meta
+{
+    padding: 1px 12px;
+    font-size: 90%;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.widget.widget_latest_ball_post .latest_ball_post > p.search_meta
 {
     padding: 1px 12px;
     font-size: 90%;
