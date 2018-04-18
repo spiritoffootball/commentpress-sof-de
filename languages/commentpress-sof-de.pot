@@ -1,14 +1,14 @@
-# Copyright (C) 2017 Christian Wach
+# Copyright (C) 2018 Christian Wach
 # This file is distributed under the same license as the CommentPress SOF Germany package.
 msgid ""
 msgstr ""
-"Project-Id-Version: CommentPress SOF Germany 1.3.5\n"
+"Project-Id-Version: CommentPress SOF Germany 1.3.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/commentpress-sof-de\n"
-"POT-Creation-Date: 2017-11-30 01:09:41+00:00\n"
+"POT-Creation-Date: 2018-04-18 13:37:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -24,49 +24,50 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: archive-event.php:68 archive.php:66 category.php:58 index.php:49
+#: archive-event.php:68 archive.php:66
+#: assets/widgets/latest-ball-post-widget.php:120 category.php:67 index.php:49
 #: taxonomy-event-category.php:61 taxonomy-event-tag.php:61
 #: taxonomy-event-venue.php:62
 msgid "Permanent Link to"
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 full-width.php:237
+#: archive-event.php:107 archive.php:88 category.php:89 full-width.php:237
 #: index.php:71 taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "Tags: "
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 full-width.php:237
+#: archive-event.php:107 archive.php:88 category.php:89 full-width.php:237
 #: index.php:71 taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "Posted in"
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: archive-event.php:107 archive.php:88 category.php:89 index.php:71
 #: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "Edit"
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: archive-event.php:107 archive.php:88 category.php:89 index.php:71
 #: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "No Comments &#187;"
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: archive-event.php:107 archive.php:88 category.php:89 index.php:71
 #: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "1 Comment &#187;"
 msgstr ""
 
-#: archive-event.php:107 archive.php:88 category.php:80 index.php:71
+#: archive-event.php:107 archive.php:88 category.php:89 index.php:71
 #: taxonomy-event-category.php:100 taxonomy-event-tag.php:100
 #: taxonomy-event-venue.php:101
 msgid "% Comments &#187;"
 msgstr ""
 
-#: archive-event.php:119 archive.php:98 category.php:90
+#: archive-event.php:119 archive.php:98 category.php:99
 msgid "Not Found"
 msgstr ""
 
@@ -102,7 +103,7 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: archive.php:100 category.php:92 front-page.php:83 full-width.php:389
+#: archive.php:100 category.php:101 front-page.php:83 full-width.php:389
 msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
 
@@ -116,6 +117,27 @@ msgstr ""
 
 #: assets/templates/activity_sidebar.php:72
 msgid "Activity"
+msgstr ""
+
+#: assets/widgets/latest-ball-post-widget.php:41
+msgid "Displays the most recent \"Daily Ballblog\" that the visitor can read."
+msgstr ""
+
+#: assets/widgets/latest-ball-post-widget.php:46
+msgctxt "widget name"
+msgid "Latest Ball Post"
+msgstr ""
+
+#: assets/widgets/latest-ball-post-widget.php:131
+msgid "Read more..."
+msgstr ""
+
+#: assets/widgets/latest-ball-post-widget.php:170
+msgid "Latest Ballblog Post"
+msgstr ""
+
+#: assets/widgets/latest-ball-post-widget.php:176
+msgid "Title:"
 msgstr ""
 
 #: front-page.php:81 full-width.php:387
@@ -138,59 +160,59 @@ msgstr ""
 msgid "Page %s"
 msgstr ""
 
-#: full-width.php:316 single-event.php:416
+#: full-width.php:316 single-event.php:411
 msgid "Literal Translation"
 msgstr ""
 
-#: full-width.php:343 single-event.php:443
+#: full-width.php:343 single-event.php:438
 msgid "Original Text"
 msgstr ""
 
-#: functions.php:175
+#: functions.php:203
 msgid "Something"
 msgstr ""
 
-#: functions.php:211
+#: functions.php:262
 msgid "Homepage Left"
 msgstr ""
 
-#: functions.php:213
+#: functions.php:264
 msgid "An optional widget area on the left of the Homepage"
 msgstr ""
 
-#: functions.php:222
+#: functions.php:273
 msgid "Homepage Right"
 msgstr ""
 
-#: functions.php:224
+#: functions.php:275
 msgid "An optional widget area on the right of the Homepage"
 msgstr ""
 
-#: functions.php:233
+#: functions.php:284
 msgid "Homepage Lower"
 msgstr ""
 
-#: functions.php:235
+#: functions.php:286
 msgid "An optional widget area below the left and right widgets on the Homepage"
 msgstr ""
 
-#: functions.php:244
+#: functions.php:295
 msgid "Member Homepage Left"
 msgstr ""
 
-#: functions.php:246
+#: functions.php:297
 msgid "Add widgets to the Member Homepage left column here."
 msgstr ""
 
-#: functions.php:255
+#: functions.php:306
 msgid "Member Homepage Right"
 msgstr ""
 
-#: functions.php:257
+#: functions.php:308
 msgid "Add widgets to the Member Homepage right column here."
 msgstr ""
 
-#: functions.php:458
+#: functions.php:515
 msgid "Latest Comments"
 msgstr ""
 
@@ -210,71 +232,71 @@ msgstr ""
 msgid "If you were looking for something that hasn't been found, try using the search form below."
 msgstr ""
 
-#: single-event.php:215
+#: single-event.php:210
 msgid "Event Details"
 msgstr ""
 
-#: single-event.php:224
+#: single-event.php:219
 msgid "This event is running from %1$s until %2$s. It is next occurring on %3$s"
 msgstr ""
 
-#: single-event.php:228
+#: single-event.php:223
 msgid "This event finished on %s"
 msgstr ""
 
-#: single-event.php:236
+#: single-event.php:231
 msgid "Date"
 msgstr ""
 
-#: single-event.php:245
+#: single-event.php:240
 msgid "Categories"
 msgstr ""
 
-#: single-event.php:249
+#: single-event.php:244
 msgid "Tags"
 msgstr ""
 
-#: single-event.php:264
+#: single-event.php:259
 msgid "Upcoming Dates"
 msgstr ""
 
-#: single-event.php:312
+#: single-event.php:307
 msgid "RSS 2.0"
 msgstr ""
 
-#: single-event.php:319
+#: single-event.php:314
 msgid "You can follow any comments on this entry through the %s feed."
 msgstr ""
 
-#: single-event.php:331 single-event.php:350
+#: single-event.php:326 single-event.php:345
 msgid "trackback"
 msgstr ""
 
-#: single-event.php:338
+#: single-event.php:333
 msgid "You can leave a comment, or %s from your own site."
 msgstr ""
 
-#: single-event.php:357
+#: single-event.php:352
 msgid "Comments are currently closed, but you can %s from your own site."
 msgstr ""
 
-#: single-event.php:367
+#: single-event.php:362
 msgid "You can leave a comment. Pinging is currently not allowed."
 msgstr ""
 
-#: single-event.php:375
+#: single-event.php:370
 msgid "Both comments and pings are currently closed."
 msgstr ""
 
-#: single-event.php:383
+#: single-event.php:378
 msgid "Edit this entry"
 msgstr ""
 
-#: single-event.php:504
+#: single-event.php:499
 msgid "Post Not Found"
 msgstr ""
 
-#: single-event.php:506
+#: single-event.php:501
 msgid "Sorry, no posts matched your criteria."
 msgstr ""
 
