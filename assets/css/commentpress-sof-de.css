@@ -357,7 +357,7 @@ body.single .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.pos
 	margin: 0 4%;
 }
 
-.home-page .cp_featured_title
+.home-page .page_wrapper .cp_featured_title
 {
 	visibility: hidden;
 }
@@ -608,6 +608,34 @@ Widgets & Widget Areas
 #text-4 h3
 {
 	display: none;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Latest "Ballblog" Widget
+--------------------------------------------------------------------------------
+*/
+
+.widget .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+{
+	font-size: 110%;
+}
+
+.widget.widget_latest_ball_post .search_excerpt
+{
+    padding: 1px 12px;
+    font-size: 90%;
+    line-height: 1.5;
+}
+
+.widget.widget_latest_ball_post .latest_ball_post > .search_meta
+{
+    padding: 1px 12px;
+    font-size: 90%;
+    line-height: 1.5;
+    margin-top: 0;
 }
 
 

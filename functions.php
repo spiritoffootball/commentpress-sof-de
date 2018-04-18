@@ -121,6 +121,10 @@ function commentpress_sof_de_setup() {
 		include( get_stylesheet_directory() . '/includes/compatibility/event-organiser.php' );
 	}
 
+	// include custom widgets
+	include( get_stylesheet_directory() . '/includes/class-theme-widgets.php' );
+	$widgets = new Spirit_Of_Football_Germany_Theme_Widgets;
+
 }
 
 // hook into after_setup_theme
