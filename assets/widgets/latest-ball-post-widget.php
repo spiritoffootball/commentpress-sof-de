@@ -110,6 +110,9 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 				remove_filter( 'commentpress_get_feature_image', array( $feature_image_switcher, 'get_feature_image' ), 20, 2 );
 			}
 
+			// filter the title to prevent it being commentable
+			add_filter( 'commentpress_get_feature_image_title', array( $this, 'filter_title' ), 10, 2 );
+
 			while ( $posts->have_posts() ) : $posts->the_post(); ?>
 
 				<div class="latest_ball_post">
@@ -133,6 +136,9 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 				</div><!-- /latest_ball_post -->
 
 			<?php endwhile;
+
+			// remove title filter
+			remove_filter( 'commentpress_get_feature_image_title', array( $this, 'filter_title' ), 10 );
 
 			// show widget suffix
 			echo ( isset( $args['after_widget'] ) ? $args['after_widget'] : '' );
@@ -201,6 +207,27 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 		// --<
 		return $instance;
+
+	}
+
+
+
+	/**
+	 * Filter the page/post title when there is a feature image.
+	 *
+	 * @since 1.3.10
+	 *
+	 * @param str The HTML for showing the image.
+	 * @param WP_Post The current WordPress post object.
+	 */
+	public function filter_title( $title, $post ) {
+
+		// remove commentable class
+		$title = str_replace( 'class="post_title page_title"', 'class="widget_title"', $title );
+		$title = str_replace( 'class="post_title"', 'class="widget_title"', $title );
+
+		// --<
+		return $title;
 
 	}
 

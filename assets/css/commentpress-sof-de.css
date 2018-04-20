@@ -618,9 +618,26 @@ Latest "Ballblog" Widget
 --------------------------------------------------------------------------------
 */
 
-.widget .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
+.widget .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.widget_title
 {
 	font-size: 110%;
+	text-transform: none;
+	line-height: 1.2;
+	word-wrap: break-word;
+	margin: 0;
+	padding: 0;
+}
+
+.widget .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.widget_title a
+{
+	color: #000;
+    text-decoration: none;
+    word-wrap: break-word;
+    background: white;
+    background: rgba( 255, 255, 255, 0.85 );
+    line-height: 1.7;
+    box-shadow: -8px 0 0 rgba( 255, 255, 255, 0.85 ), 8px 0 0 rgba( 255, 255, 255, 0.85 );
+    padding: 3px 0;
 }
 
 .widget.widget_latest_ball_post .search_excerpt
