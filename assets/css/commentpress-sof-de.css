@@ -653,6 +653,21 @@ Latest "Ballblog" Widget
     text-transform: none;
 }
 
+.widget.widget_latest_ball_post .latest_ball_post > h3 a
+{
+    font-weight: bold;
+    display: block;
+    padding: 0;
+    color: #0e4858;
+    text-decoration: none;
+}
+
+.widget.widget_latest_ball_post .latest_ball_post > h3 a:hover
+{
+	color: #b31f24;
+	text-decoration: none;
+}
+
 .widget.widget_latest_ball_post .latest_ball_post > div.search_meta
 {
     padding: 1px 12px;
