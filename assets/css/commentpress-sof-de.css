@@ -1023,6 +1023,13 @@ div.paragraph_wrapper.no_comments
 	display: none;
 }
 
+/* Social Media Links widget */
+#sidebar .sidebar_container #wpcom_social_media_icons_widget-2 .paragraph_wrapper,
+#sidebar .sidebar_container #jetpack_widget_social_icons-2 .paragraph_wrapper
+{
+	display: block;
+}
+
 
 
 /*
