@@ -56,35 +56,76 @@ if ( ! defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
  */
 function commentpress_avatar_filter( $value, $args ) {
 
-	// set width and height manually
-	if ( empty( $args['width'] ) ) {
-		$args['width'] = BP_AVATAR_THUMB_WIDTH;
-	}
-	if ( empty( $args['height'] ) ) {
-		$args['height'] = BP_AVATAR_THUMB_WIDTH;
-	}
-	if ( empty( $args['type'] ) ) {
+	if ( empty( $args['type'] ) OR $args['type'] == 'thumb' ) {
 		$args['type'] = 'full';
+		return bp_get_member_avatar( $args );
 	}
-
-	/*
-	$e = new Exception;
-	$trace = $e->getTraceAsString();
-	error_log( print_r( array(
-		'method' => __METHOD__,
-		'value' => $value,
-		'args' => $args,
-		//'backtrace' => $trace,
-	), true ) );
-	*/
 
 	// --<
-	return bp_get_member_avatar( $args );
+	return $value;
 
 }
 
 // filter width and height
 add_filter( 'bp_member_avatar', 'commentpress_avatar_filter', 10, 2 );
+
+
+
+/**
+ * Filters the group members loop avatar.
+ *
+ * @since 1.3.11
+ *
+ * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param array|string $args See {@link bp_get_member_avatar()}.
+ * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
+ */
+function commentpress_avatar_group_member_filter( $value, $args ) {
+
+	// set type manually
+	if ( empty( $args['type'] ) OR $args['type'] == 'thumb' ) {
+		$args['type'] = 'full';
+		return bp_core_fetch_avatar( $args );
+	}
+
+	// --<
+	return $value;
+
+}
+
+// filter width and height
+add_filter( 'bp_get_group_member_avatar_thumb', 'commentpress_avatar_group_member_filter', 10, 2 );
+
+
+
+
+/**
+ * Filters the group loop avatar.
+ *
+ * @since 1.3.11
+ *
+ * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param array|string $args See {@link bp_get_member_avatar()}.
+ * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
+ */
+function commentpress_avatar_group_filter( $value, $args ) {
+
+	// set type manually
+	if ( ! empty( $args['type'] ) AND $args['type'] == 'thumb' ) {
+		global $groups_template;
+		$args['type'] = 'full';
+		$args['item_id'] = $groups_template->group->id;
+		$args['avatar_dir'] = 'group-avatars';
+		$args['object'] = 'group';
+		return bp_core_fetch_avatar( $args );
+	}
+
+	// --<
+	return $value;
+
+}
+
+add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
 
 
 

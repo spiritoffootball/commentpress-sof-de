@@ -762,6 +762,13 @@ BuddyPress customisations
 --------------------------------------------------------------------------------
 */
 
+body #buddypress ul.item-list li img.avatar
+{
+	vertical-align: middle;
+	width: 80px;
+	height: 80px;
+}
+
 body.bp-user:not(.activity-permalink) #content h2.post_title,
 body.single-item.groups #content h2.post_title
 {
