@@ -19,7 +19,7 @@ the CommentPress Flat Theme or common theme functions file.
 
 
 // set our version here
-define( 'COMMENTPRESS_SOF_DE_VERSION', '1.3.12' );
+define( 'COMMENTPRESS_SOF_DE_VERSION', '1.3.13' );
 
 // damn this content width thing
 if ( ! isset( $content_width ) ) { $content_width = 760; }
