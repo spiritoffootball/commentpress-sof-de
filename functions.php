@@ -46,6 +46,49 @@ if ( ! defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
 
 
 /**
+ * Filters the members loop avatar.
+ *
+ * @since 1.3.11
+ *
+ * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param array|string $args See {@link bp_get_member_avatar()}.
+ * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
+ */
+function commentpress_avatar_filter( $value, $args ) {
+
+	// set width and height manually
+	if ( empty( $args['width'] ) ) {
+		$args['width'] = BP_AVATAR_THUMB_WIDTH;
+	}
+	if ( empty( $args['height'] ) ) {
+		$args['height'] = BP_AVATAR_THUMB_WIDTH;
+	}
+	if ( empty( $args['type'] ) ) {
+		$args['type'] = 'full';
+	}
+
+	/*
+	$e = new Exception;
+	$trace = $e->getTraceAsString();
+	error_log( print_r( array(
+		'method' => __METHOD__,
+		'value' => $value,
+		'args' => $args,
+		//'backtrace' => $trace,
+	), true ) );
+	*/
+
+	// --<
+	return bp_get_member_avatar( $args );
+
+}
+
+// filter width and height
+add_filter( 'bp_member_avatar', 'commentpress_avatar_filter', 10, 2 );
+
+
+
+/**
  * OVERRIDE Do we want to show page/post meta?
  *
  * @since 1.3.7

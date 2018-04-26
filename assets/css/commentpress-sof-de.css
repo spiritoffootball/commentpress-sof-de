@@ -148,68 +148,6 @@ Content
 	}
 }
 
-body.bp-user:not(.activity-permalink) #content h2.post_title,
-body.single-item.groups #content h2.post_title
-{
-	padding: 0;
-	position: absolute;
-	z-index: 10;
-	top: 150px;
-	left: 188px;
-	background: transparent;
-	text-shadow: 0 0 9px #666;
-}
-
-body.single-item.groups #content h2.post_title
-{
-	top: 180px;
-}
-
-@media screen and (max-width: 782px) {
-	body.bp-user:not(.activity-permalink) #content h2.post_title,
-	body.single-item.groups #content h2.post_title
-	{
-		top: 90px;
-		left: 0;
-		margin-left: auto;
-		margin-right: auto;
-		width: 100%;
-		text-align: center;
-	}
-}
-
-body.buddypress #content #buddypress div#item-header h2.user-nicename
-{
-	font-size: 1.2em;
-	margin-bottom: 1em;
-	margin-top: 0.3em;
-	line-height: 1.6;
-	text-transform: none;
-	text-shadow: 0 0 9px #666;
-}
-
-@media screen and (max-width: 1400px) {
-	body.buddypress #content #buddypress div#item-header h2.user-nicename
-	{
-		margin-bottom: 0.7em;
-	}
-}
-
-@media screen and (max-width: 1024px) {
-	body.buddypress #content #buddypress div#item-header h2.user-nicename
-	{
-		margin-bottom: 0.2em;
-	}
-}
-
-@media screen and (max-width: 782px) {
-	body.buddypress #content #buddypress div#item-header h2.user-nicename
-	{
-		margin: 0;
-		line-height: 1;
-	}
-}
-
 /* Support SOF Utilities Mirror */
 .sof_mirror
 {
@@ -823,6 +761,92 @@ Event Organiser Calendar mods
 BuddyPress customisations
 --------------------------------------------------------------------------------
 */
+
+body.bp-user:not(.activity-permalink) #content h2.post_title,
+body.single-item.groups #content h2.post_title
+{
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+	top: 150px;
+	left: 188px;
+	background: transparent;
+	text-shadow: 0 0 9px #666;
+}
+
+body.single-item.groups #content h2.post_title
+{
+	top: 180px;
+}
+
+@media screen and (max-width: 782px) {
+	body.bp-user:not(.activity-permalink) #content h2.post_title,
+	body.single-item.groups #content h2.post_title
+	{
+		top: 90px;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+body.buddypress #content #buddypress div#item-header h2.user-nicename
+{
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	margin-top: 0.3em;
+	line-height: 1.6;
+	text-transform: none;
+	text-shadow: 0 0 9px #666;
+}
+
+body #buddypress #item-header-cover-image #item-header-avatar
+{
+	margin-top: 145px;
+}
+
+body #buddypress #item-header-cover-image #item-header-avatar img.avatar
+{
+	width: 150px;
+	height: 150px;
+}
+
+body #buddypress div#item-header #item-header-cover-image #item-header-content
+{
+	margin-left: 170px;
+	margin-top: -140px;
+}
+
+@media screen and (max-width: 1400px) {
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin-bottom: 0.7em;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin-bottom: 0.2em;
+	}
+}
+
+@media screen and (max-width: 782px) {
+
+	body.buddypress #content #buddypress div#item-header h2.user-nicename
+	{
+		margin: 0;
+		line-height: 1;
+	}
+
+	body #buddypress div#item-header #item-header-cover-image #item-header-content
+	{
+		margin: 0;
+	}
+
+}
 
 #buddypress div#item-header-cover-image h2 a,
 #buddypress div#item-header-cover-image h2
