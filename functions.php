@@ -28,11 +28,11 @@ if ( ! isset( $content_width ) ) { $content_width = 760; }
  * Change Default Avatar Size
  */
 if ( ! defined( 'BP_AVATAR_THUMB_WIDTH' ) ) {
-	define( 'BP_AVATAR_THUMB_WIDTH', 80 );
+	define( 'BP_AVATAR_THUMB_WIDTH', 100 );
 }
 
 if ( ! defined( 'BP_AVATAR_THUMB_HEIGHT' ) ) {
-	define( 'BP_AVATAR_THUMB_HEIGHT', 80 );
+	define( 'BP_AVATAR_THUMB_HEIGHT', 100 );
 }
 
 if ( ! defined( 'BP_AVATAR_FULL_WIDTH' ) ) {
