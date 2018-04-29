@@ -584,35 +584,35 @@ Latest "Ballblog" Widget
 .widget .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.widget_title a
 {
 	color: #000;
-    text-decoration: none;
-    word-wrap: break-word;
-    background: white;
-    background: rgba( 255, 255, 255, 0.85 );
-    line-height: 1.7;
-    box-shadow: -8px 0 0 rgba( 255, 255, 255, 0.85 ), 8px 0 0 rgba( 255, 255, 255, 0.85 );
-    padding: 3px 0;
+	text-decoration: none;
+	word-wrap: break-word;
+	background: white;
+	background: rgba( 255, 255, 255, 0.85 );
+	line-height: 1.7;
+	box-shadow: -8px 0 0 rgba( 255, 255, 255, 0.85 ), 8px 0 0 rgba( 255, 255, 255, 0.85 );
+	padding: 3px 0;
 }
 
 .widget.widget_latest_ball_post .search_excerpt
 {
-    padding: 1px 12px;
-    font-size: 90%;
-    line-height: 1.5;
+	padding: 1px 12px;
+	font-size: 90%;
+	line-height: 1.5;
 }
 
 .widget.widget_latest_ball_post .latest_ball_post > h3
 {
-    background: none;
-    text-transform: none;
+	background: none;
+	text-transform: none;
 }
 
 .widget.widget_latest_ball_post .latest_ball_post > h3 a
 {
-    font-weight: bold;
-    display: block;
-    padding: 0;
-    color: #0e4858;
-    text-decoration: none;
+	font-weight: bold;
+	display: block;
+	padding: 0;
+	color: #0e4858;
+	text-decoration: none;
 }
 
 .widget.widget_latest_ball_post .latest_ball_post > h3 a:hover
@@ -623,18 +623,18 @@ Latest "Ballblog" Widget
 
 .widget.widget_latest_ball_post .latest_ball_post > div.search_meta
 {
-    padding: 1px 12px;
-    font-size: 90%;
-    line-height: 1.5;
-    margin: 0;
+	padding: 1px 12px;
+	font-size: 90%;
+	line-height: 1.5;
+	margin: 0;
 }
 
 .widget.widget_latest_ball_post .latest_ball_post > p.search_meta
 {
-    padding: 1px 12px;
-    font-size: 90%;
-    line-height: 1.5;
-    margin-top: 0;
+	padding: 1px 12px;
+	font-size: 90%;
+	line-height: 1.5;
+	margin-top: 0;
 }
 
 
@@ -908,6 +908,7 @@ body #buddypress div#item-header #item-header-cover-image #item-header-content
 {
 	color: #333;
 	text-decoration: none;
+	font-size: 80%;
 }
 
 #buddypress ul.item-list.activity-list li.load-more,
