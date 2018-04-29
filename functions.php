@@ -19,13 +19,15 @@ the CommentPress Flat Theme or common theme functions file.
 
 
 // set our version here
-define( 'COMMENTPRESS_SOF_DE_VERSION', '1.3.14' );
+define( 'COMMENTPRESS_SOF_DE_VERSION', '1.3.15' );
 
 // damn this content width thing
 if ( ! isset( $content_width ) ) { $content_width = 760; }
 
 /**
- * Change Default Avatar Size
+ * Change Default Avatar Size.
+ *
+ * @since 1.3.11
  */
 if ( ! defined( 'BP_AVATAR_THUMB_WIDTH' ) ) {
 	define( 'BP_AVATAR_THUMB_WIDTH', 100 );
