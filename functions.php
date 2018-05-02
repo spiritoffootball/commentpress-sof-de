@@ -216,6 +216,44 @@ add_action( 'after_setup_theme', 'commentpress_sof_de_setup' );
 
 
 
+if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ):
+/**
+ * Filters the site icon meta tags.
+ *
+ * To make this work, upload both black *and* white logos and leave the white
+ * logo in place. This function will replace the favicons with the black versions.
+ *
+ * @since 1.3.15
+ *
+ * @param array $meta_tags The existing Site Icon meta elements.
+ * @return array $meta_tags The modified Site Icon meta elements.
+ */
+function commentpress_sof_de_site_icon_meta_tags( $meta_tags ) {
+
+	// bail if none
+	if ( empty( $meta_tags ) ) return $meta_tags;
+
+	// loop through them
+	foreach( $meta_tags AS $key => $meta_tag ) {
+
+		// replace white with black icons
+		if ( false !== strpos( $meta_tag, 'rel="icon"' ) ) {
+			$meta_tags[$key] = str_replace( 'white', 'black', $meta_tag );
+		}
+
+	}
+
+	// --<
+	return $meta_tags;
+
+}
+endif;
+
+// add filter for the above
+add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10, 1 );
+
+
+
 /**
  * Enqueue child theme styles.
  *
