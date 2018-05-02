@@ -250,7 +250,7 @@ function commentpress_sof_de_site_icon_meta_tags( $meta_tags ) {
 endif;
 
 // add filter for the above
-add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10, 1 );
+//add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10, 1 );
 
 
 
