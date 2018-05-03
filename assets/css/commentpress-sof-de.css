@@ -188,7 +188,8 @@ Footer
 
 #footer_inner .footer_widgets .widget
 {
-    margin: 1.25em;
+	margin: 1.25em auto;
+	width: 80%;
 }
 
 #footer_inner > p
