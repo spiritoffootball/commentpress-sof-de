@@ -21,7 +21,9 @@ Theme-specific scripts.
 jQuery(document).ready( function($) {
 
 	// first pass
-	$('.post, .comments_container, .activity-inner').fitVids();
+	$('.post, .comments_container, .activity-inner').fitVids({
+		customSelector: "iframe.dfb-video"
+	});
 
 	// refresh after any AJAX event completes
 	$(document).ajaxComplete(function() {
