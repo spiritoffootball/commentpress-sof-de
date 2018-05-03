@@ -182,6 +182,24 @@ Content
 
 /*
 --------------------------------------------------------------------------------
+Footer
+--------------------------------------------------------------------------------
+*/
+
+#footer_inner .footer_widgets .widget
+{
+    margin: 1.25em;
+}
+
+#footer_inner > p
+{
+	margin: 1.25em 0;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
 Archives
 --------------------------------------------------------------------------------
 */
@@ -1039,13 +1057,6 @@ div.paragraph_wrapper.no_comments
 	display: none;
 }
 
-/* Social Media Links widget */
-#sidebar .sidebar_container #wpcom_social_media_icons_widget-2 .paragraph_wrapper,
-#sidebar .sidebar_container #jetpack_widget_social_icons-2 .paragraph_wrapper
-{
-	display: block;
-}
-
 
 
 /*
@@ -1175,6 +1186,12 @@ Jetpack Milestone Widget
 Jetpack Social Media Widget
 --------------------------------------------------------------------------------
 */
+
+/* open by default */
+#sidebar .sidebar_container .jetpack_widget_social_icons .paragraph_wrapper
+{
+	display: block;
+}
 
 .sidebar_container .jetpack_widget_social_icons .widget_wrapper
 {
@@ -1692,6 +1709,25 @@ Twitter Widget
 	line-height: 1;
 	margin: 0.5em 1em;
 	display: block;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Image Widget in Sidebar
+--------------------------------------------------------------------------------
+*/
+
+/* open by default in sidebar */
+#sidebar .sidebar_container .widget_media_image .paragraph_wrapper
+{
+	display: block;
+}
+
+#sidebar .sidebar_container .widget.widget_media_image .widget_wrapper
+{
+	margin: 10px;
 }
 
 
