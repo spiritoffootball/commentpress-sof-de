@@ -65,7 +65,7 @@ add_filter( 'the_excerpt', array( 'GeoMashupQuery', 'strip_brackets' ) );
 					<div class="post_header_text">
 
 						<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<p class="postname"><?php echo sprintf( __( 'Written by %1$s on %2$s' ), get_the_author_posts_link(), get_the_time( 'l, F jS, Y' ) ); ?></p>
+						<p class="postname"><?php echo sprintf( __( 'Written by %1$s on %2$s', 'commentpress-sof-de' ), get_the_author_posts_link(), get_the_time( 'l, F jS, Y' ) ); ?></p>
 
 					</div><!-- /.post_header_text -->
 
