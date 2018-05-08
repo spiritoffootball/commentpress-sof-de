@@ -50,6 +50,12 @@ body { margin: 0; padding: 0; }
 	padding: 0;
 }
 
+	.post-location-info .post_header.has_feature_image img
+	{
+		width: 100%;
+		height: auto;
+	}
+
 	.post-location-info .post_header.has_feature_image a.feature-link
 	{
 		display: block;
