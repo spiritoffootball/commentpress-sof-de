@@ -81,7 +81,9 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			'post_status' => 'publish',
 			'posts_per_page' => 1,
 			array(
-				'cat' => 674,
+				'taxonomy' => 'category',
+				'field' => 'term_id',
+				'terms' => 674,
 			),
 		);
 
