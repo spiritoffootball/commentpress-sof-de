@@ -63,6 +63,24 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		// define args for query
+		$query_args = array(
+			'post_type' => 'post',
+			'no_found_rows' => true,
+			'post_status' => 'publish',
+			'posts_per_page' => 1,
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'category',
+					'field' => 'term_id',
+					'terms' => 674,
+				),
+			),
+		);
+
+		// do query
+		$posts = new WP_Query( $query_args );
+
 		/*
 		$e = new Exception;
 		$trace = $e->getTraceAsString();
@@ -70,25 +88,10 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			'method' => __METHOD__,
 			'args' => $args,
 			'instance' => $instance,
+			'posts' => $posts,
 			//'backtrace' => $trace,
 		), true ) );
 		*/
-
-		// define args for query
-		$query_args = array(
-			'post_type' => 'post',
-			'no_found_rows' => true,
-			'post_status' => 'publish',
-			'posts_per_page' => 1,
-			array(
-				'taxonomy' => 'category',
-				'field' => 'term_id',
-				'terms' => 674,
-			),
-		);
-
-		// do query
-		$posts = new WP_Query( $query_args );
 
 		// did we get any results?
 		if ( $posts->have_posts() ) :
