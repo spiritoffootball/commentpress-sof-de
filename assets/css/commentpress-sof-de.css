@@ -1416,6 +1416,19 @@ html body:not(.toolbar)
 	padding-top: 0 !important;
 }
 
+#crm-container.crm-public .calc-value,
+#crm-container.crm-public .content
+{
+	padding-bottom: 0;
+	margin-left: 32%;
+}
+
+#crm-container.crm-public .label,
+#crm-container.crm-public .price-field-amount
+{
+	width: 29%;
+}
+
 
 
 /*
