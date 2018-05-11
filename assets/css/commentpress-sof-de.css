@@ -68,11 +68,12 @@ Header
 	color: #111;
 	padding: 2.8em 0 0 0.4em;
 	float: left;
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 70%;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 0.8px;
+	line-height: 1.5;
 }
 
 @media (max-width: 640px) {
@@ -1399,6 +1400,20 @@ table#wp-calendar td a:hover
 {
 	color: #213397;
 	text-shadow: 0 1px 0 #fff;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+CiviCRM tweaks (mostly when Shoreditch CSS is enabled)
+--------------------------------------------------------------------------------
+*/
+
+/* No need for top padding */
+html body:not(.toolbar)
+{
+	padding-top: 0 !important;
 }
 
 
