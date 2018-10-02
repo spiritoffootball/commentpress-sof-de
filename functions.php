@@ -59,6 +59,7 @@ if ( ! defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
 function commentpress_avatar_filter( $value, $args ) {
 
 	if ( empty( $args['type'] ) OR ( ! empty( $args['type'] ) AND $args['type'] == 'thumb' ) ) {
+		if ( ! is_array( $args ) ) $args = array();
 		$args['type'] = 'full';
 		return bp_get_member_avatar( $args );
 	}
