@@ -683,3 +683,67 @@ add_filter( 'bp_docs_attachment_url_base', 'commentpress_sof_de_bp_docs_attachme
 
 
 
+/**
+ * Override the template for a single Rendez Vous.
+ *
+ * @since 1.3.18
+ *
+ * @param str $template Existing template path.
+ * @return str $template Modified template path.
+ */
+function commentpress_sof_de_rendez_vous_template( $template ) {
+
+	// is this a single Rendez Vous?
+	if ( ! empty( $_GET['rdv'] ) AND absint( $_GET['rdv'] ) > 0 ) {
+
+		// switch to full page template
+		$template = locate_template( array( 'full-width.php' ) );
+
+		// add body class filter
+		add_filter( 'body_class', 'commentpress_sof_de_rendez_vous_body_class' );
+
+	}
+
+	// --<
+	return $template;
+
+}
+
+add_filter( 'template_include', 'commentpress_sof_de_rendez_vous_template', 100 );
+
+
+
+/**
+ * Override the body class for a single Rendez Vous.
+ *
+ * @since 1.3.18
+ *
+ * @param array $classes The existing template path.
+ * @return str $template The modified template path.
+ */
+function commentpress_sof_de_rendez_vous_body_class( $classes ) {
+
+	// init default template key
+	$key_to_replace = null;
+
+	// find key for "page-template-default"
+	if ( ! empty( $classes ) ) {
+		foreach( $classes AS $key => $class ) {
+			if ( $class == 'page-template-default' ) {
+				$key_to_replace = $key;
+			}
+		}
+	}
+
+	// if we find it, replace with ours
+	if ( ! empty( $key_to_replace ) ) {
+		$classes[$key] = 'page-template-full-width';
+	}
+
+	// --<
+	return $classes;
+
+}
+
+
+

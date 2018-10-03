@@ -1539,6 +1539,17 @@ body.rendez-vous #item-body h1
 	padding-left: 19px;
 }
 
+body.rendez-vous #rendez-vous-attendees-prefs
+{
+	width: auto;
+}
+
+body.rendez-vous #rendez-vous-attendees-prefs tr th.rendez-vous-date
+{
+    min-width: 8em;
+    max-width: 12em;
+}
+
 body.rendez-vous #rendez-vous-attendees-prefs td,
 body.rendez-vous #rendez-vous-attendees-prefs td.inactive
 {
