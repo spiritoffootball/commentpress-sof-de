@@ -18,16 +18,24 @@
 
 <?php
 
-// first try to locate using WP method
-$cp_page_navigation = apply_filters(
-	'cp_template_page_navigation',
-	locate_template( 'assets/templates/page_navigation.php' )
-);
+// set default link names
+$previous_title = __( 'Earlier Events', 'commentpress-sof-de' );
+$next_title = __( 'Later Events', 'commentpress-sof-de' );
 
-// load it if we find it
-if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
+$nl = get_next_posts_link( $next_title );
+$pl = get_previous_posts_link( $previous_title );
 
-?>
+// did we get either?
+if ( $nl != '' OR $pl != '' ) { ?>
+
+<div class="page_navigation">
+	<ul class="blog_navigation">
+		<?php if ( $nl != '' ) { ?><li class="alignright"><?php echo $nl; ?></li><?php } ?>
+		<?php if ( $pl != '' ) { ?><li class="alignleft"><?php echo $pl; ?></li><?php } ?>
+	</ul>
+</div>
+
+<?php } ?>
 
 
 
@@ -133,12 +141,16 @@ if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
 
 
 <div class="page_nav_lower">
-<?php
+<?php if ( $nl != '' OR $pl != '' ) { ?>
 
-// include page_navigation again
-if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
+<div class="page_navigation">
+	<ul class="blog_navigation">
+		<?php if ( $nl != '' ) { ?><li class="alignright"><?php echo $nl; ?></li><?php } ?>
+		<?php if ( $pl != '' ) { ?><li class="alignleft"><?php echo $pl; ?></li><?php } ?>
+	</ul>
+</div>
 
-?>
+<?php } ?>
 </div><!-- /page_nav_lower -->
 
 
