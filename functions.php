@@ -693,6 +693,9 @@ add_filter( 'bp_docs_attachment_url_base', 'commentpress_sof_de_bp_docs_attachme
  */
 function commentpress_sof_de_rendez_vous_template( $template ) {
 
+	// bail if 404
+	if ( is_404() ) return $template;
+
 	// is this a single Rendez Vous?
 	if ( ! empty( $_GET['rdv'] ) AND absint( $_GET['rdv'] ) > 0 ) {
 
@@ -722,6 +725,9 @@ add_filter( 'template_include', 'commentpress_sof_de_rendez_vous_template', 100 
  * @return str $template The modified template path.
  */
 function commentpress_sof_de_rendez_vous_body_class( $classes ) {
+
+	// bail if 404
+	if ( is_404() ) return $classes;
 
 	// init default template key
 	$key_to_replace = null;
