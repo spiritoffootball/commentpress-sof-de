@@ -420,6 +420,12 @@ Widgets & Widget Areas
 	background-color: #e8f8fc;
 }
 
+/* search open by default */
+#toc_sidebar .paragraph_wrapper.search_wrapper
+{
+	display: block;
+}
+
 .sidebar_container .widget_text .widget_wrapper
 {
 	margin: 10px 10px 0 10px;
