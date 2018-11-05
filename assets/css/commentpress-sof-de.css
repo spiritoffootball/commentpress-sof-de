@@ -1211,7 +1211,8 @@ Jetpack Social Media Widget
 	margin: 0;
 }
 
-.sidebar_container .jetpack_widget_social_icons ul a
+.sidebar_container .jetpack_widget_social_icons ul a,
+.footer_widgets .jetpack_widget_social_icons ul a
 {
 	color: #22b3db;
 }
