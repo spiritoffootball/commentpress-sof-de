@@ -1590,6 +1590,15 @@ body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child
 	background: transparent;
 }
 
+/* This just affects firefox */
+@-moz-document url-prefix() {
+	body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child,
+	body.rendez-vous #rendez-vous-attendees-prefs tr td:first-child
+	{
+		margin-top: -1.75em;
+	}
+}
+
 body.rendez-vous #rendez-vous-attendees-prefs tr th:first-child a,
 body.rendez-vous #rendez-vous-attendees-prefs tr td:first-child a
 {
