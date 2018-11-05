@@ -1725,6 +1725,27 @@ Facebook Widget
 
 
 
+/* Facebook widget in sidebar */
+#sidebar .widget.widget_facebook_likebox .widget-title a
+{
+	padding: 6px 0;
+	display: block;
+	margin: 0;
+}
+
+#sidebar .widget.widget_facebook_likebox
+{
+	padding: 0;
+}
+
+/* Open by default in sidebar */
+#sidebar .widget.widget_facebook_likebox .paragraph_wrapper
+{
+	display: block;
+}
+
+
+
 /* TEMPORARY GALLERY */
 .widget.widget-gallery .tiled-gallery .gallery-row
 {
