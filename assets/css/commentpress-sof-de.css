@@ -1019,6 +1019,7 @@ body.single-event .post > time
 	line-height: 2.4;
 }
 
+body.single-event .post div.search_meta,
 body.single-event .cp_feature_image .cp_featured_title .cp_featured_title_inner div.search_meta,
 body.post-type-archive-event .cp_feature_image .cp_featured_title .cp_featured_title_inner div.search_meta
 {
