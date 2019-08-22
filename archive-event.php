@@ -76,7 +76,7 @@ if ( $nl != '' OR $pl != '' ) { ?>
 			<?php commentpress_get_feature_image(); ?>
 
 			<?php if ( ! commentpress_has_feature_image() ) : ?>
-				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'commentpress-core' ); ?> <?php the_title_attribute(); ?>">><?php the_title(); ?></a></h3>
+				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'commentpress-core' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 			<?php endif; ?>
 
 			<?php
