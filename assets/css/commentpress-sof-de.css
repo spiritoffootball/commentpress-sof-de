@@ -1026,7 +1026,9 @@ body.post-type-archive-event .cp_feature_image .cp_featured_title .cp_featured_t
 	display: none;
 }
 
-ul.eo-upcoming-dates
+ul.civicrm-event-register-links,
+ul.eo-upcoming-dates,
+ul.civicrm-eo-participants
 {
 	margin: 0 0 0 2em;
 }
