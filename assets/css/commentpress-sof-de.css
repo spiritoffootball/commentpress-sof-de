@@ -1028,7 +1028,8 @@ body.post-type-archive-event .cp_feature_image .cp_featured_title .cp_featured_t
 
 ul.civicrm-event-register-links,
 ul.eo-upcoming-dates,
-ul.civicrm-eo-participants
+ul.civicrm-eo-participants,
+ul.civicrm-eo-participant-names
 {
 	margin: 0 0 0 2em;
 }
