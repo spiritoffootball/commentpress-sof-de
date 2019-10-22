@@ -593,23 +593,37 @@ Widgets & Widget Areas
 
 /*
 --------------------------------------------------------------------------------
-Team Shortcode
+Latest from The Ball Widget
 --------------------------------------------------------------------------------
 */
 
-ul.blogroll
+.cp-homepage-widgets .post_header_inner h2,
+#activity_sidebar.sidebar_container .post_header_inner h2
+{
+    padding: 0.4em 0.8em;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+SOF Network Widget (Actually a "Links" widget)
+--------------------------------------------------------------------------------
+*/
+
+#sidebar .widget_links ul.blogroll
 {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.blogroll li
+#sidebar .widget_links .blogroll li
 {
 }
 
-.blogroll a,
-.blogroll a:link
+#sidebar .widget_links .blogroll a,
+#sidebar .widget_links .blogroll a:link
 {
     padding: 2% 1%;
     text-transform: uppercase;
@@ -619,15 +633,24 @@ ul.blogroll
     background: #ceeff8;
 }
 
-.blogroll a:hover,
-.blogroll a:active
+#sidebar .widget_links .blogroll a:hover,
+#sidebar .widget_links .blogroll a:active
 {
 	background: #fff;
 }
 
-.blogroll img
+#sidebar .widget_links .blogroll a:after
 {
-    width: 70px;
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#sidebar .widget_links .blogroll img
+{
+    width: 50px;
     height: auto;
     vertical-align: middle;
 }
