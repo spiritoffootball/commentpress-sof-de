@@ -593,6 +593,95 @@ Widgets & Widget Areas
 
 /*
 --------------------------------------------------------------------------------
+Team Shortcode
+--------------------------------------------------------------------------------
+*/
+
+ul.blogroll
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blogroll li
+{
+}
+
+.blogroll a,
+.blogroll a:link
+{
+    padding: 2% 1%;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    background: #ceeff8;
+}
+
+.blogroll a:hover,
+.blogroll a:active
+{
+	background: #fff;
+}
+
+.blogroll img
+{
+    width: 70px;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Team Shortcode
+--------------------------------------------------------------------------------
+*/
+
+#sof_team .sof_team_member
+{
+	border-top: 1px solid #ddd;
+	padding-bottom: 1.6em;
+}
+
+#sof_team .sof_team_member:first-child
+{
+	border-top: none;
+}
+
+#sof_team .sof_team_member h2
+{
+	margin-bottom: 0;
+}
+
+#sof_team .author_avatar
+{
+	float: left;
+	width: 220px;
+	padding-top: 0.4em;
+}
+
+#sof_team .sof_team_member_desc
+{
+	margin-left: 220px;
+}
+
+#sof_team .sof_team_member_desc p:first-child
+{
+	margin-top: 0;
+}
+
+#sof_team .sof_team_member_desc p:last-child
+{
+	margin-bottom: 0;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
 Latest "Ballblog" Widget
 --------------------------------------------------------------------------------
 */
@@ -1558,8 +1647,8 @@ body.rendez-vous #rendez-vous-attendees-prefs
 
 body.rendez-vous #rendez-vous-attendees-prefs tr th.rendez-vous-date
 {
-    min-width: 8em;
-    max-width: 12em;
+	min-width: 8em;
+	max-width: 12em;
 }
 
 body.rendez-vous #rendez-vous-attendees-prefs td,
