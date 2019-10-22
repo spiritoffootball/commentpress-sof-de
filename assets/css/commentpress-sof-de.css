@@ -599,9 +599,17 @@ The Ball Collection inline content
 
 @media all and (max-width: 600px) {
 
+	/* Reduce size on homepage */
 	.ball-collection img
 	{
 		width: 80px;
+		height: auto;
+	}
+
+	/* Reduce size on What is The Ball? page */
+	.page-id-144 .ball-collection img
+	{
+		width: 70px;
 		height: auto;
 	}
 
