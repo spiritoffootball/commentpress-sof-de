@@ -597,10 +597,10 @@ Latest from The Ball Widget
 --------------------------------------------------------------------------------
 */
 
-.cp-homepage-widgets .post_header_inner h2,
-#activity_sidebar.sidebar_container .post_header_inner h2
+.cp-homepage-widgets .post_header_inner h2 a,
+#activity_sidebar.sidebar_container .post_header_inner h2 a
 {
-    padding: 0.4em 0.8em;
+	text-transform: none;
 }
 
 
