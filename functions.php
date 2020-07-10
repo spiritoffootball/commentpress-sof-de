@@ -753,3 +753,24 @@ function commentpress_sof_de_rendez_vous_body_class( $classes ) {
 
 
 
+/**
+ * Add Blog ID to the body class.
+ *
+ * @since 1.4.1
+ *
+ * @param array $classes The existing template path.
+ * @return str $template The modified template path.
+ */
+function commentpress_sof_de_blog_id_body_class( $classes ) {
+
+	// Add Blog ID.
+	$classes[] = 'wp-blog-id-' . get_current_blog_id();
+
+	// --<
+	return $classes;
+
+}
+
+// add body class filter
+add_filter( 'body_class', 'commentpress_sof_de_blog_id_body_class' );
+

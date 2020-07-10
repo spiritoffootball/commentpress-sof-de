@@ -52,6 +52,11 @@ Header
 	width: 175px;
 }
 
+.wp-blog-id-18 #title h1
+{
+	width: 190px;
+}
+
 #title h1 a
 {
 	display: block;
@@ -77,7 +82,8 @@ Header
 }
 
 @media (max-width: 640px) {
-	#title h1
+	#title h1,
+	.wp-blog-id-18 #title h1
 	{
 		float: none;
 		width: auto;
@@ -113,6 +119,8 @@ Header
 	{
 		font-size: 50%;
 		line-height: 2.9;
+		visibility: hidden;
+		height: 12px;
 	}
 
 	#header #tagline
@@ -122,12 +130,6 @@ Header
 }
 
 @media (max-width: 360px) {
-	#title h1 a
-	{
-		visibility: hidden;
-		height: 12px;
-	}
-
 	#header #tagline
 	{
 		/* font-size: 70%; */
