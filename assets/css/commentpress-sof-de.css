@@ -52,6 +52,11 @@ Header
 	width: 175px;
 }
 
+.wp-blog-id-1 #title h1
+{
+	width: 145px;
+}
+
 .wp-blog-id-18 #title h1
 {
 	width: 190px;
@@ -83,6 +88,7 @@ Header
 
 @media (max-width: 640px) {
 	#title h1,
+	.wp-blog-id-1 #title h1,
 	.wp-blog-id-18 #title h1
 	{
 		float: none;
