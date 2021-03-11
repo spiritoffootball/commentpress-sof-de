@@ -36,10 +36,10 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	public function __construct() {
 
 		// Use the class `widget_recent_entries` to inherit WP Recent Posts widget styling.
-		$widget_ops = array(
+		$widget_ops = [
 			'classname' => 'widget_latest_ball_post',
 			'description' => __( 'Displays the most recent "Daily Ballblog" that the visitor can read.', 'commentpress-sof-de' ),
-		);
+		];
 
 		parent::__construct(
 			'widget_latest_ball_post',
@@ -64,19 +64,19 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		// define args for query
-		$query_args = array(
+		$query_args = [
 			'post_type' => 'post',
 			'no_found_rows' => true,
 			'post_status' => 'publish',
 			'posts_per_page' => 1,
-			'tax_query' => array(
-				array(
+			'tax_query' => [
+				[
 					'taxonomy' => 'category',
 					'field' => 'term_id',
 					'terms' => 674,
-				),
-			),
-		);
+				],
+			],
+		];
 
 		// do query
 		$posts = new WP_Query( $query_args );
@@ -84,13 +84,13 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 		/*
 		$e = new Exception;
 		$trace = $e->getTraceAsString();
-		error_log( print_r( array(
+		error_log( print_r( [
 			'method' => __METHOD__,
 			'args' => $args,
 			'instance' => $instance,
 			'posts' => $posts,
 			//'backtrace' => $trace,
-		), true ) );
+		], true ) );
 		*/
 
 		// did we get any results?
@@ -112,11 +112,11 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			// remove feature image switcher if present
 			global $feature_image_switcher;
 			if ( isset( $feature_image_switcher ) ) {
-				remove_filter( 'commentpress_get_feature_image', array( $feature_image_switcher, 'get_button' ), 20, 2 );
+				remove_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
 			}
 
 			// filter the title to prevent it being commentable
-			add_filter( 'commentpress_get_feature_image_title', array( $this, 'filter_title' ), 10, 2 );
+			add_filter( 'commentpress_get_feature_image_title', [ $this, 'filter_title' ], 10, 2 );
 
 			while ( $posts->have_posts() ) : $posts->the_post(); ?>
 
@@ -143,7 +143,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			<?php endwhile;
 
 			// remove title filter
-			remove_filter( 'commentpress_get_feature_image_title', array( $this, 'filter_title' ), 10 );
+			remove_filter( 'commentpress_get_feature_image_title', [ $this, 'filter_title' ], 10 );
 
 			// show widget suffix
 			echo ( isset( $args['after_widget'] ) ? $args['after_widget'] : '' );
@@ -153,7 +153,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 			// re-hook feature image switcher if present
 			if ( isset( $feature_image_switcher ) ) {
-				add_filter( 'commentpress_get_feature_image', array( $feature_image_switcher, 'get_button' ), 20, 2 );
+				add_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
 			}
 
 		// end check for posts

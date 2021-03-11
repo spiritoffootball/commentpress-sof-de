@@ -14,7 +14,7 @@ geo-mashup-custom directory.
 */
 
 // Avoid nested maps
-add_filter( 'the_content', array( 'GeoMashupQuery', 'strip_map_shortcodes' ), 1, 9 );
+add_filter( 'the_content', [ 'GeoMashupQuery', 'strip_map_shortcodes' ], 1, 9 );
 
 ?>
 

@@ -55,7 +55,7 @@
 
 					<?php if ( eo_get_venue() && eo_venue_has_latlng( eo_get_venue() ) ) : ?>
 						<div class="eo-event-venue-mapx">
-							<?php echo eo_get_venue_map( eo_get_venue(), array( 'width' => '100%' ) ); ?>
+							<?php echo eo_get_venue_map( eo_get_venue(), [ 'width' => '100%' ] ); ?>
 						</div>
 					<?php endif; ?>
 
@@ -104,13 +104,13 @@
 							<?php if ( eo_recurs() ) {
 
 								// Event recurs - display dates.
-								$upcoming = new WP_Query(array(
+								$upcoming = new WP_Query( [
 									'post_type'         => 'event',
 									'event_start_after' => 'today',
 									'posts_per_page'    => -1,
 									'event_series'      => get_the_ID(),
 									'group_events_by'   => 'occurrence',
-								));
+								] );
 
 								if ( $upcoming->have_posts() ) : ?>
 

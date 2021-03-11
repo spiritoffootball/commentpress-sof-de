@@ -59,7 +59,7 @@ if ( ! defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
 function commentpress_avatar_filter( $value, $args ) {
 
 	if ( empty( $args['type'] ) OR ( ! empty( $args['type'] ) AND $args['type'] == 'thumb' ) ) {
-		if ( ! is_array( $args ) ) $args = array();
+		if ( ! is_array( $args ) ) $args = [];
 		$args['type'] = 'full';
 		return bp_get_member_avatar( $args );
 	}
@@ -277,7 +277,7 @@ function commentpress_sof_de_enqueue_styles() {
 	wp_enqueue_style(
 		'commentpress_sof_de_css',
 		get_stylesheet_directory_uri() . '/assets/css/commentpress-sof-de.css',
-		array( 'cp_screen_css' ),
+		[ 'cp_screen_css' ],
 		COMMENTPRESS_SOF_DE_VERSION, // version
 		'all' // media
 	);
@@ -286,7 +286,7 @@ function commentpress_sof_de_enqueue_styles() {
 	wp_enqueue_style(
 		'commentpress_ifbook_colours_css',
 		get_stylesheet_directory_uri() . '/assets/css/commentpress-colours.css',
-		array( 'commentpress_sof_de_css' ),
+		[ 'commentpress_sof_de_css' ],
 		COMMENTPRESS_SOF_DE_VERSION, // version
 		'all' // media
 	);
@@ -309,7 +309,7 @@ function commentpress_sof_de_enqueue_scripts() {
 	wp_enqueue_script(
 		'commentpress_sof_fitvids_js',
 		get_stylesheet_directory_uri() . '/assets/js/jquery.fitvids.js',
-		array(),
+		[],
 		COMMENTPRESS_SOF_DE_VERSION
 	);
 
@@ -317,18 +317,18 @@ function commentpress_sof_de_enqueue_scripts() {
 	wp_enqueue_script(
 		'commentpress_sof_de_js',
 		get_stylesheet_directory_uri() . '/assets/js/commentpress-sof-de.js',
-		array( 'cp_common_js', 'commentpress_sof_fitvids_js' ),
+		[ 'cp_common_js', 'commentpress_sof_fitvids_js' ],
 		COMMENTPRESS_SOF_DE_VERSION
 	);
 
 	// define local vars
-	$vars = array(
+	$vars = [
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'spinner_url' => get_template_directory_uri() . '/assets/images/interface/ajax-loader.gif',
-		'localisation' => array(
+		'localisation' => [
 			'blah' => __( 'Something', 'buddypress' ),
-		),
-	);
+		],
+	];
 
 	// localise
 	wp_localize_script( 'commentpress_sof_de_js', 'Commentpress_Poets_Settings', $vars );
@@ -384,7 +384,7 @@ add_filter( 'commentpress_header_image', 'commentpress_sof_de_header_image' );
 function commentpress_sof_de_register_widget_areas() {
 
 	// define an area where a widget may be placed
-	register_sidebar( array(
+	register_sidebar( [
 		'name' => __( 'Homepage Left', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-left',
 		'description' => __( 'An optional widget area on the left of the Homepage', 'commentpress-sof-de' ),
@@ -392,10 +392,10 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget' => "</div>",
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
-	) );
+	] );
 
 	// define an area where a widget may be placed
-	register_sidebar( array(
+	register_sidebar( [
 		'name' => __( 'Homepage Right', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-right',
 		'description' => __( 'An optional widget area on the right of the Homepage', 'commentpress-sof-de' ),
@@ -403,10 +403,10 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget' => "</div>",
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
-	) );
+	] );
 
 	// define an area where a widget may be placed
-	register_sidebar( array(
+	register_sidebar( [
 		'name' => __( 'Homepage Lower', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-below',
 		'description' => __( 'An optional widget area below the left and right widgets on the Homepage', 'commentpress-sof-de' ),
@@ -414,10 +414,10 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget' => "</div>",
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
-	) );
+	] );
 
 	// BuddyPress Member Homepage - Left
-	register_sidebar( array(
+	register_sidebar( [
 		'name'          => esc_html__( 'Member Homepage Left', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-left',
 		'description'   => esc_html__( 'Add widgets to the Member Homepage left column here.', 'commentpress-sof-de' ),
@@ -425,10 +425,10 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	] );
 
 	// BuddyPress Member Homepage - Right
-	register_sidebar( array(
+	register_sidebar( [
 		'name'          => esc_html__( 'Member Homepage Right', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-right',
 		'description'   => esc_html__( 'Add widgets to the Member Homepage right column here.', 'commentpress-sof-de' ),
@@ -436,7 +436,7 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	] );
 
 }
 
@@ -562,15 +562,15 @@ add_action( 'admin_head', 'commentpress_sof_de_admin_head' );
  * @param int $post_id The ID of the WordPress post. (sometimes missing)
  * @param array $args Additional arguments. (sometimes missing)
  */
-function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = array() ) {
+function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = [] ) {
 
 	/*
-	error_log( print_r( array(
+	error_log( print_r( [
 		'method' => __METHOD__,
 		'media' => $media,
 		'post_id' => $post_id,
 		'args' => $args,
-	), true ) );
+	], true ) );
 	*/
 
 	// bail if media is set
@@ -586,14 +586,14 @@ function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = a
 	$url = apply_filters( 'jetpack_photon_url', commentpress_sof_de_default_og_image() );
 
  	// --<
-	return array( array(
+	return [ [
 		'type'  => 'image',
 		'from'  => 'custom_fallback',
 		'src'   => esc_url( $url ),
 		'src_width' => 200,
 		'src_height' => 200,
 		'href'  => $permalink,
-	) );
+	] ];
 
 }
 
@@ -664,13 +664,13 @@ function commentpress_sof_de_bp_docs_attachment_url_base( $att_url, $attachment 
 	$new_att_url    = add_query_arg( 'bp-attachment', $new_att_base, $new_doc_url );
 
 	/*
-	print_r( array(
+	print_r( [
 		'att_url' => $att_url,
 		'attachment' => $attachment,
 		'att_base' => $new_att_base,
 		'doc_url' => $new_doc_url,
 		'att_url new' => $new_att_url,
-	) ); die();
+	] ); die();
 	*/
 
 	// --<
@@ -700,7 +700,7 @@ function commentpress_sof_de_rendez_vous_template( $template ) {
 	if ( ! empty( $_GET['rdv'] ) AND absint( $_GET['rdv'] ) > 0 ) {
 
 		// switch to full page template
-		$template = locate_template( array( 'full-width.php' ) );
+		$template = locate_template( [ 'full-width.php' ] );
 
 		// add body class filter
 		add_filter( 'body_class', 'commentpress_sof_de_rendez_vous_body_class' );

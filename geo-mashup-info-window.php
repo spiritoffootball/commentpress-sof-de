@@ -14,7 +14,7 @@ For styling of the info window, see map-style-default.css.
 */
 
 // A potentially heavy-handed way to remove shortcode-like content
-add_filter( 'the_excerpt', array( 'GeoMashupQuery', 'strip_brackets' ) );
+add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 ?>
 

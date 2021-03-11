@@ -36,7 +36,7 @@ class Spirit_Of_Football_Germany_Theme_Widgets {
 	public function register_hooks() {
 
 		// register widget
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+		add_action( 'widgets_init', [ $this, 'register_widgets' ] );
 
 	}
 

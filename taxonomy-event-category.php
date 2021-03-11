@@ -59,8 +59,8 @@ if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
 		<div class="search_result">
 
 			<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'commentpress-core' ); ?> <?php the_title_attribute(); ?>"><?php
-					//If it has one, display the thumbnail
-					the_post_thumbnail('thumbnail', array('style'=>'float:left;margin: 0 12px 12px 0;'));
+					// If it has one, display the thumbnail
+					the_post_thumbnail( 'thumbnail', [ 'style' => 'float: left; margin: 0 12px 12px 0;' ] );
 				?><?php the_title(); ?></a></h3>
 
 			<?php
