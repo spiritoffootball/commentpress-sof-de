@@ -21,7 +21,7 @@ Theme-specific scripts.
 jQuery(document).ready( function($) {
 
 	// first pass
-	$('.post, .comments_container, .activity-inner').fitVids({
+	$('.post, .comments_container, .activity-inner, .widget_media_video').fitVids({
 		customSelector: "iframe.dfb-video"
 	});
 
