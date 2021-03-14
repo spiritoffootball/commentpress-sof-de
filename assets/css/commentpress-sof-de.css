@@ -2035,6 +2035,30 @@ Responsive Tweaks
 
 }
 
+@media all and (max-width: 480px) {
+
+	#sof_team .sof_team_member_desc
+	{
+		margin-left: 0;
+		clear: left;
+	}
+
+	.post img.alignleft,
+	.post img.alignright
+	{
+		width: 100%;
+		height: auto;
+	}
+
+	.post .ball-collection img.alignleft,
+	.post .ball-collection img.alignright
+	{
+		width: auto;
+		height: auto;
+	}
+
+}
+
 @media all and (max-width: 450px) {
 
 	.home-page #content .post,
@@ -2057,6 +2081,17 @@ Responsive Tweaks
 	.cp_feature_image img.wp-post-image
 	{
 		width: 160%;
+		margin-left: -30%;
+	}
+
+	.home.wp-blog-id-1 .cp_feature_image img.wp-post-image
+	{
+		margin-left: 0;
+	}
+
+	.wp-blog-id-1 #page_title
+	{
+		margin-right: 124px;
 	}
 
 }
@@ -2066,6 +2101,11 @@ Responsive Tweaks
 	#page_title
 	{
 		margin-right: 128px;
+	}
+
+	.wp-blog-id-1 #page_title
+	{
+		margin-right: 114px;
 	}
 
 	body.single .cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
