@@ -48,6 +48,22 @@ if ( ! defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
 
 
 /**
+ * Support ACF Google Maps.
+ *
+ * @since 1.4.4
+ */
+function commentpress_sof_acf_init() {
+	if ( defined( 'SOF_GOOGLE_API_KEY' ) ) {
+		acf_update_setting( 'google_api_key', SOF_GOOGLE_API_KEY );
+	}
+}
+
+// Action for the above.
+add_action( 'acf/init', 'commentpress_sof_acf_init' );
+
+
+
+/**
  * Filters the members loop avatar.
  *
  * @since 1.3.11
