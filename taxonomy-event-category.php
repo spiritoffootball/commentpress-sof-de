@@ -1,153 +1,142 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Event Category Template.
+ *
+ * @since 1.0.0
+ * @package CommentPress_SOF
+ */
 
+get_header();
 
-
-<!-- archive-event.php -->
-
+?><!-- taxonomy-event-category.php -->
 <div id="wrapper">
 
+	<div id="main_wrapper" class="clearfix">
 
-
-<div id="main_wrapper" class="clearfix">
-
-
-
-<div id="page_wrapper">
-
-
-
-<?php
-
-// first try to locate using WP method
-$cp_page_navigation = apply_filters(
-	'cp_template_page_navigation',
-	locate_template( 'assets/templates/page_navigation.php' )
-);
-
-// load it if we find it
-if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
-
-?>
-
-
-
-<div id="content" class="clearfix">
-
-<div class="post">
-
-<?php if ( have_posts() ) : ?>
-
-	<!-- Page header, display category title-->
-	<header class="page-header">
-		<h3 class="page-title"><?php
-			printf( __( 'Event Category: %s', 'eventorganiser' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-		?></h3>
-
-	<!-- If the category has a description display it-->
-		<?php
-			$category_description = category_description();
-			if ( ! empty( $category_description ) )
-				echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
-		?>
-	</header>
-
-	<?php /* Start the Loop */ ?>
-	<div class="event-loop">
-
-	<?php while ( have_posts() ) : the_post(); ?>
-
-		<div class="search_result">
-
-			<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'commentpress-core' ); ?> <?php the_title_attribute(); ?>"><?php
-					// If it has one, display the thumbnail
-					the_post_thumbnail( 'thumbnail', [ 'style' => 'float: left; margin: 0 12px 12px 0;' ] );
-				?><?php the_title(); ?></a></h3>
+		<div id="page_wrapper">
 
 			<?php
 
-			// default to hidden
-			$cp_meta_visibility = ' style="display: none;"';
+			// Try to locate template.
+			$template = locate_template( 'assets/templates/page_navigation.php' );
 
-			// override if we've elected to show the meta
-			if ( commentpress_get_post_meta_visibility( get_the_ID() ) ) {
-				$cp_meta_visibility = '';
+			/**
+			 * Filter the template path.
+			 *
+			 * @since 1.0
+			 *
+			 * @param str $template The path to the template,
+			 */
+			$cp_page_navigation = apply_filters( 'cp_template_page_navigation', $template );
+
+			// Load it if we find it.
+			if ( $cp_page_navigation != '' ) {
+				load_template( $cp_page_navigation, false );
 			}
 
 			?>
-			<div class="search_meta"<?php echo $cp_meta_visibility; ?>>
-				<?php commentpress_echo_post_meta(); ?>
-			</div>
 
-			<?php
+			<div id="content" class="clearfix">
 
-			//Format date/time according to whether its an all day event.
-			//Use microdata http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
-			if( eo_is_all_day() ){
-				$format = 'd F Y';
-				$microformat = 'Y-m-d';
-			}else{
-				$format = 'd F Y '.get_option('time_format');
-				$microformat = 'c';
-			}
+				<div class="post">
 
-			?><time itemprop="startDate" datetime="<?php eo_the_start($microformat); ?>"><?php eo_the_start($format); ?></time>
+					<?php if ( have_posts() ) : ?>
 
-			<!-- Display event meta list -->
-			<?php echo eo_get_event_meta_list(); ?>
+						<header class="page-header">
+							<h3 class="page-title"><?php printf( __( 'Event Category: %s', 'commentpress-sof-de' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h3>
+							<?php
 
-			<?php the_excerpt() ?>
+							// If the category has a description display it.
+							$category_description = category_description();
+							if ( ! empty( $category_description ) ) {
+								echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
+							}
 
-			<p class="search_meta"><?php the_terms( get_the_ID(), 'event-tag', __( 'Tags: ', 'commentpress-core' ), ', ', '<br />' ); ?> <?php _e( 'Posted in', 'commentpress-core' ); ?> <?php the_terms( get_the_ID(), 'event-category', '', ', ' ); ?> | <?php edit_post_link( __( 'Edit', 'commentpress-core' ), '', ' | ' ); ?>  <?php comments_popup_link( __( 'No Comments &#187;', 'commentpress-core' ), __( '1 Comment &#187;', 'commentpress-core' ), __( '% Comments &#187;', 'commentpress-core' ) ); ?></p>
+							?>
+						</header>
 
-		</div><!-- /search_result -->
+						<div class="event-loop">
 
-	<?php endwhile; ?><!--The Loop ends-->
+							<?php while ( have_posts() ) : ?>
+								<?php the_post(); ?>
 
-	</div>
+								<div class="search_result">
 
-<?php else : ?>
+									<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', [ 'style' => 'float: left; margin: 0 12px 12px 0;' ] ); ?><?php the_title(); ?></a></h3>
 
-	<h2 class="post_title"><?php _e( 'Nothing Found', 'eventorganiser' ); ?></h2>
+									<?php
+									$cp_meta_visibility = ' style="display: none;"';
+									if ( commentpress_get_post_meta_visibility( get_the_ID() ) ) {
+										$cp_meta_visibility = '';
+									}
+									?>
 
-	<p><?php _e( 'Apologies, but no results were found for the requested category. ', 'eventorganiser' ); ?></p>
+									<div class="search_meta"<?php echo $cp_meta_visibility; ?>>
+										<?php commentpress_echo_post_meta(); ?>
+									</div>
 
-	<?php get_search_form(); ?>
+									<?php
+									/*
+									 * Format date/time according to whether its an all day event.
+									 *
+									 * Use microdata:
+									 *
+									 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
+									 */
+									if ( eo_is_all_day() ) {
+										$format = 'd F Y';
+										$microformat = 'Y-m-d';
+									} else {
+										$format = 'd F Y ' . get_option( 'time_format' );
+										$microformat = 'c';
+									}
+									?>
 
-<?php endif; ?>
+									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
 
+									<?php echo eo_get_event_meta_list(); ?>
 
+									<?php the_excerpt(); ?>
 
-</div><!-- /post -->
+									<p class="search_meta"><?php the_terms( get_the_ID(), 'event-tag', __( 'Tags: ', 'commentpress-sof-de' ), ', ', '<br />' ); ?> <?php esc_html_e( 'Posted in', 'commentpress-sof-de' ); ?> <?php the_terms( get_the_ID(), 'event-category', '', ', ' ); ?> | <?php edit_post_link( __( 'Edit', 'commentpress-sof-de' ), '', ' | ' ); ?>  <?php comments_popup_link( __( 'No Comments &#187;', 'commentpress-sof-de' ), __( '1 Comment &#187;', 'commentpress-sof-de' ), __( '% Comments &#187;', 'commentpress-sof-de' ) ); ?></p>
 
-</div><!-- /content -->
+								</div><!-- /search_result -->
 
+							<?php endwhile; ?>
 
+						</div><!-- /event-loop -->
 
-<div class="page_nav_lower">
-<?php
+					<?php else : ?>
 
-// include page_navigation again
-if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
+						<h2 class="post_title"><?php esc_html_e( 'Nothing Found', 'commentpress-sof-de' ); ?></h2>
 
-?>
-</div><!-- /page_nav_lower -->
+						<p><?php esc_html_e( 'Apologies, but no results were found for the requested category.', 'commentpress-sof-de' ); ?></p>
 
+						<?php get_search_form(); ?>
 
+					<?php endif; ?>
 
-</div><!-- /page_wrapper -->
+				</div><!-- /post -->
 
+			</div><!-- /content -->
 
+			<div class="page_nav_lower">
+				<?php
 
-</div><!-- /main_wrapper -->
+				// Include page_navigation again.
+				if ( $cp_page_navigation != '' ) {
+					load_template( $cp_page_navigation, false );
+				}
 
+				?>
+			</div><!-- /page_nav_lower -->
 
+		</div><!-- /page_wrapper -->
+
+	</div><!-- /main_wrapper -->
 
 </div><!-- /wrapper -->
 
-
-
 <?php get_sidebar(); ?>
-
-
 
 <?php get_footer(); ?>

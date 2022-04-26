@@ -1,6 +1,6 @@
 /*
 ================================================================================
-CommentPress Spirit of Football Germany Javascript
+CommentPress Spirit of Football Javascript
 ================================================================================
 AUTHOR: Christian Wach <needle@haystack.co.uk>
 --------------------------------------------------------------------------------
@@ -11,8 +11,6 @@ Theme-specific scripts.
 --------------------------------------------------------------------------------
 */
 
-
-
 /**
  * Document loaded and ready to go.
  *
@@ -20,12 +18,12 @@ Theme-specific scripts.
  */
 jQuery(document).ready( function($) {
 
-	// first pass
+	// First pass.
 	$('.post, .comments_container, .activity-inner, .widget_media_video').fitVids({
 		customSelector: "iframe.dfb-video"
 	});
 
-	// refresh after any AJAX event completes
+	// Refresh after any AJAX event completes.
 	$(document).ajaxComplete(function() {
 		setTimeout( function() {
 			$('.post, .comments_container, .activity-inner').fitVids();
@@ -33,6 +31,3 @@ jQuery(document).ready( function($) {
 	});
 
 });
-
-
-

@@ -8,14 +8,10 @@
  * @subpackage Spirit_Of_Football_Germany
  */
 
-
-
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-
 
 /**
  * Core class used to implement a "Latest Ball Post" widget.
@@ -26,8 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
-
-
 	/**
 	 * Constructor registers widget with WordPress.
 	 *
@@ -35,7 +29,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 */
 	public function __construct() {
 
-		// Use the class `widget_recent_entries` to inherit WP Recent Posts widget styling.
+		// Use the class `widget_recent_entries` to inherit WordPress Recent Posts widget styling.
 		$widget_ops = [
 			'classname' => 'widget_latest_ball_post',
 			'description' => __( 'Displays the most recent "Daily Ballblog" that the visitor can read.', 'commentpress-sof-de' ),
@@ -47,11 +41,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			$widget_ops
 		);
 
-		//$this->alt_option_name = 'widget_latest_ball_post';
-
 	}
-
-
 
 	/**
 	 * Outputs the HTML for this widget.
@@ -63,7 +53,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		// define args for query
+		// Define args for query.
 		$query_args = [
 			'post_type' => 'post',
 			'no_found_rows' => true,
@@ -78,54 +68,43 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			],
 		];
 
-		// do query
+		// Do query.
 		$posts = new WP_Query( $query_args );
 
-		/*
-		$e = new Exception;
-		$trace = $e->getTraceAsString();
-		error_log( print_r( [
-			'method' => __METHOD__,
-			'args' => $args,
-			'instance' => $instance,
-			'posts' => $posts,
-			//'backtrace' => $trace,
-		], true ) );
-		*/
-
-		// did we get any results?
+		// Did we get any results?
 		if ( $posts->have_posts() ) :
 
-			// get filtered title
+			// Get filtered title.
 			$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-			// show widget prefix
+			// Show widget prefix.
 			echo ( isset( $args['before_widget'] ) ? $args['before_widget'] : '' );
 
-			// show title if there is one
+			// Show title if there is one.
 			if ( ! empty( $title ) ) {
 				echo ( isset( $args['before_title'] ) ? $args['before_title'] : '' );
 				echo $title;
 				echo ( isset( $args['after_title'] ) ? $args['after_title'] : '' );
 			}
 
-			// remove feature image switcher if present
+			// Remove feature image switcher if present.
 			global $feature_image_switcher;
 			if ( isset( $feature_image_switcher ) ) {
 				remove_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
 			}
 
-			// filter the title to prevent it being commentable
+			// Filter the title to prevent it being commentable.
 			add_filter( 'commentpress_get_feature_image_title', [ $this, 'filter_title' ], 10, 2 );
 
-			while ( $posts->have_posts() ) : $posts->the_post(); ?>
+			while ( $posts->have_posts() ) : ?>
+				<?php $posts->the_post(); ?>
 
 				<div class="latest_ball_post">
 
 					<?php commentpress_get_feature_image(); ?>
 
 					<?php if ( ! commentpress_has_feature_image() ) : ?>
-						<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+						<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 						<div class="search_meta">
 							<?php commentpress_echo_post_meta(); ?>
@@ -133,35 +112,35 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 					<?php endif; ?>
 
 					<div class="search_excerpt">
-						<?php the_excerpt() ?>
+						<?php the_excerpt(); ?>
 					</div>
 
-					<p class="search_meta"><a href="<?php the_permalink() ?>" rel="bookmark"><?php _e( 'Read more...' )?></a></p>
+					<p class="search_meta"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php esc_html_e( 'Read more...', 'commentpress-sof-de' ); ?></a></p>
 
 				</div><!-- /latest_ball_post -->
 
-			<?php endwhile;
+				<?php
 
-			// remove title filter
+			endwhile;
+
+			// Remove title filter.
 			remove_filter( 'commentpress_get_feature_image_title', [ $this, 'filter_title' ], 10 );
 
-			// show widget suffix
+			// Show widget suffix.
 			echo ( isset( $args['after_widget'] ) ? $args['after_widget'] : '' );
 
-			// Reset the post globals as this query will have stomped on it
+			// Reset the post globals as this query will have stomped on it.
 			wp_reset_postdata();
 
-			// re-hook feature image switcher if present
+			// Re-hook feature image switcher if present.
 			if ( isset( $feature_image_switcher ) ) {
 				add_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
 			}
 
-		// end check for posts
+		// End check for posts.
 		endif;
 
 	}
-
-
 
 	/**
 	 * Back-end widget form.
@@ -174,7 +153,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		// get title
+		// Get title.
 		if ( isset( $instance['title'] ) ) {
 			$title = $instance['title'];
 		} else {
@@ -184,15 +163,13 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 		?>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'sof-quotes' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'commentpress-sof-de' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
 		<?php
 
 	}
-
-
 
 	/**
 	 * Sanitize widget form values as they are saved.
@@ -207,7 +184,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		// never lose a value
+		// Never lose a value.
 		$instance = wp_parse_args( $new_instance, $old_instance );
 
 		// --<
@@ -215,19 +192,18 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 	}
 
-
-
 	/**
 	 * Filter the page/post title when there is a feature image.
 	 *
 	 * @since 1.3.10
 	 *
-	 * @param str The HTML for showing the image.
-	 * @param WP_Post The current WordPress post object.
+	 * @param str $title The page title.
+	 * @param WP_Post $post The current WordPress post object.
+	 * @return str $title The modified page title.
 	 */
 	public function filter_title( $title, $post ) {
 
-		// remove commentable class
+		// Remove commentable class.
 		$title = str_replace( 'class="post_title page_title"', 'class="widget_title"', $title );
 		$title = str_replace( 'class="post_title"', 'class="widget_title"', $title );
 
@@ -236,9 +212,4 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 	}
 
-
-
-} // class ends
-
-
-
+}

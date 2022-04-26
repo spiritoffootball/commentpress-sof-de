@@ -1,285 +1,289 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Single Event Template.
+ *
+ * @since 1.0.0
+ * @package CommentPress_SOF
+ */
 
+get_header();
 
-
-<!-- single-event.php -->
-
+?><!-- single-event.php -->
 <div id="wrapper">
 
+	<?php if ( have_posts() ) : ?>
 
+		<?php while ( have_posts() ) : ?>
+			<?php the_post(); ?>
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<div id="main_wrapper" class="clearfix">
 
+				<div id="page_wrapper">
 
-
-	<div id="main_wrapper" class="clearfix">
-
-		<div id="page_wrapper">
-
-			<?php commentpress_get_feature_image(); ?>
-
-			<?php
-
-			// First try to locate using WP method.
-			$cp_page_navigation = apply_filters(
-				'cp_template_page_navigation',
-				locate_template( 'assets/templates/page_navigation.php' )
-			);
-
-			// Load it if we find it.
-			if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
-
-			?>
-
-			<div id="content" class="workflow-wrapper">
-
-				<div class="post<?php echo commentpress_get_post_css_override( get_the_ID() ); ?>" id="post-<?php the_ID(); ?>">
+					<?php commentpress_get_feature_image(); ?>
 
 					<?php
 
-					// Do we have a featured image?
-					if ( ! commentpress_has_feature_image() ) {
+					// Try to locate template.
+					$template = locate_template( 'assets/templates/page_navigation.php' );
 
-						?><h2 class="post_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+					/**
+					 * Filter the template path.
+					 *
+					 * @since 1.0
+					 *
+					 * @param str $template The path to the template,
+					 */
+					$cp_page_navigation = apply_filters( 'cp_template_page_navigation', $template );
 
-						<div class="search_meta">
-							<?php commentpress_echo_post_meta(); ?>
-						</div>
-						<?php
-
+					// Load it if we find it.
+					if ( $cp_page_navigation != '' ) {
+						load_template( $cp_page_navigation, false );
 					}
 
 					?>
 
-					<?php commentpress_get_post_version_info( $post ); ?>
+					<div id="content" class="workflow-wrapper">
 
-					<?php if ( eo_get_venue() && eo_venue_has_latlng( eo_get_venue() ) ) : ?>
-						<div class="eo-event-venue-mapx">
-							<?php echo eo_get_venue_map( eo_get_venue(), [ 'width' => '100%' ] ); ?>
-						</div>
-					<?php endif; ?>
+						<div class="post<?php echo commentpress_get_post_css_override( get_the_ID() ); ?>" id="post-<?php the_ID(); ?>">
 
-					<div class="eventorganiser-event-meta">
+							<?php if ( ! commentpress_has_feature_image() ) : ?>
+								<h2 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-						<hr>
-
-						<!-- Event details -->
-						<h4><?php _e( 'Event Details', 'eventorganiser' ); ?></h4>
-
-						<!-- Is event recurring or a single event -->
-						<?php if ( eo_recurs() ) :?>
-							<!-- Event recurs - is there a next occurrence? -->
-							<?php $next = eo_get_next_occurrence( eo_get_event_datetime_format() ); ?>
-
-							<?php if ( $next ) : ?>
-								<!-- If the event is occurring again in the future, display the date -->
-								<?php printf( '<p>' . __( 'This event is running from %1$s until %2$s. It is next occurring on %3$s', 'eventorganiser' ) . '</p>', eo_get_schedule_start( 'j F Y' ), eo_get_schedule_last( 'j F Y' ), $next ); ?>
-
-							<?php else : ?>
-								<!-- Otherwise the event has finished (no more occurrences) -->
-								<?php printf( '<p>' . __( 'This event finished on %s', 'eventorganiser' ) . '</p>', eo_get_schedule_last( 'd F Y', '' ) ); ?>
+								<div class="search_meta">
+									<?php commentpress_echo_post_meta(); ?>
+								</div>
 							<?php endif; ?>
-						<?php endif; ?>
 
-						<ul class="eo-event-meta">
+							<?php commentpress_get_post_version_info( $post ); ?>
 
-							<?php if ( ! eo_recurs() ) { ?>
-								<!-- Single event -->
-								<li><strong><?php esc_html_e( 'Date', 'eventorganiser' ); ?>:</strong> <?php echo eo_format_event_occurrence(); ?></li>
-							<?php } ?>
+							<?php if ( eo_get_venue() && eo_venue_has_latlng( eo_get_venue() ) ) : ?>
+								<div class="eo-event-venue-mapx">
+									<?php echo eo_get_venue_map( eo_get_venue(), [ 'width' => '100%' ] ); ?>
+								</div>
+							<?php endif; ?>
 
-							<?php if ( eo_get_venue() ) {
-								$tax = get_taxonomy( 'event-venue' ); ?>
-								<li><strong><?php echo esc_html( $tax->labels->singular_name ) ?>:</strong> <a href="<?php eo_venue_link(); ?>"> <?php eo_venue_name(); ?></a></li>
-							<?php } ?>
+							<div class="eventorganiser-event-meta">
 
-							<?php if ( get_the_terms( get_the_ID(), 'event-category' ) && ! is_wp_error( get_the_terms( get_the_ID(), 'event-category' ) ) ) { ?>
-								<li><strong><?php esc_html_e( 'Categories', 'eventorganiser' ); ?>:</strong> <?php echo get_the_term_list( get_the_ID(), 'event-category', '', ', ', '' ); ?></li>
-							<?php } ?>
+								<hr>
 
-							<?php if ( get_the_terms( get_the_ID(), 'event-tag' ) && ! is_wp_error( get_the_terms( get_the_ID(), 'event-tag' ) ) ) { ?>
-								<li><strong><?php esc_html_e( 'Tags', 'eventorganiser' ); ?>:</strong> <?php echo get_the_term_list( get_the_ID(), 'event-tag', '', ', ', '' ); ?></li>
-							<?php } ?>
+								<h4><?php esc_html_e( 'Event Details', 'commentpress-sof-de' ); ?></h4>
 
-							<?php if ( eo_recurs() ) {
+								<?php if ( eo_recurs() ) : ?>
 
-								// Event recurs - display dates.
-								$upcoming = new WP_Query( [
-									'post_type'         => 'event',
-									'event_start_after' => 'today',
-									'posts_per_page'    => -1,
-									'event_series'      => get_the_ID(),
-									'group_events_by'   => 'occurrence',
-								] );
+									<!-- Event recurs - is there a next occurrence? -->
+									<?php $next = eo_get_next_occurrence( eo_get_event_datetime_format() ); ?>
 
-								if ( $upcoming->have_posts() ) : ?>
+									<?php if ( $next ) : ?>
 
-									<li><strong><?php _e( 'Upcoming Dates', 'eventorganiser' ); ?>:</strong>
-										<ul class="eo-upcoming-dates">
-											<?php
-											while ( $upcoming->have_posts() ) {
-												$upcoming->the_post();
-												echo '<li>' . eo_format_event_occurrence() . '</li>';
-											};
-											?>
-										</ul>
-									</li>
+										<!-- If the event is occurring again in the future, display the date. -->
+										<?php printf( '<p>' . __( 'This event is running from %1$s until %2$s. It is next occurring on %3$s', 'commentpress-sof-de' ) . '</p>', eo_get_schedule_start( 'j F Y' ), eo_get_schedule_last( 'j F Y' ), $next ); ?>
+
+									<?php else : ?>
+
+										<!-- Otherwise the event has finished - no more occurrences. -->
+										<?php printf( '<p>' . __( 'This event finished on %s', 'commentpress-sof-de' ) . '</p>', eo_get_schedule_last( 'd F Y', '' ) ); ?>
+									<?php endif; ?>
+
+								<?php endif; ?>
+
+								<ul class="eo-event-meta">
+
+									<?php if ( ! eo_recurs() ) : ?>
+
+										<!-- Single event. -->
+										<li><strong><?php esc_html_e( 'Date', 'commentpress-sof-de' ); ?>:</strong> <?php echo eo_format_event_occurrence(); ?></li>
+									<?php endif; ?>
+
+									<?php if ( eo_get_venue() ) : ?>
+										<?php $event_venue = get_taxonomy( 'event-venue' ); ?>
+										<li><strong><?php echo esc_html( $event_venue->labels->singular_name ); ?>:</strong> <a href="<?php eo_venue_link(); ?>"> <?php eo_venue_name(); ?></a></li>
+									<?php endif; ?>
+
+									<?php if ( get_the_terms( get_the_ID(), 'event-category' ) && ! is_wp_error( get_the_terms( get_the_ID(), 'event-category' ) ) ) : ?>
+										<li><strong><?php esc_html_e( 'Categories', 'commentpress-sof-de' ); ?>:</strong> <?php echo get_the_term_list( get_the_ID(), 'event-category', '', ', ', '' ); ?></li>
+									<?php endif; ?>
+
+									<?php if ( get_the_terms( get_the_ID(), 'event-tag' ) && ! is_wp_error( get_the_terms( get_the_ID(), 'event-tag' ) ) ) : ?>
+										<li><strong><?php esc_html_e( 'Tags', 'commentpress-sof-de' ); ?>:</strong> <?php echo get_the_term_list( get_the_ID(), 'event-tag', '', ', ', '' ); ?></li>
+									<?php endif; ?>
 
 									<?php
-									wp_reset_postdata();
-									// With the ID 'eo-upcoming-dates', JS will hide all but the next 5 dates, with options to show more.
-									wp_enqueue_script( 'eo_front' );
+
+									if ( eo_recurs() ) {
+
+										// Event recurs - display dates.
+										$upcoming = new WP_Query( [
+											'post_type' => 'event',
+											'event_start_after' => 'today',
+											'posts_per_page' => -1,
+											'event_series' => get_the_ID(),
+											'group_events_by' => 'occurrence',
+										] );
+
+										if ( $upcoming->have_posts() ) {
+
+											?>
+
+											<li><strong><?php esc_html_e( 'Upcoming Dates', 'commentpress-sof-de' ); ?>:</strong>
+												<ul class="eo-upcoming-dates">
+													<?php
+													while ( $upcoming->have_posts() ) {
+														$upcoming->the_post();
+														echo '<li>' . eo_format_event_occurrence() . '</li>';
+													};
+													?>
+												</ul>
+											</li>
+
+											<?php
+											wp_reset_postdata();
+
+											// With the ID 'eo-upcoming-dates', JS will hide all but the next 5 dates, with options to show more.
+											wp_enqueue_script( 'eo_front' );
+
+										}
+
+									}
+
 									?>
-								<?php endif; ?>
-							<?php } ?>
 
-							<?php do_action( 'eventorganiser_additional_event_meta' ) ?>
+									<?php do_action( 'eventorganiser_additional_event_meta' ); ?>
 
-						</ul>
+								</ul>
 
-						<div style="clear:both"></div>
+								<div style="clear:both"></div>
 
-						<hr>
+								<hr>
 
-					</div><!-- .entry-meta -->
+							</div><!-- .entry-meta -->
 
-					<?php global $more; $more = true; the_content(''); ?>
+							<?php
 
-					<?php
+							global $more;
+							$more = true;
+							the_content( '' );
 
-					// NOTE: Comment permalinks are filtered if the comment is not on the first page
-					// in a multipage post... see: commentpress_multipage_comment_link in functions.php
-					echo commentpress_multipager();
+							?>
 
-					?>
+							<?php
+							/*
+							 * NOTE: Comment permalinks are filtered if the comment is not on the first page
+							 * in a multipage post... see: commentpress_multipage_comment_link in functions.php
+							 */
+							echo commentpress_multipager();
+							?>
 
-					<p class="postmetadata"><?php
+							<p class="postmetadata"><?php
 
-						// define RSS text
-						$rss_text = __( 'RSS 2.0', 'commentpress-core' );
+							// Define RSS text.
+							$rss_text = __( 'RSS 2.0', 'commentpress-sof-de' );
 
-						// construct RSS link
-						$rss_link = '<a href="' . esc_url( get_post_comments_feed_link() ) . '">' . $rss_text . '</a>';
+							// Construct RSS link.
+							$rss_link = '<a href="' . esc_url( get_post_comments_feed_link() ) . '">' . $rss_text . '</a>';
 
-						// show text
-						echo sprintf(
-							__( 'You can follow any comments on this entry through the %s feed.', 'commentpress-core' ),
-							$rss_link
-						);
+							// Show text.
+							echo sprintf( __( 'You can follow any comments on this entry through the %s feed.', 'commentpress-sof-de' ), $rss_link );
 
-						// add trailing space
-						echo ' ';
-
-						if (('open' == $post->comment_status) AND ('open' == $post->ping_status)) {
-
-							// both comments and pings are open
-
-							// define trackback text
-							$trackback_text = __( 'trackback', 'commentpress-core' );
-
-							// construct RSS link
-							$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
-
-							// write out
-							echo sprintf(
-								__( 'You can leave a comment, or %s from your own site.' ),
-								$trackback_link
-							);
-
-							// add trailing space
+							// Add trailing space.
 							echo ' ';
 
-						} elseif (!('open' == $post->comment_status) AND ('open' == $post->ping_status)) {
+							if ( ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
 
-							// only pings are open
+								// Both comments and pings are open.
 
-							// define trackback text
-							$trackback_text = __( 'trackback', 'commentpress-core' );
+								// Define trackback text.
+								$trackback_text = __( 'trackback', 'commentpress-sof-de' );
 
-							// construct RSS link
-							$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
+								// Construct RSS link.
+								$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
 
-							// write out
-							echo sprintf(
-								__( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-core' ),
-								$trackback_link
-							);
+								// Write out.
+								echo sprintf( __( 'You can leave a comment, or %s from your own site.', 'commentpress-sof-de' ), $trackback_link );
 
-							// add trailing space
-							echo ' ';
+								// Add trailing space.
+								echo ' ';
 
-						} elseif (('open' == $post->comment_status) AND !('open' == $post->ping_status)) {
+							} elseif ( ! ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
 
-							// comments are open, pings are not
-							_e( 'You can leave a comment. Pinging is currently not allowed.', 'commentpress-core' );
+								// Only pings are open.
 
-							// add trailing space
-							echo ' ';
+								// Define trackback text.
+								$trackback_text = __( 'trackback', 'commentpress-sof-de' );
 
-						} elseif (!('open' == $post->comment_status) AND !('open' == $post->ping_status)) {
+								// Construct RSS link.
+								$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
 
-							// neither comments nor pings are open
-							_e( 'Both comments and pings are currently closed.', 'commentpress-core' );
+								// Write out.
+								echo sprintf( __( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-sof-de' ), $trackback_link );
 
-							// add trailing space
-							echo ' ';
+								// Add trailing space.
+								echo ' ';
 
+							} elseif ( ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+
+								// Comments are open, pings are not.
+								esc_html_e( 'You can leave a comment. Pinging is currently not allowed.', 'commentpress-sof-de' );
+
+								// Add trailing space.
+								echo ' ';
+
+							} elseif ( ! ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+
+								// Neither comments nor pings are open.
+								esc_html_e( 'Both comments and pings are currently closed.', 'commentpress-sof-de' );
+
+								// Add trailing space.
+								echo ' ';
+
+							}
+
+							// Show edit link.
+							edit_post_link( __( 'Edit this entry', 'commentpress-sof-de' ), '', '.' );
+
+							?></p>
+
+						</div><!-- /post -->
+
+					</div><!-- /content -->
+
+					<div class="page_nav_lower">
+						<?php
+
+						// Include page_navigation again.
+						if ( $cp_page_navigation != '' ) {
+							load_template( $cp_page_navigation, false );
 						}
 
-						// show edit link
-						edit_post_link( __( 'Edit this entry', 'commentpress-core' ), '', '.' );
+						?>
+					</div><!-- /page_nav_lower -->
 
-					?></p>
+				</div><!-- /page_wrapper -->
 
-				</div><!-- /post -->
+			</div><!-- /main_wrapper -->
 
-			</div><!-- /content -->
+		<?php endwhile; ?>
 
-			<div class="page_nav_lower">
-			<?php
+	<?php else : ?>
 
-			// include page_navigation again
-			if ( $cp_page_navigation != '' ) load_template( $cp_page_navigation, false );
+		<div id="main_wrapper" class="clearfix">
+			<div id="page_wrapper">
+				<div id="content">
+					<div class="post">
 
-			?>
-			</div><!-- /page_nav_lower -->
+						<h2 class="post_title"><?php esc_html_e( 'Post Not Found', 'commentpress-sof-de' ); ?></h2>
+						<p><?php esc_html_e( 'Sorry, no posts matched your criteria.', 'commentpress-sof-de' ); ?></p>
+						<?php get_search_form(); ?>
 
-		</div><!-- /page_wrapper -->
+					</div><!-- /post -->
+				</div><!-- /content -->
+			</div><!-- /page_wrapper -->
+		</div><!-- /main_wrapper -->
 
-	</div><!-- /main_wrapper -->
-
-
-
-<?php endwhile; else: ?>
-
-
-
-	<div id="main_wrapper" class="clearfix">
-		<div id="page_wrapper">
-			<div id="content">
-				<div class="post">
-
-					<h2 class="post_title"><?php _e( 'Post Not Found', 'commentpress-core' ); ?></h2>
-					<p><?php _e( 'Sorry, no posts matched your criteria.', 'commentpress-core' ); ?></p>
-					<?php get_search_form(); ?>
-
-				</div><!-- /post -->
-			</div><!-- /content -->
-		</div><!-- /page_wrapper -->
-	</div><!-- /main_wrapper -->
-
-
-
-<?php endif; ?>
-
-
+	<?php endif; ?>
 
 </div><!-- /wrapper -->
 
-
-
 <?php get_sidebar(); ?>
-
-
 
 <?php get_footer(); ?>

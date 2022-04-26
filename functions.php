@@ -1,28 +1,23 @@
-<?php /*
-================================================================================
-CommentPress Spirit of Football Germany Theme Functions
-================================================================================
-AUTHOR: Christian Wach <needle@haystack.co.uk>
---------------------------------------------------------------------------------
-NOTES
+<?php
+/**
+ * Theme Functions.
+ *
+ * This file is loaded before the CommentPress Flat Theme's functions.php file,
+ * so changes and updates can be made here. Most theme-related functions are
+ * pluggable, so if they are defined here, they will override the ones defined in
+ * the CommentPress Flat Theme or common theme functions file.
+ *
+ * @since 1.0.0
+ * @package CommentPress_SOF
+ */
 
-Theme amendments and overrides.
-
-This file is loaded before the CommentPress Flat Theme's functions.php file,
-so changes and updates can be made here. Most theme-related functions are
-pluggable, so if they are defined here, they will override the ones defined in
-the CommentPress Flat Theme or common theme functions file.
-
---------------------------------------------------------------------------------
-*/
-
-
-
-// set our version here
+// Set our version here.
 define( 'COMMENTPRESS_SOF_DE_VERSION', '1.4.4' );
 
-// damn this content width thing
-if ( ! isset( $content_width ) ) { $content_width = 760; }
+// Damn this content width thing.
+if ( ! isset( $content_width ) ) {
+	$content_width = 760;
+}
 
 /**
  * Change Default Avatar Size.
@@ -58,7 +53,7 @@ function commentpress_sof_acf_init() {
 	}
 }
 
-// Action for the above.
+// Add action for the above.
 add_action( 'acf/init', 'commentpress_sof_acf_init' );
 
 
@@ -74,8 +69,10 @@ add_action( 'acf/init', 'commentpress_sof_acf_init' );
  */
 function commentpress_avatar_filter( $value, $args ) {
 
-	if ( empty( $args['type'] ) OR ( ! empty( $args['type'] ) AND $args['type'] == 'thumb' ) ) {
-		if ( ! is_array( $args ) ) $args = [];
+	if ( empty( $args['type'] ) || ( ! empty( $args['type'] ) && $args['type'] == 'thumb' ) ) {
+		if ( ! is_array( $args ) ) {
+			$args = [];
+		}
 		$args['type'] = 'full';
 		return bp_get_member_avatar( $args );
 	}
@@ -85,7 +82,7 @@ function commentpress_avatar_filter( $value, $args ) {
 
 }
 
-// filter width and height
+// Add filter for the above.
 add_filter( 'bp_member_avatar', 'commentpress_avatar_filter', 10, 2 );
 
 
@@ -101,8 +98,8 @@ add_filter( 'bp_member_avatar', 'commentpress_avatar_filter', 10, 2 );
  */
 function commentpress_avatar_group_member_filter( $value, $args ) {
 
-	// set type manually
-	if ( empty( $args['type'] ) OR $args['type'] == 'thumb' ) {
+	// Set type manually.
+	if ( empty( $args['type'] ) || $args['type'] == 'thumb' ) {
 		$args['type'] = 'full';
 		return bp_core_fetch_avatar( $args );
 	}
@@ -112,9 +109,8 @@ function commentpress_avatar_group_member_filter( $value, $args ) {
 
 }
 
-// filter width and height
+// Add filter for the above.
 add_filter( 'bp_get_group_member_avatar_thumb', 'commentpress_avatar_group_member_filter', 10, 2 );
-
 
 
 
@@ -129,8 +125,8 @@ add_filter( 'bp_get_group_member_avatar_thumb', 'commentpress_avatar_group_membe
  */
 function commentpress_avatar_group_filter( $value, $args ) {
 
-	// set type manually
-	if ( ! empty( $args['type'] ) AND $args['type'] == 'thumb' ) {
+	// Set type manually.
+	if ( ! empty( $args['type'] ) && $args['type'] == 'thumb' ) {
 		global $groups_template;
 		$args['type'] = 'full';
 		$args['item_id'] = $groups_template->group->id;
@@ -144,6 +140,7 @@ function commentpress_avatar_group_filter( $value, $args ) {
 
 }
 
+// Add filter for the above.
 add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
 
 
@@ -158,25 +155,27 @@ add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
  */
 function commentpress_get_post_meta_visibility( $post_id ) {
 
-	// always show on posts
-	if ( 'post' == get_post_type( $post_id ) ) return true;
+	// Always show on posts.
+	if ( 'post' == get_post_type( $post_id ) ) {
+		return true;
+	}
 
-	// init hide (hide by default)
+	// Init hide - hide by default.
 	$hide_meta = 'hide';
 
-	// declare access to globals
+	// Declare access to globals.
 	global $commentpress_core;
 
-	// if we have the plugin enabled
+	// If we have the plugin enabled.
 	if ( is_object( $commentpress_core ) ) {
 
-		// get global hide_meta
+		// Get global hide_meta.
 		$hide_meta = $commentpress_core->db->option_get( 'cp_page_meta_visibility' );
 
-		// set key
+		// Set key.
 		$key = '_cp_page_meta_visibility';
 
-		// override with local value if the custom field already has one
+		// Override with local value if the custom field already has one.
 		if ( get_post_meta( $post_id, $key, true ) != '' ) {
 			$hide_meta = get_post_meta( $post_id, $key, true );
 		}
@@ -207,7 +206,7 @@ function commentpress_sof_de_setup() {
 		get_stylesheet_directory() . '/languages'
 	);
 
-	// create custom filters that mirror 'the_content'
+	// Create custom filters that mirror 'the_content'.
 	add_filter( 'commentpress_sof_de_richtext_content', 'wptexturize' );
 	add_filter( 'commentpress_sof_de_richtext_content', 'convert_smilies' );
 	add_filter( 'commentpress_sof_de_richtext_content', 'convert_chars' );
@@ -219,58 +218,57 @@ function commentpress_sof_de_setup() {
 	 * This makes a custom "upcoming events" page available.
 	 */
 	if ( function_exists( 'eventorganiser_is_event_query' ) ) {
-		include( get_stylesheet_directory() . '/includes/compatibility/event-organiser.php' );
+		include get_stylesheet_directory() . '/includes/compatibility/event-organiser.php';
 	}
 
-	// include custom widgets
-	include( get_stylesheet_directory() . '/includes/class-theme-widgets.php' );
-	$widgets = new Spirit_Of_Football_Germany_Theme_Widgets;
+	// Include custom widgets.
+	include get_stylesheet_directory() . '/includes/class-theme-widgets.php';
+	$widgets = new Spirit_Of_Football_Germany_Theme_Widgets();
 
-	// allow shortcodes in term descriptions
+	// Allow shortcodes in term descriptions.
 	add_filter( 'term_description', 'do_shortcode' );
 
 }
 
-// hook into after_setup_theme
+// Add action for the above.
 add_action( 'after_setup_theme', 'commentpress_sof_de_setup' );
 
 
 
-if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ):
-/**
- * Filters the site icon meta tags.
- *
- * To make this work, upload both black *and* white logos and leave the white
- * logo in place. This function will replace the favicons with the black versions.
- *
- * @since 1.3.15
- *
- * @param array $meta_tags The existing Site Icon meta elements.
- * @return array $meta_tags The modified Site Icon meta elements.
- */
-function commentpress_sof_de_site_icon_meta_tags( $meta_tags ) {
+if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ) :
+	/**
+	 * Filters the site icon meta tags.
+	 *
+	 * To make this work, upload both black *and* white logos and leave the white
+	 * logo in place. This function will replace the favicons with the black versions.
+	 *
+	 * @since 1.3.15
+	 *
+	 * @param array $meta_tags The existing Site Icon meta elements.
+	 * @return array $meta_tags The modified Site Icon meta elements.
+	 */
+	function commentpress_sof_de_site_icon_meta_tags( $meta_tags ) {
 
-	// bail if none
-	if ( empty( $meta_tags ) ) return $meta_tags;
-
-	// loop through them
-	foreach( $meta_tags AS $key => $meta_tag ) {
-
-		// replace white with black icons
-		if ( false !== strpos( $meta_tag, 'rel="icon"' ) ) {
-			$meta_tags[$key] = str_replace( 'white', 'black', $meta_tag );
+		// Bail if none.
+		if ( empty( $meta_tags ) ) {
+			return $meta_tags;
 		}
 
+		// Replace white with black icons.
+		foreach ( $meta_tags as $key => $meta_tag ) {
+			if ( false !== strpos( $meta_tag, 'rel="icon"' ) ) {
+				$meta_tags[ $key ] = str_replace( 'white', 'black', $meta_tag );
+			}
+		}
+
+		// --<
+		return $meta_tags;
+
 	}
-
-	// --<
-	return $meta_tags;
-
-}
 endif;
 
-// add filter for the above
-//add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10, 1 );
+// Add filter for the above.
+//add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10 );
 
 
 
@@ -285,30 +283,32 @@ endif;
  */
 function commentpress_sof_de_enqueue_styles() {
 
-	// dequeue parent theme colour styles
-	//wp_dequeue_style( 'cp_webfont_lato_css' );
-	//wp_dequeue_style( 'cp_colours_css' );
+	/*
+	// Dequeue parent theme colour styles.
+	wp_dequeue_style( 'cp_webfont_lato_css' );
+	wp_dequeue_style( 'cp_colours_css' );
+	*/
 
-	// add child theme's css file
+	// Add child theme's CSS file.
 	wp_enqueue_style(
 		'commentpress_sof_de_css',
 		get_stylesheet_directory_uri() . '/assets/css/commentpress-sof-de.css',
 		[ 'cp_screen_css' ],
-		COMMENTPRESS_SOF_DE_VERSION, // version
-		'all' // media
+		COMMENTPRESS_SOF_DE_VERSION, // Version.
+		'all' // Media.
 	);
 
-	// add child theme's css file
+	// Add child theme's CSS file.
 	wp_enqueue_style(
 		'commentpress_ifbook_colours_css',
 		get_stylesheet_directory_uri() . '/assets/css/commentpress-colours.css',
 		[ 'commentpress_sof_de_css' ],
-		COMMENTPRESS_SOF_DE_VERSION, // version
-		'all' // media
+		COMMENTPRESS_SOF_DE_VERSION, // Version.
+		'all' // Media.
 	);
 }
 
-// add action for the above
+// Add action for the above.
 add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_styles', 998 );
 
 
@@ -321,37 +321,39 @@ add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_styles', 998 );
  */
 function commentpress_sof_de_enqueue_scripts() {
 
-	// add our theme javascript
+	// Add FitVids script.
 	wp_enqueue_script(
 		'commentpress_sof_fitvids_js',
 		get_stylesheet_directory_uri() . '/assets/js/jquery.fitvids.js',
 		[],
-		COMMENTPRESS_SOF_DE_VERSION
+		COMMENTPRESS_SOF_DE_VERSION,
+		true
 	);
 
-	// add our theme javascript
+	// Add our theme script.
 	wp_enqueue_script(
-		'commentpress_sof_de_js',
+		'commentpress_sof_js',
 		get_stylesheet_directory_uri() . '/assets/js/commentpress-sof-de.js',
 		[ 'cp_common_js', 'commentpress_sof_fitvids_js' ],
-		COMMENTPRESS_SOF_DE_VERSION
+		COMMENTPRESS_SOF_DE_VERSION,
+		true
 	);
 
-	// define local vars
+	// Define local vars.
 	$vars = [
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'spinner_url' => get_template_directory_uri() . '/assets/images/interface/ajax-loader.gif',
 		'localisation' => [
-			'blah' => __( 'Something', 'buddypress' ),
+			'blah' => __( 'Something', 'commentpress-sof-de' ),
 		],
 	];
 
-	// localise
-	wp_localize_script( 'commentpress_sof_de_js', 'Commentpress_Poets_Settings', $vars );
+	// Localise the WordPress way.
+	wp_localize_script( 'commentpress_sof_js', 'CommentPress_SOF_Settings', $vars );
 
 }
 
-// add action for the above
+// Add action for the above.
 add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_scripts', 998 );
 
 
@@ -361,7 +363,7 @@ add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_scripts', 998 );
  *
  * @since 1.0
  *
- * @return false Do not show menu
+ * @return false Do not show menu.
  */
 add_filter( 'cp_content_tab_special_pages_visible', '__return_false' );
 
@@ -377,7 +379,7 @@ add_filter( 'cp_content_tab_special_pages_visible', '__return_false' );
  */
 function commentpress_sof_de_header_image( $image ) {
 
-	// wrap in link to home
+	// Wrap in link to home.
 	$image = '<a href="' . home_url() . '">' . $image . '</a>';
 
 	// --<
@@ -385,7 +387,7 @@ function commentpress_sof_de_header_image( $image ) {
 
 }
 
-// add filter for the above
+// Add filter for the above.
 add_filter( 'commentpress_header_image', 'commentpress_sof_de_header_image' );
 
 
@@ -399,40 +401,40 @@ add_filter( 'commentpress_header_image', 'commentpress_sof_de_header_image' );
  */
 function commentpress_sof_de_register_widget_areas() {
 
-	// define an area where a widget may be placed
+	// Define an area where a widget may be placed.
 	register_sidebar( [
 		'name' => __( 'Homepage Left', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-left',
 		'description' => __( 'An optional widget area on the left of the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => "</div>",
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	] );
 
-	// define an area where a widget may be placed
+	// Define an area where a widget may be placed.
 	register_sidebar( [
 		'name' => __( 'Homepage Right', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-right',
 		'description' => __( 'An optional widget area on the right of the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => "</div>",
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	] );
 
-	// define an area where a widget may be placed
+	// Define an area where a widget may be placed.
 	register_sidebar( [
 		'name' => __( 'Homepage Lower', 'commentpress-sof-de' ),
 		'id' => 'cp-homepage-below',
 		'description' => __( 'An optional widget area below the left and right widgets on the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => "</div>",
+		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	] );
 
-	// BuddyPress Member Homepage - Left
+	// BuddyPress Member Homepage - Left.
 	register_sidebar( [
 		'name'          => esc_html__( 'Member Homepage Left', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-left',
@@ -443,7 +445,7 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_title'   => '</h2>',
 	] );
 
-	// BuddyPress Member Homepage - Right
+	// BuddyPress Member Homepage - Right.
 	register_sidebar( [
 		'name'          => esc_html__( 'Member Homepage Right', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-right',
@@ -456,6 +458,7 @@ function commentpress_sof_de_register_widget_areas() {
 
 }
 
+// Add action for the above.
 add_action( 'widgets_init', 'commentpress_sof_de_register_widget_areas' );
 
 
@@ -488,12 +491,6 @@ function commentpress_sof_de_enqueue_login_styles() {
 			height: 100px;
 			padding-bottom: 1px;
 		}
-
-		/* form
-		body.login form
-		{
-			background: #fcfcf8;
-		} */
 
 		body.login form .input,
 		body.login input[type="text"]
@@ -528,20 +525,9 @@ function commentpress_sof_de_enqueue_login_styles() {
 	</style>
 	<?php
 
-	/*
-		body.login input[type="text"]:focus,
-		body.login input[type="password"]:focus
-		{
-			border-color: #C1C3A9;
-			-webkit-box-shadow: 0 0 2px rgba( 116, 125, 31, 0.8 );
-			box-shadow: 0 0 2px rgba( 116, 125, 31, 0.8 );
-		}
-
-	*/
-
 }
 
-// add action for the above
+// Add action for the above.
 add_action( 'login_enqueue_scripts', 'commentpress_sof_de_enqueue_login_styles', 20 );
 
 
@@ -553,7 +539,7 @@ add_action( 'login_enqueue_scripts', 'commentpress_sof_de_enqueue_login_styles',
  */
 function commentpress_sof_de_admin_head() {
 
-	// match auth panel background to theme
+	// Match auth panel background to theme.
 	echo '<style>
 		body #wp-auth-check-wrap #wp-auth-check
 		{
@@ -564,7 +550,7 @@ function commentpress_sof_de_admin_head() {
 
 }
 
-// add action for the above
+// Add action for the above.
 add_action( 'admin_head', 'commentpress_sof_de_admin_head' );
 
 
@@ -575,45 +561,45 @@ add_action( 'admin_head', 'commentpress_sof_de_admin_head' );
  * @since 1.3
  *
  * @param array $media The array of image data.
- * @param int $post_id The ID of the WordPress post. (sometimes missing)
- * @param array $args Additional arguments. (sometimes missing)
+ * @param int $post_id The ID of the WordPress post -sometimes missing.
+ * @param array $args Additional arguments - sometimes missing.
  */
 function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = [] ) {
 
 	/*
-	error_log( print_r( [
-		'method' => __METHOD__,
-		'media' => $media,
-		'post_id' => $post_id,
-		'args' => $args,
-	], true ) );
+	// Bail if media is already set.
+	if ( $media ) {
+		return $media;
+	}
 	*/
 
-	// bail if media is set
-	//if ( $media ) return $media;
+	// Bail if no Post ID.
+	if ( is_null( $post_id ) || ! is_numeric( $post_id ) ) {
+		return $media;
+	}
 
-	// bail if no post ID
-	if ( is_null( $post_id ) OR ! is_numeric( $post_id ) ) return $media;
-
-	// get permalink of post
+	// Get permalink of Post.
 	$permalink = get_permalink( $post_id );
 
-	// get URL of image
+	// Get URL of image.
 	$url = apply_filters( 'jetpack_photon_url', commentpress_sof_de_default_og_image() );
 
- 	// --<
-	return [ [
-		'type'  => 'image',
-		'from'  => 'custom_fallback',
-		'src'   => esc_url( $url ),
+	// Build nested array.
+	$nested = [
+		'type' => 'image',
+		'from' => 'custom_fallback',
+		'src' => esc_url( $url ),
 		'src_width' => 200,
 		'src_height' => 200,
-		'href'  => $permalink,
-	] ];
+		'href' => $permalink,
+	];
+
+	// --<
+	return [ $nested ];
 
 }
 
-// add filter for the above
+// Add filter for the above.
 add_filter( 'jetpack_images_get_images', 'commentpress_sof_de_custom_og_image', 10, 3 );
 
 
@@ -628,10 +614,10 @@ add_filter( 'jetpack_images_get_images', 'commentpress_sof_de_custom_og_image', 
  */
 function commentpress_sof_de_default_og_image( $src = '' ) {
 
-	// url to theme directory
+	// URL to theme directory.
 	$url = trailingslashit( get_stylesheet_directory_uri() );
 
-	// path to file
+	// Path to file.
 	$path = 'assets/images/logo/sof-logo-commentpress-270.jpg';
 
 	// --<
@@ -639,6 +625,7 @@ function commentpress_sof_de_default_og_image( $src = '' ) {
 
 }
 
+// Add filter for the above.
 add_filter( 'jetpack_open_graph_image_default', 'commentpress_sof_de_custom_og_image', 10, 1 );
 
 
@@ -652,10 +639,7 @@ add_filter( 'jetpack_open_graph_image_default', 'commentpress_sof_de_custom_og_i
  * @return str $src Modified default image.
  */
 function commentpress_sof_de_latest_comments( $src = '' ) {
-
-	// --<
 	return __( 'Latest Comments', 'commentpress-sof-de' );
-
 }
 
 add_filter( 'cp_activity_tab_recent_title_blog', 'commentpress_sof_de_latest_comments', 100, 1 );
@@ -674,27 +658,17 @@ add_filter( 'cpmsextras_user_links_new_site_title', 'commentpress_sof_de_latest_
  */
 function commentpress_sof_de_bp_docs_attachment_url_base( $att_url, $attachment ) {
 
-	// override, so that BP Docs handles files
-	$new_att_base   = basename( get_attached_file( $attachment->ID ) );
-	$new_doc_url    = bp_docs_get_doc_link( $attachment->post_parent );
-	$new_att_url    = add_query_arg( 'bp-attachment', $new_att_base, $new_doc_url );
-
-	/*
-	print_r( [
-		'att_url' => $att_url,
-		'attachment' => $attachment,
-		'att_base' => $new_att_base,
-		'doc_url' => $new_doc_url,
-		'att_url new' => $new_att_url,
-	] ); die();
-	*/
+	// Override, so that BP Docs handles files.
+	$new_att_base = basename( get_attached_file( $attachment->ID ) );
+	$new_doc_url = bp_docs_get_doc_link( $attachment->post_parent );
+	$new_att_url = add_query_arg( 'bp-attachment', $new_att_base, $new_doc_url );
 
 	// --<
 	return $new_att_url;
 
 }
 
-// add filter for the above
+// Add filter for the above.
 add_filter( 'bp_docs_attachment_url_base', 'commentpress_sof_de_bp_docs_attachment_url_base', 100, 2 );
 
 
@@ -709,16 +683,18 @@ add_filter( 'bp_docs_attachment_url_base', 'commentpress_sof_de_bp_docs_attachme
  */
 function commentpress_sof_de_rendez_vous_template( $template ) {
 
-	// bail if 404
-	if ( is_404() ) return $template;
+	// Bail if 404.
+	if ( is_404() ) {
+		return $template;
+	}
 
-	// is this a single Rendez Vous?
-	if ( ! empty( $_GET['rdv'] ) AND absint( $_GET['rdv'] ) > 0 ) {
+	// Is this a single Rendez Vous?
+	if ( ! empty( $_GET['rdv'] ) && absint( $_GET['rdv'] ) > 0 ) {
 
-		// switch to full page template
+		// Switch to full page template.
 		$template = locate_template( [ 'full-width.php' ] );
 
-		// add body class filter
+		// Add body class filter.
 		add_filter( 'body_class', 'commentpress_sof_de_rendez_vous_body_class' );
 
 	}
@@ -728,6 +704,7 @@ function commentpress_sof_de_rendez_vous_template( $template ) {
 
 }
 
+// Add filter for the above.
 add_filter( 'template_include', 'commentpress_sof_de_rendez_vous_template', 100 );
 
 
@@ -742,24 +719,26 @@ add_filter( 'template_include', 'commentpress_sof_de_rendez_vous_template', 100 
  */
 function commentpress_sof_de_rendez_vous_body_class( $classes ) {
 
-	// bail if 404
-	if ( is_404() ) return $classes;
+	// Bail if 404.
+	if ( is_404() ) {
+		return $classes;
+	}
 
-	// init default template key
+	// Init default template key.
 	$key_to_replace = null;
 
-	// find key for "page-template-default"
+	// Find key for "page-template-default".
 	if ( ! empty( $classes ) ) {
-		foreach( $classes AS $key => $class ) {
+		foreach ( $classes as $key => $class ) {
 			if ( $class == 'page-template-default' ) {
 				$key_to_replace = $key;
 			}
 		}
 	}
 
-	// if we find it, replace with ours
+	// If we find it, replace with ours.
 	if ( ! empty( $key_to_replace ) ) {
-		$classes[$key] = 'page-template-full-width';
+		$classes[ $key ] = 'page-template-full-width';
 	}
 
 	// --<
@@ -787,6 +766,5 @@ function commentpress_sof_de_blog_id_body_class( $classes ) {
 
 }
 
-// add body class filter
+// Add filter for the above.
 add_filter( 'body_class', 'commentpress_sof_de_blog_id_body_class' );
-

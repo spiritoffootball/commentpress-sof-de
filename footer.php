@@ -1,11 +1,16 @@
-<!-- footer.php -->
+<?php
+/**
+ * Footer Template.
+ *
+ * Elements were opened in "assets/templates/header_body.php".
+ *
+ * @since 1.0.0
+ * @package CommentPress_SOF
+ */
 
+?><!-- footer.php -->
 
-
-<?php /* opened in assets/templates/header_body.php */ ?>
 </div><!-- /content_container -->
-
-
 
 <div id="footer">
 
@@ -13,7 +18,7 @@
 
 		<?php if ( has_nav_menu( 'footer' ) ) : ?>
 			<?php
-			// show footer menu if assigned
+			// Show footer menu if assigned.
 			wp_nav_menu( [
 				'theme_location' => 'footer',
 				'container_class' => 'commentpress-footer-nav-menu',
@@ -27,28 +32,15 @@
 			</div>
 		<?php endif; ?>
 
-		<p><?php echo sprintf(
-			__( 'Website content &copy; %1$s %2$s. All rights reserved.', 'commentpress-sof-de' ),
-			'<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>',
-			date('Y')
-		); ?></p>
+		<p><?php echo sprintf( __( 'Website content &copy; %1$s %2$s. All rights reserved.', 'commentpress-sof-de' ), '<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', gmdate( 'Y' ) ); ?></p>
 
 	</div><!-- /footer_inner -->
 
 </div><!-- /footer -->
 
-
-
 </div><!-- /container -->
 
-
-
-<?php wp_footer() ?>
-
-
-
+<?php wp_footer(); ?>
 </body>
-
-
 
 </html>

@@ -30,7 +30,7 @@ if ( $_is_commentable AND ! post_password_required() ) {
 	$post_type_name = apply_filters( 'commentpress_lexia_post_type_name', $post_type->labels->singular_name, $current_type );
 
 	// Construct recent comments phrase.
-	$_paragraph_text = sprintf( __( 'Recent Comments on this %s', 'commentpress-core' ), $post_type_name );
+	$_paragraph_text = sprintf( __( 'Recent Comments on this %s', 'commentpress-sof-de' ), $post_type_name );
 
 	/**
 	 * Allow plugins to set their own title here.
@@ -56,7 +56,7 @@ if ( $_is_commentable AND ! post_password_required() ) {
  */
 $_all_comments_title = apply_filters(
 	'cp_activity_tab_recent_title_blog',
-	__( 'Recent Comments in this Document', 'commentpress-core' )
+	__( 'Recent Comments in this Document', 'commentpress-sof-de' )
 );
 
 // Get all comments.
@@ -77,7 +77,7 @@ $_max_members = 10;
 
 <div class="sidebar_header">
 
-<h2><?php _e( 'Activity', 'commentpress-core' ); ?></h2>
+<h2><?php esc_html_e( 'Activity', 'commentpress-sof-de' ); ?></h2>
 
 </div>
 
@@ -201,7 +201,7 @@ if (
 				 */
 				$_section_header_text = apply_filters(
 					'cp_activity_tab_recent_title_all_yours',
-					__( 'Recent Activity in your Documents', 'commentpress-core' )
+					__( 'Recent Activity in your Documents', 'commentpress-sof-de' )
 				);
 
 			} else {
@@ -213,7 +213,7 @@ if (
 				 */
 				$_section_header_text = apply_filters(
 					'cp_activity_tab_recent_title_all_public',
-					__( 'Recent Activity in Public Documents', 'commentpress-core' )
+					__( 'Recent Activity in Public Documents', 'commentpress-sof-de' )
 				);
 
 			 } ?>
@@ -292,7 +292,7 @@ if (
 	// Get recently active members.
 	if ( bp_has_members( $members_recently_active ) ) : ?>
 
-		<h3 class="activity_heading"><?php _e( 'Recently Active Members', 'commentpress-core' ); ?></h3>
+		<h3 class="activity_heading"><?php esc_html_e( 'Recently Active Members', 'commentpress-sof-de' ); ?></h3>
 
 		<div class="paragraph_wrapper active_members_output">
 
@@ -344,7 +344,7 @@ if (
 	// Get online members.
 	if ( bp_has_members( $members_online ) ) : ?>
 
-		<h3 class="activity_heading"><?php _e( "Who's Online", 'commentpress-core' ); ?></h3>
+		<h3 class="activity_heading"><?php esc_html_e( "Who's Online", 'commentpress-sof-de' ); ?></h3>
 
 		<div class="paragraph_wrapper online_members_output">
 
