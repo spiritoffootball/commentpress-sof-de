@@ -71,6 +71,5 @@
 	</rule>
 
 	<exclude-pattern>assets/civicrm/*</exclude-pattern>
-	<exclude-pattern>assets/templates/*</exclude-pattern>
 
 </ruleset>
