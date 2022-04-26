@@ -1,6 +1,6 @@
-# The Ball 2026 Child Theme
+# Child theme for Spirit of Football
 
-A CommentPress child theme for Spirit of Football
+A CommentPress child theme for Spirit of Football.
 
 ## Description
 
