@@ -809,6 +809,11 @@ Latest "Ballblog" Widget
 	margin-top: 0;
 }
 
+.widget.widget_latest_ball_post .latest_ball_post .sharedaddy
+{
+    display: none;
+}
+
 
 
 /*
