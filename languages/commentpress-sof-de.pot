@@ -2,28 +2,28 @@
 # This file is distributed under the .
 msgid ""
 msgstr ""
-"Project-Id-Version: CommentPress SOF Germany 1.4.4\n"
+"Project-Id-Version: CommentPress SOF 1.4.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/commentpress-sof-de\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-26T15:05:18+00:00\n"
+"POT-Creation-Date: 2022-07-21T23:55:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: commentpress-sof-de\n"
 
 #. Theme Name of the theme
-msgid "CommentPress SOF Germany"
+msgid "CommentPress SOF"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "http://www.futureofthebook.org/commentpress/"
+msgid "https://github.com/spiritoffootball/commentpress-sof-de"
 msgstr ""
 
 #. Description of the theme
-msgid "A child of the CommentPress Flat Theme for <em>CommentPress Core</em>."
+msgid "A child of the CommentPress Flat Theme for <em>Spirit of Football</em>."
 msgstr ""
 
 #. Author of the theme
