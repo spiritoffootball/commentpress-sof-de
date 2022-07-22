@@ -809,11 +809,15 @@ Latest "Ballblog" Widget
 	margin-top: 0;
 }
 
-.widget.widget_latest_ball_post .latest_ball_post .sharedaddy
+.widget .latest_ball_post .sharedaddy
 {
     display: none;
 }
 
+.widget .latest_ball_post .post_explore a.button
+{
+/*     font-size: 90%; */
+}
 
 
 /*
@@ -1133,6 +1137,15 @@ form.contact-form
 	background-color: #e9f8fc;
 }
 
+form.contact-form .contact-submit
+{
+	margin: 0;
+}
+
+form.contact-form .contact-submit button
+{
+/*     font-size: 90%; */
+}
 
 
 /*
@@ -2036,6 +2049,15 @@ Responsive Tweaks
 	.cp_feature_image .cp_featured_title .cp_featured_title_inner h2.post_title
 	{
 		font-size: 140%;
+	}
+
+}
+
+@media all and (max-width: 600px) {
+
+	.widget .latest_ball_post .post_explore p
+	{
+		margin: 1.6em 0;
 	}
 
 }
