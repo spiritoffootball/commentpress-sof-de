@@ -1126,6 +1126,21 @@ body #buddypress div#item-header #item-header-cover-image #item-header-content
 
 /*
 --------------------------------------------------------------------------------
+Select2 compatibility
+--------------------------------------------------------------------------------
+*/
+
+#buddypress .standard-form .select2 input[type="search"]
+{
+	padding: 0;
+	border: none;
+	background: transparent;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
 JetPack Contact Form
 --------------------------------------------------------------------------------
 */
