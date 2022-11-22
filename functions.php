@@ -146,7 +146,9 @@ add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
 
 
 /**
- * OVERRIDE Do we want to show page/post meta?
+ * Do we want to show Page/Post meta?
+ *
+ * NOTE: This is an override of the built-in CommentPress function.
  *
  * @since 1.3.7
  *
@@ -160,17 +162,17 @@ function commentpress_get_post_meta_visibility( $post_id ) {
 		return true;
 	}
 
-	// Init hide - hide by default.
+	// Hide by default.
 	$hide_meta = 'hide';
 
-	// Declare access to globals.
-	global $commentpress_core;
+	// Get core plugin reference.
+	$core = commentpress_core();
 
 	// If we have the plugin enabled.
-	if ( is_object( $commentpress_core ) ) {
+	if ( ! empty( $core ) ) {
 
 		// Get global hide_meta.
-		$hide_meta = $commentpress_core->db->option_get( 'cp_page_meta_visibility' );
+		$hide_meta = $core->db->option_get( 'cp_page_meta_visibility' );
 
 		// Set key.
 		$key = '_cp_page_meta_visibility';
@@ -181,9 +183,6 @@ function commentpress_get_post_meta_visibility( $post_id ) {
 		}
 
 	}
-
-	// --<
-	return ( $hide_meta == 'show' ) ? true : false;
 
 }
 
@@ -267,8 +266,10 @@ if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ) :
 	}
 endif;
 
+/*
 // Add filter for the above.
-//add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10 );
+add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10 );
+*/
 
 
 
