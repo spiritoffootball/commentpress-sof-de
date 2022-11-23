@@ -59,6 +59,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			'no_found_rows' => true,
 			'post_status' => 'publish',
 			'posts_per_page' => 1,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			'tax_query' => [
 				[
 					'taxonomy' => 'category',

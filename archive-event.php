@@ -78,24 +78,18 @@ get_header();
 										<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<?php endif; ?>
 
-									<?php
-									$cp_meta_visibility = ' style="display: none;"';
-									if ( commentpress_get_post_meta_visibility( get_the_ID() ) ) {
-										$cp_meta_visibility = '';
-									}
-									?>
-
-									<div class="search_meta"<?php echo $cp_meta_visibility; ?>>
+									<div class="search_meta"<?php commentpress_post_meta_visibility( get_the_ID() ); ?>>
 										<?php commentpress_echo_post_meta(); ?>
 									</div>
 
 									<?php
+
 									/*
 									 * Format date/time according to whether its an all day event.
 									 *
 									 * Use microdata:
 									 *
-									 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
+									 * @see https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
 									 */
 									if ( eo_is_all_day() ) {
 										$format = 'd F Y';
@@ -104,6 +98,7 @@ get_header();
 										$format = 'd F Y ' . get_option( 'time_format' );
 										$microformat = 'c';
 									}
+
 									?>
 
 									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
