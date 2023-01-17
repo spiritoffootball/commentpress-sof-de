@@ -148,7 +148,8 @@ add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
 /**
  * Do we want to show Page/Post meta?
  *
- * NOTE: This is an override of the built-in CommentPress function.
+ * NOTE: This is an override of the built-in CommentPress function that always shows meta
+ * on Posts.
  *
  * @since 1.3.7
  *
@@ -163,26 +164,16 @@ function commentpress_get_post_meta_visibility( $post_id ) {
 	}
 
 	// Hide by default.
-	$hide_meta = 'hide';
+	$show_meta = 'hide';
 
-	// Get core plugin reference.
+	// Use setting from core if present.
 	$core = commentpress_core();
-
-	// If we have the plugin enabled.
 	if ( ! empty( $core ) ) {
-
-		// Get global hide_meta.
-		$hide_meta = $core->db->option_get( 'cp_page_meta_visibility' );
-
-		// Set key.
-		$key = '_cp_page_meta_visibility';
-
-		// Override with local value if the custom field already has one.
-		if ( get_post_meta( $post_id, $key, true ) != '' ) {
-			$hide_meta = get_post_meta( $post_id, $key, true );
-		}
-
+		$show_meta = $core->entry->single->entry_show_meta_get( $post_id );
 	}
+
+	// --<
+	return ( $show_meta == 'show' ) ? true : false;
 
 }
 
