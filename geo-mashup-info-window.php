@@ -10,10 +10,14 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 // A potentially heavy-handed way to remove shortcode-like content.
 add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
-?><!-- geo-mashup-info-window.php -->
+?>
+<!-- geo-mashup-info-window.php -->
 
 <div class="locationinfo post-location-info">
 

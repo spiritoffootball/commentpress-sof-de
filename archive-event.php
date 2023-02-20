@@ -6,13 +6,14 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
 ?><!-- archive-event.php -->
 <div id="wrapper">
-
 	<div id="main_wrapper" class="clearfix">
-
 		<div id="page_wrapper">
 
 			<?php
@@ -40,34 +41,34 @@ get_header();
 			<?php endif; ?>
 
 			<div id="content" class="clearfix">
-
 				<div class="post">
 
 					<?php if ( have_posts() ) : ?>
 
 						<h3 class="post_title">
-						<?php
-						if ( eo_is_event_archive( 'day' ) ) {
-							// Viewing date archive.
-							esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'jS F Y' );
-						} elseif ( eo_is_event_archive( 'month' ) ) {
-							// Viewing month archive.
-							esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'F Y' );
-						} elseif ( eo_is_event_archive( 'year' ) ) {
-							// Viewing year archive.
-							esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'Y' );
-						} elseif ( 'upcoming-events' == get_query_var( 'commentpress_sof_de' ) ) {
-							// Viewing upcoming events archive.
-							esc_html_e( 'Upcoming Events', 'commentpress-sof-de' );
-						} else {
-							esc_html_e( 'Events', 'commentpress-sof-de' );
-						}
-						?>
+							<?php
+							if ( eo_is_event_archive( 'day' ) ) {
+								// Viewing date archive.
+								esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'jS F Y' );
+							} elseif ( eo_is_event_archive( 'month' ) ) {
+								// Viewing month archive.
+								esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'F Y' );
+							} elseif ( eo_is_event_archive( 'year' ) ) {
+								// Viewing year archive.
+								esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'Y' );
+							} elseif ( 'upcoming-events' == get_query_var( 'commentpress_sof_de' ) ) {
+								// Viewing upcoming events archive.
+								esc_html_e( 'Upcoming Events', 'commentpress-sof-de' );
+							} else {
+								esc_html_e( 'Events', 'commentpress-sof-de' );
+							}
+							?>
 						</h3>
 
 						<div class="event-loop">
 
 							<?php while ( have_posts() ) : ?>
+
 								<?php the_post(); ?>
 
 								<div class="search_result">
@@ -118,15 +119,12 @@ get_header();
 					<?php else : ?>
 
 						<h2 class="post_title"><?php esc_html_e( 'Not Found', 'commentpress-sof-de' ); ?></h2>
-
 						<p><?php esc_html_e( 'Apologies, but no results were found for the requested archive.', 'commentpress-sof-de' ); ?></p>
-
 						<?php get_search_form(); ?>
 
 					<?php endif; ?>
 
 				</div><!-- /post -->
-
 			</div><!-- /content -->
 
 			<div class="page_nav_lower">
@@ -145,9 +143,7 @@ get_header();
 			</div><!-- /page_nav_lower -->
 
 		</div><!-- /page_wrapper -->
-
 	</div><!-- /main_wrapper -->
-
 </div><!-- /wrapper -->
 
 <?php get_sidebar(); ?>

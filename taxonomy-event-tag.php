@@ -6,19 +6,20 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
-?><!-- taxonomy-event-tag.php -->
+?>
+<!-- taxonomy-event-tag.php -->
 <div id="wrapper">
-
 	<div id="main_wrapper" class="clearfix">
-
 		<div id="page_wrapper">
 
 			<?php commentpress_page_navigation_template(); ?>
 
 			<div id="content" class="clearfix">
-
 				<div class="post">
 
 					<?php if ( have_posts() ) : ?>
@@ -40,6 +41,7 @@ get_header();
 						<div class="event-loop">
 
 							<?php while ( have_posts() ) : ?>
+
 								<?php the_post(); ?>
 
 								<div class="search_result">
@@ -84,15 +86,12 @@ get_header();
 					<?php else : ?>
 
 						<h2 class="post_title"><?php esc_html_e( 'Nothing Found', 'commentpress-sof-de' ); ?></h2>
-
 						<p><?php esc_html_e( 'Apologies, but no results were found for the requested tag.', 'commentpress-sof-de' ); ?></p>
-
 						<?php get_search_form(); ?>
 
 					<?php endif; ?>
 
 				</div><!-- /post -->
-
 			</div><!-- /content -->
 
 			<div class="page_nav_lower">
@@ -100,9 +99,7 @@ get_header();
 			</div><!-- /page_nav_lower -->
 
 		</div><!-- /page_wrapper -->
-
 	</div><!-- /main_wrapper -->
-
 </div><!-- /wrapper -->
 
 <?php get_sidebar(); ?>

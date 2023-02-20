@@ -1,19 +1,24 @@
 <?php
 /**
- * Front Page Template.
+ * Front Page template.
  *
  * @since 1.0.0
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
-?><!-- front-page.php -->
+?>
+<!-- front-page.php -->
 <div id="wrapper">
 
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : ?>
+
 			<?php the_post(); ?>
 
 			<div id="main_wrapper" class="clearfix">
@@ -23,8 +28,7 @@ get_header();
 					<?php commentpress_get_feature_image(); ?>
 
 					<div id="content" class="content workflow-wrapper">
-
-						<div class="post<?php echo commentpress_get_post_css_override( get_the_ID() ); ?>" id="post-<?php the_ID(); ?>">
+						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>">
 
 							<?php if ( ! commentpress_has_feature_image() ) : ?>
 								<h2 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -33,7 +37,6 @@ get_header();
 							<?php the_content(); ?>
 
 						</div><!-- /post -->
-
 					</div><!-- /content -->
 
 				</div><!-- /page_wrapper -->
@@ -55,7 +58,7 @@ get_header();
 						<?php endif; ?>
 					</div>
 
-				</div>
+				</div><!-- /cp-homepage-widgets -->
 
 			</div><!-- /main_wrapper -->
 
@@ -67,9 +70,11 @@ get_header();
 			<div id="page_wrapper" class="page_wrapper">
 				<div id="content" class="content">
 					<div class="post">
+
 						<h2 class="post_title"><?php esc_html_e( 'Page Not Found', 'commentpress-sof-de' ); ?></h2>
 						<p><?php esc_html_e( 'Sorry, but you are looking for something that isn’t here.', 'commentpress-sof-de' ); ?></p>
 						<?php get_search_form(); ?>
+
 					</div><!-- /post -->
 				</div><!-- /content -->
 			</div><!-- /page_wrapper -->

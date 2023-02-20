@@ -10,7 +10,11 @@
  * @package CommentPress_SOF
  */
 
-?><!-- geo-mashup-full-post.php -->
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+?>
+<!-- geo-mashup-full-post.php -->
 
 <?php if ( have_posts() ) : ?>
 

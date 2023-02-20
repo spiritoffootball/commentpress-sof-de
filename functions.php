@@ -11,6 +11,9 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 // Set our version here.
 define( 'COMMENTPRESS_SOF_DE_VERSION', '1.4.6' );
 
@@ -154,7 +157,7 @@ add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
  * @since 1.3.7
  *
  * @param int $post_id The numeric ID of the post.
- * @return bool $hide_meta True if meta is shown, false if hidden.
+ * @return bool $show_meta True if meta is shown, false if hidden.
  */
 function commentpress_get_post_meta_visibility( $post_id ) {
 
@@ -226,6 +229,7 @@ add_action( 'after_setup_theme', 'commentpress_sof_de_setup' );
 
 
 if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ) :
+
 	/**
 	 * Filters the site icon meta tags.
 	 *
@@ -255,6 +259,7 @@ if ( ! function_exists( 'commentpress_sof_de_site_icon_meta_tags' ) ) :
 		return $meta_tags;
 
 	}
+
 endif;
 
 /*
@@ -268,6 +273,7 @@ add_filter( 'site_icon_meta_tags', 'commentpress_sof_de_site_icon_meta_tags', 10
  * Enqueue child theme styles.
  *
  * Styles can be overridden because the child theme is:
+ *
  * 1. enqueueing later than the CommentPress Modern Theme
  * 2. making the file dependent on the CommentPress Modern Theme's stylesheet
  *
@@ -305,7 +311,6 @@ add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_styles', 998 );
 
 
 
-
 /**
  * Enqueue child theme scripts.
  *
@@ -313,6 +318,7 @@ add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_styles', 998 );
  */
 function commentpress_sof_de_enqueue_scripts() {
 
+	/*
 	// Add FitVids script.
 	wp_enqueue_script(
 		'commentpress_sof_fitvids_js',
@@ -321,12 +327,14 @@ function commentpress_sof_de_enqueue_scripts() {
 		COMMENTPRESS_SOF_DE_VERSION,
 		true
 	);
+	*/
 
 	// Add our theme script.
 	wp_enqueue_script(
 		'commentpress_sof_js',
 		get_stylesheet_directory_uri() . '/assets/js/commentpress-sof-de.js',
-		[ 'cp_common_js', 'commentpress_sof_fitvids_js' ],
+		[ 'cp_common_js' ],
+		//[ 'cp_common_js', 'commentpress_sof_fitvids_js' ],
 		COMMENTPRESS_SOF_DE_VERSION,
 		true
 	);
@@ -681,7 +689,8 @@ function commentpress_sof_de_rendez_vous_template( $template ) {
 	}
 
 	// Is this a single Rendez Vous?
-	if ( ! empty( $_GET['rdv'] ) && absint( $_GET['rdv'] ) > 0 ) {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( ! empty( $_GET['rdv'] ) && (int) $_GET['rdv'] > 0 ) {
 
 		// Switch to full page template.
 		$template = locate_template( [ 'full-width.php' ] );

@@ -8,7 +8,11 @@
  * @package CommentPress_SOF
  */
 
-?><!-- footer.php -->
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+?>
+<!-- footer.php -->
 
 </div><!-- /content_container -->
 

@@ -6,14 +6,19 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
-?><!-- single-event.php -->
+?>
+<!-- single-event.php -->
 <div id="wrapper">
 
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : ?>
+
 			<?php the_post(); ?>
 
 			<div id="main_wrapper" class="clearfix">
@@ -141,93 +146,91 @@ get_header();
 
 							</div><!-- .entry-meta -->
 
-							<?php
+							<?php the_content(); ?>
 
-							global $more;
-							$more = true;
-							the_content( '' );
+							<?php echo commentpress_multipager(); ?>
 
-							?>
+							<p class="postmetadata">
+								<?php
 
-							<?php
-							/*
-							 * NOTE: Comment permalinks are filtered if the comment is not on the first page
-							 * in a multipage post... see: commentpress_multipage_comment_link in functions.php
-							 */
-							echo commentpress_multipager();
-							?>
-
-							<p class="postmetadata"><?php
-
-							// Define RSS text.
-							$rss_text = __( 'RSS 2.0', 'commentpress-sof-de' );
-
-							// Construct RSS link.
-							$rss_link = '<a href="' . esc_url( get_post_comments_feed_link() ) . '">' . $rss_text . '</a>';
-
-							// Show text.
-							echo sprintf( __( 'You can follow any comments on this entry through the %s feed.', 'commentpress-sof-de' ), $rss_link );
-
-							// Add trailing space.
-							echo ' ';
-
-							if ( ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
-
-								// Both comments and pings are open.
-
-								// Define trackback text.
-								$trackback_text = __( 'trackback', 'commentpress-sof-de' );
+								// Define RSS text.
+								$rss_text = __( 'RSS 2.0', 'commentpress-sof-de' );
 
 								// Construct RSS link.
-								$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
+								$rss_link = '<a href="' . esc_url( get_post_comments_feed_link() ) . '">' . $rss_text . '</a>';
 
-								// Write out.
-								echo sprintf( __( 'You can leave a comment, or %s from your own site.', 'commentpress-sof-de' ), $trackback_link );
-
-								// Add trailing space.
-								echo ' ';
-
-							} elseif ( ! ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
-
-								// Only pings are open.
-
-								// Define trackback text.
-								$trackback_text = __( 'trackback', 'commentpress-sof-de' );
-
-								// Construct RSS link.
-								$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
-
-								// Write out.
-								echo sprintf( __( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-sof-de' ), $trackback_link );
+								// Show text.
+								echo sprintf(
+									__( 'You can follow any comments on this entry through the %s feed.', 'commentpress-sof-de' ),
+									$rss_link
+								);
 
 								// Add trailing space.
 								echo ' ';
 
-							} elseif ( ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+								if ( ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
 
-								// Comments are open, pings are not.
-								esc_html_e( 'You can leave a comment. Pinging is currently not allowed.', 'commentpress-sof-de' );
+									// Both Comments and pings are open.
 
-								// Add trailing space.
-								echo ' ';
+									// Define trackback text.
+									$trackback_text = __( 'trackback', 'commentpress-sof-de' );
 
-							} elseif ( ! ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+									// Construct RSS link.
+									$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
 
-								// Neither comments nor pings are open.
-								esc_html_e( 'Both comments and pings are currently closed.', 'commentpress-sof-de' );
+									// Write out.
+									echo sprintf(
+										__( 'You can leave a comment, or %s from your own site.', 'commentpress-sof-de' ),
+										$trackback_link
+									);
 
-								// Add trailing space.
-								echo ' ';
+									// Add trailing space.
+									echo ' ';
 
-							}
+								} elseif ( ! ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
 
-							// Show edit link.
-							edit_post_link( __( 'Edit this entry', 'commentpress-sof-de' ), '', '.' );
+									// Only pings are open.
 
-							?></p>
+									// Define trackback text.
+									$trackback_text = __( 'trackback', 'commentpress-sof-de' );
+
+									// Construct RSS link.
+									$trackback_link = '<a href="' . esc_url( get_trackback_url() ) . '"rel="trackback">' . $trackback_text . '</a>';
+
+									// Write out.
+									echo sprintf(
+										__( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-sof-de' ),
+										$trackback_link
+									);
+
+									// Add trailing space.
+									echo ' ';
+
+								} elseif ( ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+
+									// Comments are open, pings are not.
+									esc_html_e( 'You can leave a comment. Pinging is currently not allowed.', 'commentpress-sof-de' );
+
+									// Add trailing space.
+									echo ' ';
+
+								} elseif ( ! ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+
+									// Neither Comments nor pings are open.
+									esc_html_e( 'Both comments and pings are currently closed.', 'commentpress-sof-de' );
+
+									// Add trailing space.
+									echo ' ';
+
+								}
+
+								// Show edit link.
+								edit_post_link( __( 'Edit this entry', 'commentpress-sof-de' ), '', '.' );
+
+								?>
+							</p>
 
 						</div><!-- /post -->
-
 					</div><!-- /content -->
 
 					<div class="page_nav_lower">
@@ -235,7 +238,6 @@ get_header();
 					</div><!-- /page_nav_lower -->
 
 				</div><!-- /page_wrapper -->
-
 			</div><!-- /main_wrapper -->
 
 		<?php endwhile; ?>

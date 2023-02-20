@@ -6,19 +6,20 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
-?><!-- taxonomy-event-venue.php -->
+?>
+<!-- taxonomy-event-venue.php -->
 <div id="wrapper">
-
 	<div id="main_wrapper" class="clearfix">
-
 		<div id="page_wrapper">
 
 			<?php commentpress_page_navigation_template(); ?>
 
 			<div id="content" class="clearfix">
-
 				<div class="post">
 
 					<header class="page-header">
@@ -40,63 +41,64 @@ get_header();
 
 						<div class="event-loop">
 
-						<?php while ( have_posts() ) : ?>
-							<?php the_post(); ?>
+							<?php while ( have_posts() ) : ?>
 
-							<div class="search_result">
+								<?php the_post(); ?>
 
-								<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', [ 'style' => 'float: left; margin: 0 12px 12px 0;' ] ); ?><?php the_title(); ?></a></h3>
+								<div class="search_result">
 
-								<div class="search_meta"<?php commentpress_post_meta_visibility( get_the_ID() ); ?>>
-									<?php commentpress_echo_post_meta(); ?>
-								</div>
+									<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to', 'commentpress-sof-de' ); ?> <?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', [ 'style' => 'float: left; margin: 0 12px 12px 0;' ] ); ?><?php the_title(); ?></a></h3>
 
-								<?php
-								/*
-								 * Format date/time according to whether its an all day event.
-								 *
-								 * Use microdata:
-								 *
-								 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
-								 */
-								if ( eo_is_all_day() ) {
-									$format = 'd F Y';
-									$microformat = 'Y-m-d';
-								} else {
-									$format = 'd F Y ' . get_option( 'time_format' );
-									$microformat = 'c';
-								}
-								?>
+									<div class="search_meta"<?php commentpress_post_meta_visibility( get_the_ID() ); ?>>
+										<?php commentpress_echo_post_meta(); ?>
+									</div>
 
-								<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
+									<?php
+									/*
+									 * Format date/time according to whether its an all day event.
+									 *
+									 * Use microdata:
+									 *
+									 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
+									 */
+									if ( eo_is_all_day() ) {
+										$format = 'd F Y';
+										$microformat = 'Y-m-d';
+									} else {
+										$format = 'd F Y ' . get_option( 'time_format' );
+										$microformat = 'c';
+									}
+									?>
 
-								<?php echo eo_get_event_meta_list(); ?>
+									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
 
-								<?php the_excerpt(); ?>
+									<?php echo eo_get_event_meta_list(); ?>
 
-								<p class="search_meta"><?php the_terms( get_the_ID(), 'event-tag', __( 'Tags: ', 'commentpress-sof-de' ), ', ', '<br />' ); ?> <?php esc_html_e( 'Posted in', 'commentpress-sof-de' ); ?> <?php the_terms( get_the_ID(), 'event-category', '', ', ' ); ?> | <?php edit_post_link( __( 'Edit', 'commentpress-sof-de' ), '', ' | ' ); ?>  <?php comments_popup_link( __( 'No Comments &#187;', 'commentpress-sof-de' ), __( '1 Comment &#187;', 'commentpress-sof-de' ), __( '% Comments &#187;', 'commentpress-sof-de' ) ); ?></p>
+									<?php the_excerpt(); ?>
 
-							</div><!-- /search_result -->
+									<p class="search_meta"><?php the_terms( get_the_ID(), 'event-tag', __( 'Tags: ', 'commentpress-sof-de' ), ', ', '<br />' ); ?> <?php esc_html_e( 'Posted in', 'commentpress-sof-de' ); ?> <?php the_terms( get_the_ID(), 'event-category', '', ', ' ); ?> | <?php edit_post_link( __( 'Edit', 'commentpress-sof-de' ), '', ' | ' ); ?>  <?php comments_popup_link( __( 'No Comments &#187;', 'commentpress-sof-de' ), __( '1 Comment &#187;', 'commentpress-sof-de' ), __( '% Comments &#187;', 'commentpress-sof-de' ) ); ?></p>
 
-							<?php endwhile; ?><!--The Loop ends-->
+								</div><!-- /search_result -->
 
-							</div>
+							<?php endwhile; ?>
 
+						</div>
 
 					<?php else : ?>
-							<!-- If there are no events -->
-							<article id="post-0" class="post no-results not-found">
-								<header class="entry-header">
-									<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'commentpress-sof-de' ); ?></h1>
-								</header><!-- .entry-header -->
-								<div class="entry-content">
-									<p><?php esc_html_e( 'Apologies, but no events were found for the requested venue.', 'commentpress-sof-de' ); ?></p>
-								</div><!-- .entry-content -->
-							</article><!-- #post-0 -->
+
+						<!-- If there are no events -->
+						<article id="post-0" class="post no-results not-found">
+							<header class="entry-header">
+								<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'commentpress-sof-de' ); ?></h1>
+							</header><!-- .entry-header -->
+							<div class="entry-content">
+								<p><?php esc_html_e( 'Apologies, but no events were found for the requested venue.', 'commentpress-sof-de' ); ?></p>
+							</div><!-- .entry-content -->
+						</article><!-- #post-0 -->
+
 					<?php endif; ?>
 
 				</div><!-- /post -->
-
 			</div><!-- /content -->
 
 			<div class="page_nav_lower">
@@ -104,9 +106,7 @@ get_header();
 			</div><!-- /page_nav_lower -->
 
 		</div><!-- /page_wrapper -->
-
 	</div><!-- /main_wrapper -->
-
 </div><!-- /wrapper -->
 
 <?php get_sidebar(); ?>

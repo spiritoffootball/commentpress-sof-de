@@ -10,10 +10,14 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 // Avoid nested maps.
 add_filter( 'the_content', [ 'GeoMashupQuery', 'strip_map_shortcodes' ], 1, 9 );
 
-?><!-- geo-mashup-info-window-max.php -->
+?>
+<!-- geo-mashup-info-window-max.php -->
 
 <div class="info-window-max">
 

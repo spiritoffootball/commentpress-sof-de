@@ -6,24 +6,26 @@
  * @package CommentPress_SOF
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
 
-?><!-- index.php -->
+?>
+<!-- index.php -->
 <div id="wrapper">
-
 	<div id="main_wrapper" class="clearfix">
-
 		<div id="page_wrapper">
 
 			<?php commentpress_page_navigation_template(); ?>
 
 			<div id="content" class="clearfix">
-
 				<div class="post">
 
 					<?php if ( have_posts() ) : ?>
 
 						<?php while ( have_posts() ) : ?>
+
 							<?php the_post(); ?>
 
 							<div class="search_result">
@@ -52,10 +54,12 @@ get_header();
 
 						<h2 class="post_title"><?php esc_html_e( 'No blog posts found', 'commentpress-sof-de' ); ?></h2>
 
-						<p><?php esc_html_e( 'There are no blog posts yet.', 'commentpress-sof-de' ); ?>
+						<p>
+							<?php esc_html_e( 'There are no blog posts yet.', 'commentpress-sof-de' ); ?>
 							<?php if ( is_user_logged_in() ) : ?>
 								<a href="<?php admin_url(); ?>"><?php esc_html_e( 'Go to your dashboard to add one.', 'commentpress-sof-de' ); ?></a>
-							<?php endif; ?></p>
+							<?php endif; ?>
+						</p>
 
 						<p><?php esc_html_e( 'If you were looking for something that hasn’t been found, try using the search form below.', 'commentpress-sof-de' ); ?></p>
 
@@ -64,7 +68,6 @@ get_header();
 					<?php endif; ?>
 
 				</div><!-- /post -->
-
 			</div><!-- /content -->
 
 			<div class="page_nav_lower">
@@ -72,9 +75,7 @@ get_header();
 			</div><!-- /page_nav_lower -->
 
 		</div><!-- /page_wrapper -->
-
 	</div><!-- /main_wrapper -->
-
 </div><!-- /wrapper -->
 
 <?php get_sidebar(); ?>
