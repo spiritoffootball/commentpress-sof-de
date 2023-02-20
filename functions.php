@@ -318,23 +318,11 @@ add_action( 'wp_enqueue_scripts', 'commentpress_sof_de_enqueue_styles', 998 );
  */
 function commentpress_sof_de_enqueue_scripts() {
 
-	/*
-	// Add FitVids script.
-	wp_enqueue_script(
-		'commentpress_sof_fitvids_js',
-		get_stylesheet_directory_uri() . '/assets/js/jquery.fitvids.js',
-		[],
-		COMMENTPRESS_SOF_DE_VERSION,
-		true
-	);
-	*/
-
 	// Add our theme script.
 	wp_enqueue_script(
 		'commentpress_sof_js',
 		get_stylesheet_directory_uri() . '/assets/js/commentpress-sof-de.js',
 		[ 'cp_common_js' ],
-		//[ 'cp_common_js', 'commentpress_sof_fitvids_js' ],
 		COMMENTPRESS_SOF_DE_VERSION,
 		true
 	);
