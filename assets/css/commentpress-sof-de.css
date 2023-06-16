@@ -739,6 +739,81 @@ Team Shortcode
 
 /*
 --------------------------------------------------------------------------------
+Individuals CPT
+--------------------------------------------------------------------------------
+*/
+
+.page-template-page-people .content-area
+{
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ddd;
+}
+
+.page-template-page-people .individuals-header
+{
+	font-size: 120%;
+}
+
+.page-template-page-people .entry-title
+{
+	font-size: 120%;
+	text-transform: none;
+	margin-bottom: 0.2em;
+}
+
+.page-template-page-people .entry-title a
+{
+	color: #000;
+	text-decoration: none;
+}
+
+.individual-job-title,
+.individual-about,
+.individual-email,
+.individual .jetpack_widget_social_icons ul,
+.individual-website
+{
+	margin-bottom: 0.5em;
+}
+
+.page-template-page-people .individual-job-title,
+.page-template-page-people .individual-about,
+.page-template-page-people .individual-email,
+.page-template-page-people .individual .jetpack_widget_social_icons ul,
+.page-template-page-people .individual-website
+{
+	margin-bottom: 0.1em;
+}
+
+.individual-job-title
+{
+	font-size: 120%;
+	font-weight: 700;
+}
+
+.page-template-page-people .individual-job-title
+{
+	font-size: 100%;
+}
+
+.page-template-page-people .type-individual .individual-tags
+{
+    display: none;
+}
+
+.page-template-page-people .type-individual .entry-header
+{
+	float: left;
+	margin-right: 1em;
+}
+
+.page-template-page-people .type-individual .entry-header img
+{
+	width: 200px;
+}
+
+/*
+--------------------------------------------------------------------------------
 Latest "Ballblog" Widget
 --------------------------------------------------------------------------------
 */
