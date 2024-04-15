@@ -87,9 +87,8 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			}
 
 			// Remove feature image switcher if present.
-			global $feature_image_switcher;
-			if ( isset( $feature_image_switcher ) ) {
-				remove_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
+			if ( function_exists( 'feature_image_switcher' ) ) {
+				remove_filter( 'commentpress_get_feature_image', [ feature_image_switcher(), 'get_button' ], 20, 2 );
 			}
 
 			// Filter the title to prevent it being commentable.
@@ -132,8 +131,8 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			wp_reset_postdata();
 
 			// Re-hook feature image switcher if present.
-			if ( isset( $feature_image_switcher ) ) {
-				add_filter( 'commentpress_get_feature_image', [ $feature_image_switcher, 'get_button' ], 20, 2 );
+			if ( function_exists( 'feature_image_switcher' ) ) {
+				add_filter( 'commentpress_get_feature_image', [ feature_image_switcher(), 'get_button' ], 20, 2 );
 			}
 
 		// End check for posts.
