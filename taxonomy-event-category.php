@@ -26,13 +26,15 @@ get_header();
 
 						<header class="page-header">
 							<h3 class="page-title">
-								<?php printf( __( 'Event Category: %s', 'commentpress-sof-de' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?>
+								<?php /* translators: %s: The category title. */ ?>
+								<?php printf( esc_html__( 'Event Category: %s', 'commentpress-sof-de' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?>
 							</h3>
 							<?php
 
 							// If the category has a description display it.
 							$category_description = category_description();
 							if ( ! empty( $category_description ) ) {
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
 							}
 
@@ -62,17 +64,17 @@ get_header();
 									 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
 									 */
 									if ( eo_is_all_day() ) {
-										$format = 'd F Y';
+										$format      = 'd F Y';
 										$microformat = 'Y-m-d';
 									} else {
-										$format = 'd F Y ' . get_option( 'time_format' );
+										$format      = 'd F Y ' . get_option( 'time_format' );
 										$microformat = 'c';
 									}
 									?>
 
 									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
 
-									<?php echo eo_get_event_meta_list(); ?>
+									<?php echo eo_get_event_meta_list(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 									<?php the_excerpt(); ?>
 

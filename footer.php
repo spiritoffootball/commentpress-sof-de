@@ -22,11 +22,14 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php if ( has_nav_menu( 'footer' ) ) : ?>
 			<?php
+
 			// Show footer menu if assigned.
-			wp_nav_menu( [
-				'theme_location' => 'footer',
+			$menu_args = [
+				'theme_location'  => 'footer',
 				'container_class' => 'commentpress-footer-nav-menu',
-			] );
+			];
+			wp_nav_menu( $menu_args );
+
 			?>
 		<?php endif; ?>
 
@@ -36,7 +39,8 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		<?php endif; ?>
 
-		<p><?php echo sprintf( __( 'Website content &copy; %1$s %2$s. All rights reserved.', 'commentpress-sof-de' ), '<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', gmdate( 'Y' ) ); ?></p>
+		<?php /* translators: 1: The site title, 2: The current year. */ ?>
+		<p><?php echo sprintf( esc_html__( 'Website content &copy; %1$s %2$s. All rights reserved.', 'commentpress-sof-de' ), '<a href="' . esc_url( home_url() ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>', esc_html( gmdate( 'Y' ) ) ); ?></p>
 
 	</div><!-- /footer_inner -->
 

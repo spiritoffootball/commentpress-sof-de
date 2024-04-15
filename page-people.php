@@ -42,15 +42,18 @@ get_header();
 								<h2 class="post_title"<?php commentpress_post_title_visibility( get_the_ID() ); ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 							<?php endif; ?>
 
-							<?php if ( $board_loop = locate_template( 'template-parts/loop-individuals-board.php' ) ) : ?>
+							<?php $board_loop = locate_template( 'template-parts/loop-individuals-board.php' ); ?>
+							<?php if ( $board_loop ) : ?>
 								<?php load_template( $board_loop ); ?>
 							<?php endif; ?>
 
-							<?php if ( $backoffice_loop = locate_template( 'template-parts/loop-individuals-backoffice.php' ) ) : ?>
+							<?php $backoffice_loop = locate_template( 'template-parts/loop-individuals-backoffice.php' ); ?>
+							<?php if ( $backoffice_loop ) : ?>
 								<?php load_template( $backoffice_loop ); ?>
 							<?php endif; ?>
 
-							<?php if ( $projektmanagerinnen_loop = locate_template( 'template-parts/loop-individuals-projektmanagerinnen.php' ) ) : ?>
+							<?php $projektmanagerinnen_loop = locate_template( 'template-parts/loop-individuals-projektmanagerinnen.php' ); ?>
+							<?php if ( $projektmanagerinnen_loop ) : ?>
 								<?php load_template( $projektmanagerinnen_loop ); ?>
 							<?php endif; ?>
 

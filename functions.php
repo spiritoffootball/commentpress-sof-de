@@ -66,13 +66,13 @@ add_action( 'acf/init', 'commentpress_sof_acf_init' );
  *
  * @since 1.3.11
  *
- * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param string       $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
  * @param array|string $args See {@link bp_get_member_avatar()}.
  * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
  */
 function commentpress_avatar_filter( $value, $args ) {
 
-	if ( empty( $args['type'] ) || ( ! empty( $args['type'] ) && $args['type'] == 'thumb' ) ) {
+	if ( empty( $args['type'] ) || ( ! empty( $args['type'] ) && 'thumb' === $args['type'] ) ) {
 		if ( ! is_array( $args ) ) {
 			$args = [];
 		}
@@ -95,14 +95,14 @@ add_filter( 'bp_member_avatar', 'commentpress_avatar_filter', 10, 2 );
  *
  * @since 1.3.11
  *
- * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param string       $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
  * @param array|string $args See {@link bp_get_member_avatar()}.
  * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
  */
 function commentpress_avatar_group_member_filter( $value, $args ) {
 
 	// Set type manually.
-	if ( empty( $args['type'] ) || $args['type'] == 'thumb' ) {
+	if ( empty( $args['type'] ) || 'thumb' === $args['type'] ) {
 		$args['type'] = 'full';
 		return bp_core_fetch_avatar( $args );
 	}
@@ -122,19 +122,19 @@ add_filter( 'bp_get_group_member_avatar_thumb', 'commentpress_avatar_group_membe
  *
  * @since 1.3.11
  *
- * @param string $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
+ * @param string       $value Formatted HTML <img> element, or raw avatar URL based on $html arg.
  * @param array|string $args See {@link bp_get_member_avatar()}.
  * @return int $value Modified HTML <img> element, or raw avatar URL based on $html arg.
  */
 function commentpress_avatar_group_filter( $value, $args ) {
 
 	// Set type manually.
-	if ( ! empty( $args['type'] ) && $args['type'] == 'thumb' ) {
+	if ( ! empty( $args['type'] ) && 'thumb' === $args['type'] ) {
 		global $groups_template;
-		$args['type'] = 'full';
-		$args['item_id'] = $groups_template->group->id;
+		$args['type']       = 'full';
+		$args['item_id']    = $groups_template->group->id;
 		$args['avatar_dir'] = 'group-avatars';
-		$args['object'] = 'group';
+		$args['object']     = 'group';
 		return bp_core_fetch_avatar( $args );
 	}
 
@@ -162,7 +162,7 @@ add_filter( 'bp_get_group_avatar', 'commentpress_avatar_group_filter', 10, 2 );
 function commentpress_get_post_meta_visibility( $post_id ) {
 
 	// Always show on posts.
-	if ( 'post' == get_post_type( $post_id ) ) {
+	if ( 'post' === get_post_type( $post_id ) ) {
 		return true;
 	}
 
@@ -176,7 +176,7 @@ function commentpress_get_post_meta_visibility( $post_id ) {
 	}
 
 	// --<
-	return ( $show_meta == 'show' ) ? true : false;
+	return 'show' === $show_meta ? true : false;
 
 }
 
@@ -329,8 +329,8 @@ function commentpress_sof_de_enqueue_scripts() {
 
 	// Define local vars.
 	$vars = [
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'spinner_url' => get_template_directory_uri() . '/assets/images/interface/ajax-loader.gif',
+		'ajax_url'     => admin_url( 'admin-ajax.php' ),
+		'spinner_url'  => get_template_directory_uri() . '/assets/images/interface/ajax-loader.gif',
 		'localisation' => [
 			'blah' => __( 'Something', 'commentpress-sof-de' ),
 		],
@@ -390,40 +390,43 @@ add_filter( 'commentpress_header_image', 'commentpress_sof_de_header_image' );
 function commentpress_sof_de_register_widget_areas() {
 
 	// Define an area where a widget may be placed.
-	register_sidebar( [
-		'name' => __( 'Homepage Left', 'commentpress-sof-de' ),
-		'id' => 'cp-homepage-left',
-		'description' => __( 'An optional widget area on the left of the Homepage', 'commentpress-sof-de' ),
+	$args = [
+		'name'          => __( 'Homepage Left', 'commentpress-sof-de' ),
+		'id'            => 'cp-homepage-left',
+		'description'   => __( 'An optional widget area on the left of the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	] );
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	];
+	register_sidebar( $args );
 
 	// Define an area where a widget may be placed.
-	register_sidebar( [
-		'name' => __( 'Homepage Right', 'commentpress-sof-de' ),
-		'id' => 'cp-homepage-right',
-		'description' => __( 'An optional widget area on the right of the Homepage', 'commentpress-sof-de' ),
+	$args = [
+		'name'          => __( 'Homepage Right', 'commentpress-sof-de' ),
+		'id'            => 'cp-homepage-right',
+		'description'   => __( 'An optional widget area on the right of the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	] );
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	];
+	register_sidebar( $args );
 
 	// Define an area where a widget may be placed.
-	register_sidebar( [
-		'name' => __( 'Homepage Lower', 'commentpress-sof-de' ),
-		'id' => 'cp-homepage-below',
-		'description' => __( 'An optional widget area below the left and right widgets on the Homepage', 'commentpress-sof-de' ),
+	$args = [
+		'name'          => __( 'Homepage Lower', 'commentpress-sof-de' ),
+		'id'            => 'cp-homepage-below',
+		'description'   => __( 'An optional widget area below the left and right widgets on the Homepage', 'commentpress-sof-de' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	] );
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	];
+	register_sidebar( $args );
 
 	// BuddyPress Member Homepage - Left.
-	register_sidebar( [
+	$args = [
 		'name'          => esc_html__( 'Member Homepage Left', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-left',
 		'description'   => esc_html__( 'Add widgets to the Member Homepage left column here.', 'commentpress-sof-de' ),
@@ -431,10 +434,11 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	] );
+	];
+	register_sidebar( $args );
 
 	// BuddyPress Member Homepage - Right.
-	register_sidebar( [
+	$args = [
 		'name'          => esc_html__( 'Member Homepage Right', 'commentpress-sof-de' ),
 		'id'            => 'sof-member-front-right',
 		'description'   => esc_html__( 'Add widgets to the Member Homepage right column here.', 'commentpress-sof-de' ),
@@ -442,7 +446,8 @@ function commentpress_sof_de_register_widget_areas() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	] );
+	];
+	register_sidebar( $args );
 
 }
 
@@ -473,7 +478,7 @@ function commentpress_sof_de_enqueue_login_styles() {
 		#login h1 a,
 		.login h1 a
 		{
-			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo/sof-logo-commentpress-200.png);
+			background-image: url(<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/logo/sof-logo-commentpress-200.png);
 			background-size: 100px;
 			width: 100px;
 			height: 100px;
@@ -549,7 +554,7 @@ add_action( 'admin_head', 'commentpress_sof_de_admin_head' );
  * @since 1.3
  *
  * @param array $media The array of image data.
- * @param int $post_id The ID of the WordPress post -sometimes missing.
+ * @param int   $post_id The ID of the WordPress post -sometimes missing.
  * @param array $args Additional arguments - sometimes missing.
  */
 function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = [] ) {
@@ -574,12 +579,12 @@ function commentpress_sof_de_custom_og_image( $media, $post_id = null, $args = [
 
 	// Build nested array.
 	$nested = [
-		'type' => 'image',
-		'from' => 'custom_fallback',
-		'src' => esc_url( $url ),
-		'src_width' => 200,
+		'type'       => 'image',
+		'from'       => 'custom_fallback',
+		'src'        => esc_url( $url ),
+		'src_width'  => 200,
 		'src_height' => 200,
-		'href' => $permalink,
+		'href'       => $permalink,
 	];
 
 	// --<
@@ -640,7 +645,7 @@ add_filter( 'cpmsextras_user_links_new_site_title', 'commentpress_sof_de_latest_
  *
  * @since 0.1
  *
- * @param str $att_url Existing attachment URL.
+ * @param str    $att_url Existing attachment URL.
  * @param object $attachment The attachment data object.
  * @return str $att_url Modified attachment URL.
  */
@@ -648,8 +653,8 @@ function commentpress_sof_de_bp_docs_attachment_url_base( $att_url, $attachment 
 
 	// Override, so that BP Docs handles files.
 	$new_att_base = basename( get_attached_file( $attachment->ID ) );
-	$new_doc_url = bp_docs_get_doc_link( $attachment->post_parent );
-	$new_att_url = add_query_arg( 'bp-attachment', $new_att_base, $new_doc_url );
+	$new_doc_url  = bp_docs_get_doc_link( $attachment->post_parent );
+	$new_att_url  = add_query_arg( 'bp-attachment', $new_att_base, $new_doc_url );
 
 	// --<
 	return $new_att_url;
@@ -719,7 +724,7 @@ function commentpress_sof_de_rendez_vous_body_class( $classes ) {
 	// Find key for "page-template-default".
 	if ( ! empty( $classes ) ) {
 		foreach ( $classes as $key => $class ) {
-			if ( $class == 'page-template-default' ) {
+			if ( 'page-template-default' === $class ) {
 				$key_to_replace = $key;
 			}
 		}

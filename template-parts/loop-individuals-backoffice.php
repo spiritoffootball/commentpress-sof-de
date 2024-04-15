@@ -12,16 +12,17 @@ defined( 'ABSPATH' ) || exit;
 
 // Define query args.
 $board_args = [
-	'post_type' => 'individual',
-	'post_status' => 'publish',
-	'order' => 'ASC',
-	'orderby' => 'title',
+	'post_type'      => 'individual',
+	'post_status'    => 'publish',
+	'order'          => 'ASC',
+	'orderby'        => 'title',
 	'posts_per_page' => -1,
-	'tax_query' => [
+	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+	'tax_query'      => [
 		[
 			'taxonomy' => 'individual-type',
-			'field' => 'slug',
-			'terms' => 'backoffice',
+			'field'    => 'slug',
+			'terms'    => 'backoffice',
 		],
 	],
 ];

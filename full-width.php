@@ -32,12 +32,14 @@ get_header();
 					<?php endif; ?>
 
 					<div id="content" class="content">
-						<div class="post<?php echo commentpress_get_post_css_override( get_the_ID() ); ?>" id="post-<?php the_ID(); ?>">
+						<div class="post<?php echo esc_attr( commentpress_get_post_css_override( get_the_ID() ) ); ?>" id="post-<?php the_ID(); ?>">
 
 							<?php if ( ! commentpress_has_feature_image() ) : ?>
 
+								<?php /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 								<h2 class="post_title"<?php commentpress_post_title_visibility( get_the_ID() ); ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
+								<?php /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 								<div class="search_meta"<?php commentpress_post_meta_visibility( get_the_ID() ); ?>>
 									<?php commentpress_echo_post_meta(); ?>
 								</div>
@@ -46,7 +48,7 @@ get_header();
 
 							<?php the_content(); ?>
 
-							<?php echo commentpress_multipager(); ?>
+							<?php echo commentpress_multipager(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 							<?php /* Test for "Post Tags and Categories for Pages" plugin. */ ?>
 							<?php if ( class_exists( 'PTCFP' ) ) : ?>

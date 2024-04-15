@@ -25,15 +25,16 @@ get_header();
 					<header class="page-header">
 
 						<?php $venue_id = get_queried_object_id(); ?>
-						<h1 class="page-title"><?php printf( __( 'Events at: %s', 'commentpress-sof-de' ), '<span>' . eo_get_venue_name( $venue_id ) . '</span>' ); ?></h1>
+						<?php /* translators: %s: The name of the venue. */ ?>
+						<h1 class="page-title"><?php printf( esc_html__( 'Events at: %s', 'commentpress-sof-de' ), '<span>' . esc_html( eo_get_venue_name( $venue_id ) ) . '</span>' ); ?></h1>
 
 						<?php $venue_description = eo_get_venue_description( $venue_id ); ?>
 						<?php if ( $venue_description ) : ?>
-							<div class="venue-archive-meta"><?php echo $venue_description; ?></div>
+							<div class="venue-archive-meta"><?php echo $venue_description; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></div>
 						<?php endif; ?>
 
 						<!-- Display the venue map. If you specify a class, ensure that class has height/width dimensions -->
-						<?php echo eo_get_venue_map( $venue_id, [ 'width' => '100%' ] ); ?>
+						<?php echo eo_get_venue_map( $venue_id, [ 'width' => '100%' ] ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 					</header><!-- end header -->
 
@@ -62,17 +63,17 @@ get_header();
 									 * @see http://support.google.com/webmasters/bin/answer.py?hl=en&answer=176035
 									 */
 									if ( eo_is_all_day() ) {
-										$format = 'd F Y';
+										$format      = 'd F Y';
 										$microformat = 'Y-m-d';
 									} else {
-										$format = 'd F Y ' . get_option( 'time_format' );
+										$format      = 'd F Y ' . get_option( 'time_format' );
 										$microformat = 'c';
 									}
 									?>
 
 									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
 
-									<?php echo eo_get_event_meta_list(); ?>
+									<?php echo eo_get_event_meta_list(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 									<?php the_excerpt(); ?>
 

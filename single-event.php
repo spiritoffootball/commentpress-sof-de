@@ -18,11 +18,9 @@ get_header();
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : ?>
-
 			<?php the_post(); ?>
 
 			<div id="main_wrapper" class="clearfix">
-
 				<div id="page_wrapper">
 
 					<?php commentpress_get_feature_image(); ?>
@@ -33,7 +31,7 @@ get_header();
 
 					<div id="content" class="workflow-wrapper">
 
-						<div class="post<?php echo commentpress_get_post_css_override( get_the_ID() ); ?>" id="post-<?php the_ID(); ?>">
+						<div class="post<?php echo esc_attr( commentpress_get_post_css_override( get_the_ID() ) ); ?>" id="post-<?php the_ID(); ?>">
 
 							<?php if ( ! commentpress_has_feature_image() ) : ?>
 								<h2 class="post_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -47,7 +45,7 @@ get_header();
 
 							<?php if ( eo_get_venue() && eo_venue_has_latlng( eo_get_venue() ) ) : ?>
 								<div class="eo-event-venue-mapx">
-									<?php echo eo_get_venue_map( eo_get_venue(), [ 'width' => '100%' ] ); ?>
+									<?php echo eo_get_venue_map( eo_get_venue(), [ 'width' => '100%' ] ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 								</div>
 							<?php endif; ?>
 
@@ -65,12 +63,14 @@ get_header();
 									<?php if ( $next ) : ?>
 
 										<!-- If the event is occurring again in the future, display the date. -->
-										<?php printf( '<p>' . __( 'This event is running from %1$s until %2$s. It is next occurring on %3$s', 'commentpress-sof-de' ) . '</p>', eo_get_schedule_start( 'j F Y' ), eo_get_schedule_last( 'j F Y' ), $next ); ?>
+										<?php /* translators: 1: The start date, 2: The end date, 3: The next date. */ ?>
+										<?php printf( '<p>' . esc_html__( 'This event is running from %1$s until %2$s. It is next occurring on %3$s', 'commentpress-sof-de' ) . '</p>', eo_get_schedule_start( 'j F Y' ), eo_get_schedule_last( 'j F Y' ), $next ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 									<?php else : ?>
 
 										<!-- Otherwise the event has finished - no more occurrences. -->
-										<?php printf( '<p>' . __( 'This event finished on %s', 'commentpress-sof-de' ) . '</p>', eo_get_schedule_last( 'd F Y', '' ) ); ?>
+										<?php /* translators: %s: The end date. */ ?>
+										<p><?php printf( esc_html__( 'This event finished on %s', 'commentpress-sof-de' ), eo_get_schedule_last( 'd F Y', '' ) ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></p>
 									<?php endif; ?>
 
 								<?php endif; ?>
@@ -80,7 +80,7 @@ get_header();
 									<?php if ( ! eo_recurs() ) : ?>
 
 										<!-- Single event. -->
-										<li><strong><?php esc_html_e( 'Date', 'commentpress-sof-de' ); ?>:</strong> <?php echo eo_format_event_occurrence(); ?></li>
+										<li><strong><?php esc_html_e( 'Date', 'commentpress-sof-de' ); ?>:</strong> <?php echo eo_format_event_occurrence(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></li>
 									<?php endif; ?>
 
 									<?php if ( eo_get_venue() ) : ?>
@@ -101,13 +101,14 @@ get_header();
 									if ( eo_recurs() ) {
 
 										// Event recurs - display dates.
-										$upcoming = new WP_Query( [
-											'post_type' => 'event',
+										$upcoming_query = [
+											'post_type'    => 'event',
 											'event_start_after' => 'today',
 											'posts_per_page' => -1,
 											'event_series' => get_the_ID(),
 											'group_events_by' => 'occurrence',
-										] );
+										];
+										$upcoming       = new WP_Query( $upcoming_query );
 
 										if ( $upcoming->have_posts() ) {
 
@@ -118,6 +119,7 @@ get_header();
 													<?php
 													while ( $upcoming->have_posts() ) {
 														$upcoming->the_post();
+														// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 														echo '<li>' . eo_format_event_occurrence() . '</li>';
 													};
 													?>
@@ -148,7 +150,7 @@ get_header();
 
 							<?php the_content(); ?>
 
-							<?php echo commentpress_multipager(); ?>
+							<?php echo commentpress_multipager(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 							<p class="postmetadata">
 								<?php
@@ -161,14 +163,15 @@ get_header();
 
 								// Show text.
 								echo sprintf(
-									__( 'You can follow any comments on this entry through the %s feed.', 'commentpress-sof-de' ),
-									$rss_link
+									/* translators: %s: The RSS link. */
+									esc_html__( 'You can follow any comments on this entry through the %s feed.', 'commentpress-sof-de' ),
+									esc_html( $rss_link )
 								);
 
 								// Add trailing space.
 								echo ' ';
 
-								if ( ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
+								if ( ( 'open' === $post->comment_status ) && ( 'open' === $post->ping_status ) ) {
 
 									// Both Comments and pings are open.
 
@@ -180,14 +183,16 @@ get_header();
 
 									// Write out.
 									echo sprintf(
-										__( 'You can leave a comment, or %s from your own site.', 'commentpress-sof-de' ),
+										/* translators: %s: The trackback link. */
+										esc_html__( 'You can leave a comment, or %s from your own site.', 'commentpress-sof-de' ),
+										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										$trackback_link
 									);
 
 									// Add trailing space.
 									echo ' ';
 
-								} elseif ( ! ( 'open' == $post->comment_status ) && ( 'open' == $post->ping_status ) ) {
+								} elseif ( ! ( 'open' === $post->comment_status ) && ( 'open' === $post->ping_status ) ) {
 
 									// Only pings are open.
 
@@ -199,14 +204,16 @@ get_header();
 
 									// Write out.
 									echo sprintf(
-										__( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-sof-de' ),
+										/* translators: %s: The trackback link. */
+										esc_html__( 'Comments are currently closed, but you can %s from your own site.', 'commentpress-sof-de' ),
+										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										$trackback_link
 									);
 
 									// Add trailing space.
 									echo ' ';
 
-								} elseif ( ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+								} elseif ( ( 'open' === $post->comment_status ) && ! ( 'open' === $post->ping_status ) ) {
 
 									// Comments are open, pings are not.
 									esc_html_e( 'You can leave a comment. Pinging is currently not allowed.', 'commentpress-sof-de' );
@@ -214,7 +221,7 @@ get_header();
 									// Add trailing space.
 									echo ' ';
 
-								} elseif ( ! ( 'open' == $post->comment_status ) && ! ( 'open' == $post->ping_status ) ) {
+								} elseif ( ! ( 'open' === $post->comment_status ) && ! ( 'open' === $post->ping_status ) ) {
 
 									// Neither Comments nor pings are open.
 									esc_html_e( 'Both comments and pings are currently closed.', 'commentpress-sof-de' );

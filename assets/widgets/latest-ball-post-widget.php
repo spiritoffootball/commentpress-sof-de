@@ -29,7 +29,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 		// Use the class `widget_recent_entries` to inherit WordPress Recent Posts widget styling.
 		$widget_ops = [
-			'classname' => 'widget_latest_ball_post',
+			'classname'   => 'widget_latest_ball_post',
 			'description' => __( 'Displays the most recent "Daily Ballblog" that the visitor can read.', 'commentpress-sof-de' ),
 		];
 
@@ -53,16 +53,16 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 
 		// Define args for query.
 		$query_args = [
-			'post_type' => 'post',
-			'no_found_rows' => true,
-			'post_status' => 'publish',
+			'post_type'      => 'post',
+			'no_found_rows'  => true,
+			'post_status'    => 'publish',
 			'posts_per_page' => 1,
 			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-			'tax_query' => [
+			'tax_query'      => [
 				[
 					'taxonomy' => 'category',
-					'field' => 'term_id',
-					'terms' => 674,
+					'field'    => 'term_id',
+					'terms'    => 674,
 				],
 			],
 		];
@@ -77,13 +77,17 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
 			// Show widget prefix.
-			echo ( isset( $args['before_widget'] ) ? $args['before_widget'] : '' );
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo isset( $args['before_widget'] ) ? $args['before_widget'] : '';
 
 			// Show title if there is one.
 			if ( ! empty( $title ) ) {
-				echo ( isset( $args['before_title'] ) ? $args['before_title'] : '' );
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo isset( $args['before_title'] ) ? $args['before_title'] : '';
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo $title;
-				echo ( isset( $args['after_title'] ) ? $args['after_title'] : '' );
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo isset( $args['after_title'] ) ? $args['after_title'] : '';
 			}
 
 			// Remove feature image switcher if present.
@@ -125,7 +129,8 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 			remove_filter( 'commentpress_get_feature_image_title', [ $this, 'filter_title' ], 10 );
 
 			// Show widget suffix.
-			echo ( isset( $args['after_widget'] ) ? $args['after_widget'] : '' );
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo isset( $args['after_widget'] ) ? $args['after_widget'] : '';
 
 			// Reset the post globals as this query will have stomped on it.
 			wp_reset_postdata();
@@ -135,7 +140,6 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 				add_filter( 'commentpress_get_feature_image', [ feature_image_switcher(), 'get_button' ], 20, 2 );
 			}
 
-		// End check for posts.
 		endif;
 
 	}
@@ -161,8 +165,8 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 		?>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'commentpress-sof-de' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'commentpress-sof-de' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
 		<?php
@@ -195,7 +199,7 @@ class SOF_Widget_Latest_Ball_Post extends WP_Widget {
 	 *
 	 * @since 1.3.10
 	 *
-	 * @param str $title The page title.
+	 * @param str     $title The page title.
 	 * @param WP_Post $post The current WordPress post object.
 	 * @return str $title The modified page title.
 	 */

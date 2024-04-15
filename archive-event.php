@@ -20,21 +20,21 @@ get_header();
 
 			// Set default link names.
 			$previous_title = __( 'Earlier Events', 'commentpress-sof-de' );
-			$next_title = __( 'Later Events', 'commentpress-sof-de' );
+			$next_title     = __( 'Later Events', 'commentpress-sof-de' );
 
 			$nl = get_next_posts_link( $next_title );
 			$pl = get_previous_posts_link( $previous_title );
 
 			?>
 
-			<?php if ( $nl != '' || $pl != '' ) : ?>
+			<?php if ( ! empty( $nl ) || ! empty( $pl ) ) : ?>
 				<div class="page_navigation">
 					<ul class="blog_navigation">
-						<?php if ( $nl != '' ) : ?>
-							<li class="alignright"><?php echo $nl; ?></li>
+						<?php if ( ! empty( $nl ) ) : ?>
+							<li class="alignright"><?php echo $nl; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></li>
 						<?php endif; ?>
-						<?php if ( $pl != '' ) : ?>
-							<li class="alignleft"><?php echo $pl; ?></li>
+						<?php if ( ! empty( $pl ) ) : ?>
+							<li class="alignleft"><?php echo $pl; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></li>
 						<?php endif; ?>
 					</ul>
 				</div>
@@ -56,7 +56,7 @@ get_header();
 							} elseif ( eo_is_event_archive( 'year' ) ) {
 								// Viewing year archive.
 								esc_html_e( 'Events: ', 'commentpress-sof-de' ) . ' ' . eo_get_event_archive_date( 'Y' );
-							} elseif ( 'upcoming-events' == get_query_var( 'commentpress_sof_de' ) ) {
+							} elseif ( 'upcoming-events' === get_query_var( 'commentpress_sof_de' ) ) {
 								// Viewing upcoming events archive.
 								esc_html_e( 'Upcoming Events', 'commentpress-sof-de' );
 							} else {
@@ -93,10 +93,10 @@ get_header();
 									 * @see https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
 									 */
 									if ( eo_is_all_day() ) {
-										$format = 'd F Y';
+										$format      = 'd F Y';
 										$microformat = 'Y-m-d';
 									} else {
-										$format = 'd F Y ' . get_option( 'time_format' );
+										$format      = 'd F Y ' . get_option( 'time_format' );
 										$microformat = 'c';
 									}
 
@@ -104,7 +104,7 @@ get_header();
 
 									<time itemprop="startDate" datetime="<?php eo_the_start( $microformat ); ?>"><?php eo_the_start( $format ); ?></time>
 
-									<?php echo eo_get_event_meta_list(); ?>
+									<?php echo eo_get_event_meta_list(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 									<?php the_excerpt(); ?>
 
@@ -128,14 +128,14 @@ get_header();
 			</div><!-- /content -->
 
 			<div class="page_nav_lower">
-				<?php if ( $nl != '' || $pl != '' ) : ?>
+				<?php if ( ! empty( $nl ) || ! empty( $pl ) ) : ?>
 					<div class="page_navigation">
 						<ul class="blog_navigation">
-							<?php if ( $nl != '' ) : ?>
-								<li class="alignright"><?php echo $nl; ?></li>
+							<?php if ( ! empty( $nl ) ) : ?>
+								<li class="alignright"><?php echo $nl; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></li>
 							<?php endif; ?>
-							<?php if ( $pl != '' ) : ?>
-								<li class="alignleft"><?php echo $pl; ?></li>
+							<?php if ( ! empty( $pl ) ) : ?>
+								<li class="alignleft"><?php echo $pl; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></li>
 							<?php endif; ?>
 						</ul>
 					</div>

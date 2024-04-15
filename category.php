@@ -24,10 +24,11 @@ get_header();
 					<?php if ( have_posts() ) : ?>
 
 						<?php if ( is_category() ) : ?>
-							<h3 class="post_title"><?php echo single_cat_title( '', false ); ?></h3>
+							<h3 class="post_title"><?php single_cat_title( '' ); ?></h3>
 						<?php elseif ( is_tag() ) : ?>
-							<h3 class="post_title"><?php echo sprintf( __( 'Posts Tagged &#8216;%s&#8217;', 'commentpress-sof-de' ), single_cat_title( '', false ) ); ?></h3>
-						<?php elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) : ?>
+							<?php /* translators: %s: The category title. */ ?>
+							<h3 class="post_title"><?php echo sprintf( esc_html__( 'Posts Tagged &#8216;%s&#8217;', 'commentpress-sof-de' ), single_cat_title( '', false ) ); ?></h3>
+						<?php elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) : /* phpcs:ignore WordPress.Security.NonceVerification.Recommended */ ?>
 							<h3 class="post_title"><?php esc_html_e( 'Archives', 'commentpress-sof-de' ); ?></h3>
 						<?php endif; ?>
 
@@ -35,7 +36,7 @@ get_header();
 							<?php $category_description = category_description(); ?>
 							<?php if ( ! empty( $category_description ) ) : ?>
 								<div class="category-description">
-									<?php echo $category_description; ?>
+									<?php echo $category_description; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 								</div>
 							<?php endif; ?>
 						<?php endif; ?>

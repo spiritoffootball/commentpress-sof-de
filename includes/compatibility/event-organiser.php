@@ -19,7 +19,7 @@ function commentpress_sof_de_upcoming_events_page( $query ) {
 	if ( eventorganiser_is_event_query( $query, true ) ) {
 
 		// Target our query.
-		if ( $query->get( 'commentpress_sof_de' ) && 'upcoming-events' == $query->get( 'commentpress_sof_de' ) ) {
+		if ( $query->get( 'commentpress_sof_de' ) && 'upcoming-events' === $query->get( 'commentpress_sof_de' ) ) {
 
 			// Show only upcoming events.
 			$query->set( 'event_start_after', 'now' );

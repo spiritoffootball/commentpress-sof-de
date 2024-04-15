@@ -12,7 +12,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Display activity stream for anyone other than me.
-if ( bp_loggedin_user_id() != bp_displayed_user_id() ) {
+if ( bp_loggedin_user_id() !== bp_displayed_user_id() ) {
 
 	bp_get_template_part( 'members/single/activity' );
 

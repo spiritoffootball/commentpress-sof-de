@@ -12,13 +12,12 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-<!-- single.php -->
+<!-- single-individual.php -->
 <div id="wrapper">
 
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : ?>
-
 			<?php the_post(); ?>
 
 			<div id="main_wrapper" class="clearfix">
@@ -40,30 +39,30 @@ get_header();
 							<?php $image = get_field( 'picture' ); ?>
 							<div class="individual-image">
 								<?php if ( ! empty( $image ) ) : ?>
-									<img class="avatar" src="<?php echo $image['sizes']['large']; ?>" width="<?php echo ( $image['sizes']['large-width'] / 2 ); ?>" height="<?php echo ( $image['sizes']['large-height'] / 2 ); ?>">
+									<img class="avatar" src="<?php echo esc_url( $image['sizes']['large'] ); ?>" width="<?php echo esc_attr( $image['sizes']['large-width'] / 2 ); ?>" height="<?php echo esc_attr( $image['sizes']['large-height'] / 2 ); ?>">
 								<?php else : ?>
-									<img class="avatar" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/misc/default-avatar.png" width="320" height="320" />
+									<img class="avatar" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/misc/default-avatar.png" width="320" height="320" />
 								<?php endif; ?>
 							</div>
 
 							<?php $job_title = get_field( 'job_title_de' ); ?>
 							<?php if ( ! empty( $job_title ) ) : ?>
 								<div class="individual-job-title">
-									<?php echo $job_title; ?>
+									<?php echo esc_html( $job_title ); ?>
 								</div>
 							<?php endif; ?>
 
 							<?php $about = get_field( 'summary_de' ); ?>
 							<?php if ( ! empty( $about ) ) : ?>
 								<div class="individual-about">
-									<?php echo $about; ?>
+									<?php echo $about; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 								</div>
 							<?php endif; ?>
 
 							<?php $email = get_field( 'email' ); ?>
 							<?php if ( ! empty( $email ) ) : ?>
 								<div class="individual-email">
-									<?php echo str_replace( '@', '[at]', $email ); ?>
+									<?php echo esc_html( str_replace( '@', '[at]', $email ) ); ?>
 								</div>
 							<?php endif; ?>
 
@@ -81,11 +80,11 @@ get_header();
 								<div class="jetpack_widget_social_icons individual-social-links">
 									<ul class="jetpack-social-widget-list size-large">
 									<?php foreach ( $social_links as $selector => $social_link ) : ?>
-										<li class="jetpack-social-widget-item individual-social-link individual-<?php echo $selector; ?>">
-											<a href="<?php echo $social_link; ?>" target="_self">
-												<span class="screen-reader-text"><?php echo ucfirst( $selector ); ?></span>
-												<svg class="icon icon-<?php echo $selector; ?>" aria-hidden="true" role="presentation">
-													<use href="#icon-<?php echo $selector; ?>" xlink:href="#icon-<?php echo $selector; ?>"></use>
+										<li class="jetpack-social-widget-item individual-social-link individual-<?php echo esc_attr( $selector ); ?>">
+											<a href="<?php echo esc_url( $social_link ); ?>" target="_self">
+												<span class="screen-reader-text"><?php echo esc_html( ucfirst( $selector ) ); ?></span>
+												<svg class="icon icon-<?php echo esc_attr( $selector ); ?>" aria-hidden="true" role="presentation">
+													<use href="#icon-<?php echo esc_attr( $selector ); ?>" xlink:href="#icon-<?php echo esc_attr( $selector ); ?>"></use>
 												</svg>
 											</a>
 										</li>
@@ -97,7 +96,7 @@ get_header();
 							<?php $website = get_field( 'website' ); ?>
 							<?php if ( ! empty( $website ) ) : ?>
 								<div class="individual-website">
-									<a href="<?php echo $website; ?>"><?php esc_html_e( 'Website', 'commentpress-sof-de' ); ?></a>
+									<a href="<?php echo esc_url( $website ); ?>"><?php esc_html_e( 'Website', 'commentpress-sof-de' ); ?></a>
 								</div>
 							<?php endif; ?>
 
