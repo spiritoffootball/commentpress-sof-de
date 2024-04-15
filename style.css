@@ -1,14 +1,15 @@
-/*
-Theme Name: CommentPress SOF
-Theme URI: https://github.com/spiritoffootball/commentpress-sof-de
-Description: A child of the CommentPress Flat Theme for <em>Spirit of Football</em>.
-Tags: commentpress, buddypress, groupblog, sticky-post, threaded-comments, paragraph-comments
-Version: 1.4.6
-Template: commentpress-flat
-Author: Christian Wach
-Author URI: https://www.haystack.co.uk
-Text Domain: commentpress-sof-de
-Domain Path: /languages
-*/
+/**
+ * Theme Name:  CommentPress SOF
+ * Description: A child of the CommentPress Flat Theme for <em>Spirit of Football</em>.
+ * Theme URI:   https://github.com/spiritoffootball/commentpress-sof-de
+ * Version:     1.4.6
+ * Author:      Christian Wach
+ * Author URI:  https://www.haystack.co.uk
+ * Template:    commentpress-flat
+ * Text Domain: commentpress-sof-de
+ * Domain Path: /languages
+ *
+ * @package CommentPress_SOF
+ */
 
 /* deliberately empty: see 'functions.php' for how styles and scripts are enqueued */
