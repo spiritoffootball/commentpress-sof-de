@@ -129,13 +129,15 @@ add_filter( 'bp_get_group_member_avatar_thumb', 'commentpress_avatar_group_membe
 function commentpress_avatar_group_filter( $value, $args ) {
 
 	// Set type manually.
-	if ( ! empty( $args['type'] ) && 'thumb' === $args['type'] ) {
+	if ( ! empty( $args['type'] ) && $args['type'] == 'thumb' ) {
 		global $groups_template;
-		$args['type']       = 'full';
-		$args['item_id']    = $groups_template->group->id;
-		$args['avatar_dir'] = 'group-avatars';
-		$args['object']     = 'group';
-		return bp_core_fetch_avatar( $args );
+		if ( ! empty( $groups_template->group->id ) ) {
+			$args['type'] = 'full';
+			$args['item_id'] = $groups_template->group->id;
+			$args['avatar_dir'] = 'group-avatars';
+			$args['object'] = 'group';
+			return bp_core_fetch_avatar( $args );
+		}
 	}
 
 	// --<
