@@ -15,7 +15,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Set our version here.
-define( 'COMMENTPRESS_SOF_DE_VERSION', '1.4.7a' );
+define( 'COMMENTPRESS_SOF_DE_VERSION', '1.4.7' );
 
 // Damn this content width thing.
 if ( ! isset( $content_width ) ) {
