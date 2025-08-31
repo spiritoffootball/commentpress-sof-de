@@ -1,145 +1,258 @@
-# Copyright (C) 2022 Christian Wach
-# This file is distributed under the .
+# Copyright (C) 2025 Christian Wach
+# This file is distributed under the same license as the CommentPress SOF theme.
 msgid ""
 msgstr ""
-"Project-Id-Version: CommentPress SOF 1.4.5\n"
+"Project-Id-Version: CommentPress SOF 1.4.8a\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/commentpress-sof-de\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-07-21T23:55:46+00:00\n"
+"POT-Creation-Date: 2025-08-31T21:24:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: commentpress-sof-de\n"
 
 #. Theme Name of the theme
+#: style.css
 msgid "CommentPress SOF"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://github.com/spiritoffootball/commentpress-sof-de"
 msgstr ""
 
 #. Description of the theme
+#: style.css
 msgid "A child of the CommentPress Flat Theme for <em>Spirit of Football</em>."
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "Christian Wach"
 msgstr ""
 
 #. Author URI of the theme
-msgid "http://www.haystack.co.uk"
+#: style.css
+msgid "https://www.haystack.co.uk"
 msgstr ""
 
+#: archive-event.php:22
 msgid "Earlier Events"
 msgstr ""
 
+#: archive-event.php:23
 msgid "Later Events"
 msgstr ""
 
+#: archive-event.php:52
+#: archive-event.php:55
+#: archive-event.php:58
 msgid "Events: "
 msgstr ""
 
+#: archive-event.php:61
 msgid "Upcoming Events"
 msgstr ""
 
+#: archive-event.php:63
 msgid "Events"
 msgstr ""
 
+#: archive-event.php:79
+#: archive.php:54
+#: assets/widgets/latest-ball-post-widget.php:109
+#: category.php:55
+#: index.php:36
+#: taxonomy-event-category.php:52
+#: taxonomy-event-tag.php:51
+#: taxonomy-event-venue.php:51
 msgid "Permanent Link to"
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: full-width.php:56
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "Tags: "
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: full-width.php:56
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "Posted in"
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "Edit"
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "No Comments &#187;"
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "1 Comment &#187;"
 msgstr ""
 
+#: archive-event.php:111
+#: archive.php:66
+#: category.php:68
+#: index.php:47
+#: taxonomy-event-category.php:81
+#: taxonomy-event-tag.php:80
+#: taxonomy-event-venue.php:80
 msgid "% Comments &#187;"
 msgstr ""
 
+#: archive-event.php:121
+#: archive.php:74
+#: category.php:76
+#: geo-mashup-full-post.php:40
+#: geo-mashup-info-window-max.php:43
+#: geo-mashup-info-window.php:87
 msgid "Not Found"
 msgstr ""
 
+#: archive-event.php:122
 msgid "Apologies, but no results were found for the requested archive."
 msgstr ""
 
+#. translators: %s: The category title.
+#: archive.php:31
+#: category.php:30
+#, php-format
 msgid "Posts Tagged &#8216;%s&#8217;"
 msgstr ""
 
+#: archive.php:33
+#: archive.php:35
+#: archive.php:37
 msgid "Archive for"
 msgstr ""
 
+#: archive.php:33
 msgid "F jS, Y"
 msgstr ""
 
+#: archive.php:35
 msgid "F, Y"
 msgstr ""
 
+#: archive.php:37
 msgid "Y"
 msgstr ""
 
+#: archive.php:39
 msgid "Author Archive"
 msgstr ""
 
+#: archive.php:41
+#: category.php:32
 msgid "Archives"
 msgstr ""
 
+#: archive.php:76
+#: category.php:77
+#: front-page.php:75
+#: full-width.php:86
+#: geo-mashup-full-post.php:41
+#: geo-mashup-info-window-max.php:44
+#: geo-mashup-info-window.php:88
+#: page-people.php:82
 msgid "Sorry, but you are looking for something that isn’t here."
 msgstr ""
 
+#. translators: %s: The name of the Post Type.
+#: assets/templates/activity_sidebar.php:47
+#, php-format
 msgid "Recent Comments on this %s"
 msgstr ""
 
-msgid "Recent Comments in this Document"
+#: assets/templates/activity_sidebar.php:66
+#: functions.php:621
+msgid "Latest Comments"
 msgstr ""
 
+#: assets/templates/activity_sidebar.php:80
 msgid "Activity"
 msgstr ""
 
+#: assets/templates/activity_sidebar.php:196
 msgid "Recent Activity in your Documents"
 msgstr ""
 
+#: assets/templates/activity_sidebar.php:205
 msgid "Recent Activity in Public Documents"
 msgstr ""
 
+#: assets/templates/activity_sidebar.php:276
 msgid "Recently Active Members"
 msgstr ""
 
+#: assets/templates/activity_sidebar.php:324
 msgid "Who's Online"
 msgstr ""
 
+#: assets/widgets/latest-ball-post-widget.php:33
 msgid "Displays the most recent \"Daily Ballblog\" that the visitor can read."
 msgstr ""
 
+#: assets/widgets/latest-ball-post-widget.php:38
 msgctxt "widget name"
 msgid "Latest Ball Post"
 msgstr ""
 
+#: assets/widgets/latest-ball-post-widget.php:120
 msgid "Read more..."
 msgstr ""
 
+#: assets/widgets/latest-ball-post-widget.php:162
 msgid "Latest Ballblog Post"
 msgstr ""
 
+#: assets/widgets/latest-ball-post-widget.php:168
 msgid "Title:"
 msgstr ""
 
+#. translators: 1: The site title, 2: The current year.
+#: footer.php:43
+#, php-format
 msgid "Website content &copy; %1$s %2$s. All rights reserved."
 msgstr ""
 
+#: front-page.php:74
+#: full-width.php:85
+#: page-people.php:81
 msgid "Page Not Found"
 msgstr ""
 
@@ -147,134 +260,215 @@ msgstr ""
 msgid "Full Width"
 msgstr ""
 
-msgid "Page %s"
-msgstr ""
-
+#: functions.php:321
 msgid "Something"
 msgstr ""
 
+#: functions.php:380
 msgid "Homepage Left"
 msgstr ""
 
+#: functions.php:382
 msgid "An optional widget area on the left of the Homepage"
 msgstr ""
 
+#: functions.php:392
 msgid "Homepage Right"
 msgstr ""
 
+#: functions.php:394
 msgid "An optional widget area on the right of the Homepage"
 msgstr ""
 
+#: functions.php:404
 msgid "Homepage Lower"
 msgstr ""
 
+#: functions.php:406
 msgid "An optional widget area below the left and right widgets on the Homepage"
 msgstr ""
 
+#: functions.php:416
 msgid "Member Homepage Left"
 msgstr ""
 
+#: functions.php:418
 msgid "Add widgets to the Member Homepage left column here."
 msgstr ""
 
+#: functions.php:428
 msgid "Member Homepage Right"
 msgstr ""
 
+#: functions.php:430
 msgid "Add widgets to the Member Homepage right column here."
 msgstr ""
 
-msgid "Latest Comments"
-msgstr ""
-
+#. translators: 1: The author name, 2: The date of publication.
+#: geo-mashup-info-window.php:62
+#, php-format
 msgid "Written by %1$s on %2$s"
 msgstr ""
 
+#. translators: 1: The author name, 2: The date of publication.
+#: geo-mashup-info-window.php:62
 msgid "l, F jS, Y"
 msgstr ""
 
+#: geo-mashup-info-window.php:71
+#: geo-mashup-info-window.php:76
 msgid "Read full story..."
 msgstr ""
 
+#: index.php:55
 msgid "No blog posts found"
 msgstr ""
 
+#: index.php:58
 msgid "There are no blog posts yet."
 msgstr ""
 
+#: index.php:60
 msgid "Go to your dashboard to add one."
 msgstr ""
 
+#: index.php:64
 msgid "If you were looking for something that hasn’t been found, try using the search form below."
 msgstr ""
 
+#. Template Name of the theme
+msgid "People"
+msgstr ""
+
+#: single-event.php:56
 msgid "Event Details"
 msgstr ""
 
+#. translators: 1: The start date, 2: The end date, 3: The next date.
+#: single-event.php:67
+#, php-format
 msgid "This event is running from %1$s until %2$s. It is next occurring on %3$s"
 msgstr ""
 
+#. translators: %s: The end date.
+#: single-event.php:73
+#, php-format
 msgid "This event finished on %s"
 msgstr ""
 
+#: single-event.php:83
 msgid "Date"
 msgstr ""
 
+#: single-event.php:92
 msgid "Categories"
 msgstr ""
 
+#: single-event.php:96
 msgid "Tags"
 msgstr ""
 
+#: single-event.php:117
 msgid "Upcoming Dates"
 msgstr ""
 
+#: single-event.php:159
 msgid "RSS 2.0"
 msgstr ""
 
+#. translators: %s: The RSS link.
+#: single-event.php:167
+#, php-format
 msgid "You can follow any comments on this entry through the %s feed."
 msgstr ""
 
+#: single-event.php:179
+#: single-event.php:200
 msgid "trackback"
 msgstr ""
 
+#. translators: %s: The trackback link.
+#: single-event.php:187
+#, php-format
 msgid "You can leave a comment, or %s from your own site."
 msgstr ""
 
+#. translators: %s: The trackback link.
+#: single-event.php:208
+#, php-format
 msgid "Comments are currently closed, but you can %s from your own site."
 msgstr ""
 
+#: single-event.php:219
 msgid "You can leave a comment. Pinging is currently not allowed."
 msgstr ""
 
+#: single-event.php:227
 msgid "Both comments and pings are currently closed."
 msgstr ""
 
+#: single-event.php:235
 msgid "Edit this entry"
 msgstr ""
 
+#: single-event.php:259
+#: single-individual.php:122
 msgid "Post Not Found"
 msgstr ""
 
+#: single-event.php:260
+#: single-individual.php:123
 msgid "Sorry, no posts matched your criteria."
 msgstr ""
 
+#: single-individual.php:99
+msgid "Website"
+msgstr ""
+
+#. translators: %s: The category title.
+#: taxonomy-event-category.php:30
+#, php-format
 msgid "Event Category: %s"
 msgstr ""
 
+#: taxonomy-event-category.php:91
+#: taxonomy-event-tag.php:90
+#: taxonomy-event-venue.php:93
 msgid "Nothing Found"
 msgstr ""
 
+#: taxonomy-event-category.php:92
 msgid "Apologies, but no results were found for the requested category."
 msgstr ""
 
+#. translators: %s: The category title.
+#: taxonomy-event-tag.php:29
+#, php-format
 msgid "Event Tag: %s"
 msgstr ""
 
+#: taxonomy-event-tag.php:91
 msgid "Apologies, but no results were found for the requested tag."
 msgstr ""
 
+#. translators: %s: The name of the venue.
+#: taxonomy-event-venue.php:29
+#, php-format
 msgid "Events at: %s"
 msgstr ""
 
+#: taxonomy-event-venue.php:96
 msgid "Apologies, but no events were found for the requested venue."
+msgstr ""
+
+#: template-parts/loop-individuals-backoffice.php:40
+msgid "Das Backoffice"
+msgstr ""
+
+#: template-parts/loop-individuals-board.php:40
+msgid "Der Vorstand"
+msgstr ""
+
+#: template-parts/loop-individuals-projektmanagerinnen.php:40
+msgid "Die Projektmanager*Innen"
 msgstr ""
